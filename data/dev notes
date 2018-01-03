@@ -1,0 +1,12 @@
+Version 0.1
+
+~ If needed to scale up - scale the sprites up x2
+~ Keeping this size might be good for grainy GBC look and memory rendering
+~ Buggy dialogue system - searching for solution
+~ Determine how to handle journal system
+
+TODO
++ Draw buildings/props --> tileset
++ Fix dialogue
++ Fix journal
++ FIx NPC boundaries (relative to the buildings and props?)

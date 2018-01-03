@@ -1,0 +1,51 @@
+body{
+  background-color:#483E8D;
+}
+h2{
+  text-align: center;
+}
+#game{
+  /* it's the ratio of the original gameboy color screen */
+  width:500px;
+  height:450px;
+  border:1px solid #000;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+img{
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+p{
+  color:#ffffff;
+  font-size:9px;
+}
+#debugBar{
+  width:500px;
+  border:1px solid #000;
+  background-color:#000000;
+  
+  text-align:center;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+#area{
+  color: #ffffff;
+}
+
+@font-face {font-family: Fixedsys; src: url('gui/FSEX300.ttf');}
+
+#gui{
+  font-family: Fixedsys;
+}
