@@ -1,0 +1,122 @@
+<html>
+	<style>
+		#testScreen{
+			border: 1px solid #000;
+			/*
+			width: 500px;
+			height: 100px;
+			*/
+
+			width: 500px;
+			height: 100px;
+		}
+		
+		@font-face {font-family: Gameboy; src: url('pokemon_gb-webfont.ttf');}
+
+	</style>
+	<canvas id="testScreen"></canvas><br>
+	<button onclick="if(!texting)typewrite()">TEXT</button>
+	<button onclick="clearText()">CLEAR</button>
+	<script>
+		var canvas = document.getElementById("testScreen");
+		canvas.width = 160;
+		canvas.height = 48;
+		var ctx = canvas.getContext("2d");
+		ctx.font = "8px Gameboy";
+		ctx.fillStyle = "#000000"
+		var dialog = ["This is a line | followed by another | and the last line",
+						"This is a standalone | line"];
+
+		//
+		var texting = false;
+		function dialogText(text, x, y){
+			ctx.font = "8px Gameboy";
+			ctx.fillStyle = "#000000"
+			var lines = text.split(" | ");
+
+			
+		}
+
+		//typewriter functions
+		var i = 0;
+		var curLine = 0;
+		var text = dialog[0];
+		var speed = 100;
+		var canvas_txt = "";
+		var text_time = 0;
+
+		var lineTexts = ["", ""];
+
+		function typewrite(){
+			//pre-processing and reset
+			if(!texting){
+				i = 0;
+				console.log("restart")
+				curLine = 0;
+				clearText();
+				texting = true;
+			}
+
+			if(i < text.length){
+				//if at a new line reset
+				if(text[i] === "|"){
+					i++;
+					curLine++;
+					if(curLine > 1){
+						lineTexts[0] = lineTexts[1];
+						lineTexts[1] = "";
+					}
+				}
+				//append letters
+				else{
+					if(curLine == 0)
+						lineTexts[0] += text[i];
+					else
+						lineTexts[1] += text[i];
+				}
+
+				text_time = setTimeout(typewrite, speed);
+				i++;
+			}else{
+				texting = false;
+				clearTimeout(text_time);
+				console.log("done");
+			}
+		}
+
+		function clearText(){
+			lineTexts[0] = "";
+			lineTexts[1] = "";
+			clearTimeout(text_time);
+		}
+
+		//increase speed
+		document.body.addEventListener("keydown", function (e) {
+			if(e.keyCode == 90){
+				speed = 50;
+				console.log("fast!");
+			}
+		});
+
+		//normal speed
+		document.body.addEventListener("keyup", function (e) {
+			if(e.keyCode == 90){
+				speed = 120;
+				console.log("slow");
+			}
+		});
+
+		function main(){
+			ctx.save();
+			ctx.clearRect(0,0, canvas.width,canvas.height);
+			requestAnimationFrame(main);
+
+
+			ctx.fillText(lineTexts[0], 4, 12);
+			ctx.fillText(lineTexts[1], 4, 35);
+			ctx.restore();
+		}
+		main();
+
+	</script>
+</html>

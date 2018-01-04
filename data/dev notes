@@ -1,5 +1,5 @@
 Version 0.1
-
+============
 ~ If needed to scale up - scale the sprites up x2
 ~ Keeping this size might be good for grainy GBC look and memory rendering
 ~ Buggy dialogue system - searching for solution
@@ -10,3 +10,21 @@ TODO
 + Fix dialogue
 + Fix journal
 + FIx NPC boundaries (relative to the buildings and props?)
+
+
+Version 0.2
+============
+~ Split text based on this pattern:
+	| Line 1 
+	| Line 2 \/
+	| Line 3 
+	+---------
+	| Line 1
+
+dialog = ["Line 1 | Line 2 | Line 3", "Line 1"]
+~ These are hard-coded line breaks - not efficient but necessary for the RPG
+
+TODO
++ Draw buildings/props --> tileset
++ Fix journal
++ Map out window boundaries

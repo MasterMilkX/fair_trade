@@ -33,8 +33,8 @@ var kyle = {
 		speed : 1,
 		initPos : 0,
 		moving : false,
-		x : 20 * size, 
-		y : 15 * size,
+		x : 15 * size, 
+		y : 13 * size,
 		velX : 0,
 		velY : 0,
 		fps : 9,            //frame speed
@@ -96,11 +96,14 @@ var kimi = {
 		show : true,
 
 		//other properties
-		text : ["I AM ERROR"],
+		text : ["*sigh*", 
+			"Of course you | come to me first", 
+			"Must be my lucky | day...<0>"],
+		text_index : 0,
 		move : "drunk_walk",
 		wt : 0,
 		interact : false,
-		boundArea : new boundArea(8,6,7,5),
+		boundary : new boundArea(8,6,7,5),
 		other : null,
 		pathQueue : [],
 		lastPos : [],
@@ -154,11 +157,13 @@ var chi = {
 		show : true,
 
 		//other properties
-		text : ["I AM ERROR"],
+		text : ["I sense a calm | nature in you", 
+		"And also a desire | to help others!<0>"],
+		text_index : 0,
 		move : "drunk_walk",
 		wt : 0,
 		interact : false,
-		boundArea : new boundArea(26,18, 9, 7),
+		boundary : new boundArea(26,18, 9, 7),
 		other : null,
 		pathQueue : [],
 		lastPos : [],
@@ -212,11 +217,12 @@ var kay = {
 		show : true,
 
 		//other properties
-		text : ["I AM ERROR"],
+		text : ["Are you an | invader?!", "Wait! Let me | find my sword!", "Don't move!<1>"],
+		text_index : 0,
 		move : "drunk_walk",
 		wt : 0,
 		interact : false,
-		boundArea : new boundArea(24, 13, 10, 1),
+		boundary : new boundArea(24, 13, 10, 1),
 		other : null,
 		pathQueue : [],
 		lastPos : [],
@@ -270,11 +276,12 @@ var amber = {
 		show : true,
 
 		//other properties
-		text : ["I AM ERROR"],
+		text : ["Hey, you're | pretty stylish", "Who dyed your | hair?<1>"],
+		text_index : 0,
 		move : "drunk_walk",
 		wt : 0,
 		interact : false,
-		boundArea : new boundArea(26, 8, 4, 4),
+		boundary : new boundArea(26, 8, 4, 4),
 		other : null,
 		pathQueue : [],
 		lastPos : [],
@@ -328,11 +335,12 @@ var sid = {
 		show : true,
 
 		//other properties
-		text : ["I AM ERROR"],
+		text : ["Whoa! I didn't | see you!", "Hey... Do you | have any records?", "I've gotten | really into vinyl | lately<1>"],
+		text_index : 0,
 		move : "drunk_walk",
 		wt : 0,
 		interact : false,
-		boundArea : new boundArea(4, 13, 7, 4),
+		boundary : new boundArea(4, 13, 7, 4),
 		other : null,
 		pathQueue : [],
 		lastPos : [],
@@ -386,21 +394,24 @@ var grace = {
 		show : true,
 
 		//other properties
-		text : ["I AM ERROR"],
+		text : ["What a beautiful | day!", 
+			"The grass is | especially green | today!",
+			"Like a #60B820 | kind of green!<0>"],
+		text_index : 0,
 		move : "drunk_walk",
 		wt : 0,
 		interact : false,
-		boundArea : new boundArea(16, 17, 7, 5),
+		boundary : new boundArea(16, 17, 7, 5),
 		other : null,
 		pathQueue : [],
 		lastPos : [],
 		following : false,
 
 		//walk animation
-		idleNorth : [10,10,10,10],
-		idleSouth : [1,1,1,1],
-		idleWest : [4,4,4,4],
-		idleEast : [7,7,7,7],
+		idleNorth : [10,10,11,11],
+		idleSouth : [1,1,2,2],
+		idleWest : [4,4,5,5],text_index : 0,
+		idleEast : [7,7,8,8],
 
 		//movement animation
 		moveNorth : [9,10,11,10],

@@ -187,7 +187,7 @@ function goWest(sprite){
 //movement on the map
 function travel(sprite){
 	if(sprite.action == "travel"){   //continue if allowed to move
-		var curspeed = (sprite.board ? sprite.hover_speed : sprite.speed);
+		var curspeed = sprite.speed;
 
 		//travel north
 		if(sprite.dir == "north"){
@@ -751,25 +751,25 @@ function rendersprite(sprite){
 	//set the animation sequence
 	var sequence;
 	if(sprite.dir == "north"){
-		if(sprite.action == "idle" && !sprite.board)
+		if(sprite.action == "idle")
 			sequence = sprite.idleNorth;
 		else 
 			sequence = sprite.moveNorth;
 	}
 	else if(sprite.dir == "south"){
-		if(sprite.action == "idle"  && !sprite.board)
+		if(sprite.action == "idle")
 			sequence = sprite.idleSouth;
 		else 
 			sequence = sprite.moveSouth;
 	}
 	else if(sprite.dir == "west"){
-		if(sprite.action == "idle"  && !sprite.board)
+		if(sprite.action == "idle")
 			sequence = sprite.idleWest;
 		else 
 			sequence = sprite.moveWest;
 	}
 	else if(sprite.dir == "east"){
-		if(sprite.action == "idle"  && !sprite.board)
+		if(sprite.action == "idle")
 			sequence = sprite.idleEast;
 		else 
 			sequence = sprite.moveEast;
@@ -796,52 +796,30 @@ function rendersprite(sprite){
 //draw an item
 function drawItem(item){
 	if(item.ready && item.show){
-		if(item.animation !== null){
-			var itemANIM = item.animation;
-			itemANIM.seqlength = itemANIM.curSeq.sequence.length;
-
-			//get the row and col of the current frame
-			var row = Math.floor(itemANIM.curSeq.sequence[itemANIM.curFrame] / itemANIM.fpr);
-			var col = Math.floor(itemANIM.curSeq.sequence[itemANIM.curFrame] % itemANIM.fpr);
-
-			//console.log("r: " + row + "\tc: " + col + "\tf: " + itemANIM.curFrame)
-
-			ctx.drawImage(item.img, 
-				col * itemANIM.width, row * itemANIM.height, 
-				itemANIM.width, itemANIM.height,
-				item.x*size, item.y*size, 
-				itemANIM.width, itemANIM.height);
-		}else{
-			ctx.drawImage(item.img, item.x*size, item.y*size);
-		}
+		ctx.drawImage(item.img, item.x*size, item.y*size);
 	}
 }
 
-//update and draw an item
-function renderItem(item){
-	if(item.animation !== null)
-		updatesprite(item.animation);
-	drawItem(item);
-}
 
 //show dialog gui
 function drawDialog(){
 	var dialogue = story.dialogue;
 	var choice = story.choice_box;
-	if(dialogue.show){
+	if(dialogue.show && dialogReady){
 		ctx.drawImage(dialogIMG, camera.x, camera.y);
-		wrapText(dialogue.text[dialogue.index], camera.x + 20, camera.y + 260)
-	
+		//wrapText(dialogue.text[dialogue.index], camera.x + 12, camera.y + 116)
+		showText();
+
 		if(choice.show){
 			for(var c=0;c<choice.options.length;c++){
-				var cx = camera.x+232;
-				var cy = camera.y+216+(-23*(c+1));
+				var cx = camera.x+116;
+				var cy = camera.y+108+(-11*(c+1));
 				ctx.drawImage(optionIMG, cx, cy);
-				ctx.font = "12px Fixedsys";
-				ctx.fillText(choice.options[choice.options.length-(c+1)], cx+8, cy+14);
+				ctx.font = "10px Gameboy";
+				ctx.fillText(choice.options[choice.options.length-(c+1)], cx+4, cy+7);
 			}
 
-			ctx.drawImage(selectIMG, camera.x+232, camera.y+216+(23*(choice.index-choice.options.length)));
+			ctx.drawImage(selectIMG, camera.x+116, camera.y+108+(11*(choice.index-choice.options.length)));
 		}
 	}
 }
@@ -852,7 +830,7 @@ function drawJournal(){
 
 	if(j.show){
 		//w:112 h:240
-		ctx.drawImage(journalIMG, camera.x+200, camera.y+24);
+		ctx.drawImage(journalIMG, camera.x+100, camera.y+12);
 		
 		//set the cutoff
 		var max = (j.entries.length > 9 ? 9 : j.entries.length);
@@ -870,54 +848,129 @@ function drawJournal(){
 			indexOffset = j.index - j.window;
 
 		for(var i=0;i<=max;i++){
-			var ix = camera.x+200;
-			var iy = camera.y+24+(23*(i));
-			ctx.font = "12px Fixedsys";
+			var ix = camera.x+100;
+			var iy = camera.y+12+(11*(i));
+			ctx.font = "8px Gameboy";
 			ctx.fillStyle = "#000000";
-			ctx.fillText(j.entries[i+j.window], ix+8, iy+14);
+			ctx.fillText(j.entries[i+j.window], ix+4, iy+7);
 		}
 		
 		ctx.drawImage(selectIMG, 
 			0, 0,
-			80, 24,
-			camera.x+200, camera.y+24+(23*(indexOffset)),
-			112, 24);
+			40, 12,
+			camera.x+100, camera.y+12+(11*(indexOffset)),
+			56, 12);
 	}
 }
 
 function drawGUI(){
-	drawJournal();
+	//drawJournal();
 	drawDialog();
 }
 
-//wrap the text if overflowing on the dialog
-function wrapText(text, x, y) {
-	ctx.font = "20px Fixedsys";
-	ctx.fillStyle = "#000000"
+//typewriter functions
+var tw = 0;
+var curLine = 0;						//current line index
+var curText = "";
+var text_speed = 85;
+var text_time = 0;					//typewriter effect
+var texting = false;				//currently typing
+var lineTexts = ["", ""];		//the two lines that can be shown on screen
+var maxWidth = 140;
+var lineHeight = 16;
+var jump = -1;
 
-	var maxWidth = 280;
-	var lineHeight = 30;
-	var words = text.split(' ');
-	var line = '';
-
-	for(var n=0;n<words.length;n++) {
-		var testLine = line + words[n] + ' ';
-		var metrics = ctx.measureText(testLine);
-		var testWidth = metrics.width;
-		if (testWidth > maxWidth && n > 0) {
-			ctx.fillText(line, x, y);
-			line = words[n] + ' ';
-			y += lineHeight;
+function typewrite(){	
+	//pre-processing and reset
+	if(!texting){
+		curText = kyle.other.text[kyle.other.text_index];		//set the text to the NPC or item text 
+		//check if section jump
+		if(jump == -1){
+			var jumper = curText.match(/<[0-9]+>/g);
+			if(jumper){
+				curText = curText.replace(/<[0-9]+>/g, "");
+				jump = parseInt(jumper[0].replace(/[<>]/g, ""));
+			}
 		}
-		else {
-			line = testLine;
-		}
+		curText = curText.replace(/<[0-9]+>/g, "");		//catch the stragler
+		tw = 0;
+		//console.log("restart")
+		curLine = 0;
+		clearText();
+		ctx.font = "8px Gameboy";
+		ctx.fillStyle = "#000000"
+		texting = true;
 	}
-	ctx.fillText(line, x, y);
+	if(tw < curText.length){
+		//if at a new line reset
+		if(curText[tw] === "|"){
+			tw++;
+			curLine++;
+			if(curLine > 1){
+				lineTexts[0] = lineTexts[1];
+				lineTexts[1] = "";
+			}
+		}
+		//append letters
+		else{
+			if(curLine == 0)
+				lineTexts[0] += curText[tw];
+			else
+				lineTexts[1] += curText[tw];
+		}
+		text_time = setTimeout(typewrite, text_speed);
+		tw++;
+	}else{
+		texting = false;
+		clearTimeout(text_time);
+		//console.log("done");
+	}
 }
 
+function clearText(){
+	lineTexts[0] = "";
+	lineTexts[1] = "";
+	clearTimeout(text_time);
+}
 
-	//render everything 
+function showText(){
+	ctx.fillText(lineTexts[0], camera.x + 12, camera.y + 116);
+	ctx.fillText(lineTexts[1], camera.x + 12, camera.y + 116 + lineHeight);
+}
+
+//split the text up
+/*
+function breakText(text, max){
+	var words = text.split(' ');
+
+	//figure out the breakoff point
+	if(text.length > max){
+		var retText = "";
+		var breakLine = "";
+		var breakIndex = 0;
+		while(breakIndex < words.length){
+
+			while((breakLine + words[breakIndex + " "]).length() < max){
+				breakLine += (words[breakIndex] + " ");
+				breakIndex++;
+			}
+			retText += (breakLine + "| ");
+
+		}
+		retText += (breakLine);
+		return retText;
+
+	}else{
+		return text
+	}
+
+	//reset the words
+	//nevermind
+
+}
+*/
+
+//render everything 
 function render(){
 	checkRender();
 	ctx.save();
@@ -939,7 +992,7 @@ function render(){
 
 	for(var i=0;i<items.length;i++){
 		if(items[i].thru)
-		renderItem(items[i]);
+		drawItem(items[i]);
 	}
 
 	//if npc behind kyle
@@ -959,7 +1012,7 @@ function render(){
 
 	for(var i=0;i<items.length;i++){
 		if(!items[i].thru)
-		renderItem(items[i]);
+		drawItem(items[i]);
 	}
 
 	drawGUI();
@@ -983,7 +1036,8 @@ var kt = null;
 
 //check for keydown
 document.body.addEventListener("keydown", function (e) {
-	if(story.cutscene && story.choice_box.show){
+	//scroll through the options to choose for dialog
+	if(story.choice_box.show){
 		var c = story.choice_box;
 		if(e.keyCode == downKey || e.keyCode == rightKey)
 			story.choice_box.index = (c.index + 1) % c.options.length;
@@ -991,6 +1045,7 @@ document.body.addEventListener("keydown", function (e) {
 			story.choice_box.index = ((c.index + c.options.length) - 1) % c.options.length;
 	}
 
+	//scroll through the journal
 	if(story.journal.show){
 		var i = story.journal;
 		if(e.keyCode == downKey || e.keyCode == rightKey)
@@ -1000,6 +1055,7 @@ document.body.addEventListener("keydown", function (e) {
 	}
 });
 
+//determine if valud key to press
 document.body.addEventListener("keydown", function (e) {
 	if(inArr(moveKeySet, e.keyCode)){
 		keys[e.keyCode] = true;
@@ -1015,6 +1071,7 @@ document.body.addEventListener("keyup", function (e) {
 	}else if(inArr(actionKeySet, e.keyCode)){
 		keys[e.keyCode] = false;
 		reInteract = true;
+		text_speed = 85;
 	}
 });
 
@@ -1059,7 +1116,7 @@ function moveKeys(){
 
 
 //action and interaction keys
-var reInteract = false;
+var reInteract = true;
 function actionKeys(){
 
 	//interact [Z]
@@ -1073,6 +1130,7 @@ function actionKeys(){
 				kyle.interact = true;
 				dialogue.text = items[i].text;
 				dialogue.index = 0;
+				typewrite();
 				return;
 			}
 		}
@@ -1084,43 +1142,43 @@ function actionKeys(){
 				kyle.other.interact = true;
 				faceOpposite(kyle.other);
 				kyle.interact = true;
-				dialogue.text = npcs[i].text;
-				dialogue.index = 0;
 				clearInterval(npcs[i].wt);
 				npcs[i].wt = 0;
-				
+				typewrite();
 				return;
 			}
 		}
-	}else if(keys[a_key] && dialogue.show && reInteract){
+	}else if(keys[a_key] && dialogue.show && reInteract && !texting){
+		var other = kyle.other;
 		reInteract = false;
-		if(dialogue.index +1 == dialogue.text.length){
+		if(other.text_index +1 == other.text.length){
 			//select item if options showing
 			if(story.choice_box.show){
 				story.trigger = "> " + story.choice_box.options[story.choice_box.index];
 			}
-			
+
 			kyle.interact = false;
 			kyle.other.interact = false;
+
+			if(jump !== -1)
+				kyle.other.text_index = jump;
 			
 		}else{
-			dialogue.index++;
+			kyle.other.text_index++;
+			typewrite();
 		//console.log('next')
 		}
+	}else if(keys[a_key] && dialogue.show && texting){
+		text_speed = 50;
 	}
 
-	//hoverboard
-	if(keys[a_key] && normal_game_action() && !kyle.interact && !story.journal.show){
-		reInteract = false;
-		kyle.board = !kyle.board;
-	}
-
+	/*
 	//journal
 	if(keys[b_key] && normal_game_action()){
-		reInteract = false;
 		story.journal.show = !story.journal.show;
-		console.log("show journal");
+		reInteract = !story.journal.show;
 	}
+	*/
 }
 
 
@@ -1184,7 +1242,7 @@ function main(){
 
 	var settings = "X: " + Math.round(kyle.x) + " | Y: " + Math.round(kyle.y);
 	settings += " --- Pix X: " + pixX + " | Pix Y: " + pixY;
-	settings += " --- " + story.dialogue.index;
+	settings += " --- " + story.dialogue.show + " | " + texting;
 
 	/*
 	if(npcs.length > 0){

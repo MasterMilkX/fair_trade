@@ -41,13 +41,7 @@ var story = {
 		window : 0
 	},
 
-	curItem : "",
-
-	world_clock : {
-		time : [9,0],
-		day : 1,
-		show : true,
-	}
+	curItem : ""
 
 };
 
@@ -56,24 +50,12 @@ function event(mission, task){
 	this.task = task;
 }
 
-
-
 function getEvent(mission){
 	for(var m=0;m<story.events.length;m++){
 		if(story.events[m].mission === mission)
 			return story.events[m];
 	}
 }
-
-function getCharbyName(name){
-	for(var c=0;c<story.level.chars.length;c++){
-		var char = story.level.chars[c];
-		if(char.name === name)
-			return char;
-	}
-	return null;
-}
-
 
 //the entire script for the game
 function play(){
