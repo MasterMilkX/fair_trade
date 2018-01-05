@@ -588,8 +588,8 @@ function panCamera(){
 		if((kyle.x >= (canvas.width / 2)) && (kyle.x <= (map[0].length * size) - (canvas.width / 2)))
 			camera.x = kyle.x - (canvas.width / 2);
 
-		if((kyle.y >= (canvas.height / 2)) && (kyle.y <= (map.length * size) - (canvas.height / 2)))
-			camera.y = kyle.y - (canvas.height / 2);
+		if((kyle.y >= (canvas.height / 2) - size/2) && (kyle.y <= (map.length * size) - (canvas.height / 2)))
+			camera.y = kyle.y - (canvas.height / 2 - size/2);
 	}
 	
 }

@@ -34,7 +34,7 @@ var kyle = {
 		initPos : 0,
 		moving : false,
 		x : 15 * size, 
-		y : 13 * size,
+		y : 12 * size,
 		velX : 0,
 		velY : 0,
 		fps : 9,            //frame speed
