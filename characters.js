@@ -87,8 +87,8 @@ var kimi = {
 		speed : 1,
 		initPos : 0,
 		moving : false,
-		x : 13 * size, 
-		y : 9 * size,
+		x : 15 * size, 
+		y : 7 * size,
 		velX : 0,
 		velY : 0,
 		fps : 9,            //frame speed
@@ -103,7 +103,7 @@ var kimi = {
 		move : "drunk_walk",
 		wt : 0,
 		interact : false,
-		boundary : new boundArea(8,6,7,5),
+		boundary : new boundArea(11,6,6,5),
 		other : null,
 		pathQueue : [],
 		lastPos : [],
@@ -148,8 +148,8 @@ var chi = {
 		speed : 1,
 		initPos : 0,
 		moving : false,
-		x : 28 * size, 
-		y : 20 * size,
+		x : 33 * size, 
+		y : 23 * size,
 		velX : 0,
 		velY : 0,
 		fps : 9,            //frame speed
@@ -163,7 +163,7 @@ var chi = {
 		move : "drunk_walk",
 		wt : 0,
 		interact : false,
-		boundary : new boundArea(26,18, 9, 7),
+		boundary : new boundArea(31,22, 5, 3),
 		other : null,
 		pathQueue : [],
 		lastPos : [],
@@ -208,8 +208,8 @@ var kay = {
 		speed : 1,
 		initPos : 0,
 		moving : false,
-		x : 28 * size, 
-		y : 13 * size,
+		x : 29 * size, 
+		y : 11 * size,
 		velX : 0,
 		velY : 0,
 		fps : 9,            //frame speed
@@ -222,7 +222,7 @@ var kay = {
 		move : "drunk_walk",
 		wt : 0,
 		interact : false,
-		boundary : new boundArea(24, 13, 10, 1),
+		boundary : new boundArea(27, 11, 5, 1),
 		other : null,
 		pathQueue : [],
 		lastPos : [],
@@ -267,8 +267,8 @@ var amber = {
 		speed : 1,
 		initPos : 0,
 		moving : false,
-		x : 28 * size, 
-		y : 10 * size,
+		x : 29 * size, 
+		y : 8 * size,
 		velX : 0,
 		velY : 0,
 		fps : 9,            //frame speed
@@ -281,7 +281,7 @@ var amber = {
 		move : "drunk_walk",
 		wt : 0,
 		interact : false,
-		boundary : new boundArea(26, 8, 4, 4),
+		boundary : new boundArea(28, 7, 3, 3),
 		other : null,
 		pathQueue : [],
 		lastPos : [],
@@ -327,7 +327,7 @@ var sid = {
 		initPos : 0,
 		moving : false,
 		x : 6 * size, 
-		y : 16 * size,
+		y : 23 * size,
 		velX : 0,
 		velY : 0,
 		fps : 9,            //frame speed
@@ -340,7 +340,7 @@ var sid = {
 		move : "drunk_walk",
 		wt : 0,
 		interact : false,
-		boundary : new boundArea(4, 13, 7, 4),
+		boundary : new boundArea(4, 20, 5, 5),		//aaayyyy
 		other : null,
 		pathQueue : [],
 		lastPos : [],
@@ -385,8 +385,8 @@ var grace = {
 		speed : 1,
 		initPos : 0,
 		moving : false,
-		x : 19 * size, 
-		y : 19 * size,
+		x : 20 * size, 
+		y : 22 * size,
 		velX : 0,
 		velY : 0,
 		fps : 9,            //frame speed
@@ -401,7 +401,7 @@ var grace = {
 		move : "drunk_walk",
 		wt : 0,
 		interact : false,
-		boundary : new boundArea(16, 17, 7, 5),
+		boundary : new boundArea(18, 21, 4, 3),
 		other : null,
 		pathQueue : [],
 		lastPos : [],
@@ -426,3 +426,6 @@ var grace = {
 
 var cast = [kyle, kimi, chi, kay, amber, sid, grace]
 var npcs = [kimi, chi, kay, amber, sid, grace]
+
+
+
