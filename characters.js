@@ -33,13 +33,17 @@ var kyle = {
 		speed : 1,
 		initPos : 0,
 		moving : false,
-		x : 15 * size, 
+		x : 20 * size, 
 		y : 12 * size,
 		velX : 0,
 		velY : 0,
 		fps : 9,            //frame speed
 		fpr : 3,            //# of frames per row
 		show : true,
+
+		//trade properties
+		tradeIndex : 0,
+		tradeItem : "none",
 
 		//other properties
 		interact : false,

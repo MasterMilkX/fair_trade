@@ -53,6 +53,7 @@ function boundArea(x, y, w, h){
 
 
 
+var coin = new ITEM("coin", 19, 14, new boundArea(0, 0, 1,1), ["(shiny token get!)"], true)
 var poles = new ITEM("poles", 12, 7, new boundArea(0, 0, 2, 3));
 var dummy = new ITEM("dummy", 15, 8, new boundArea(0,0,1,1), ["..."]);
 var car = new ITEM("car2", 5, 21, new boundArea(0, 0, 3, 2));
@@ -65,5 +66,8 @@ var cloud3 = new ITEM("clouds", 35, 23, null, null, true, true,
 var cloud4 = new ITEM("clouds", 33, 24, null, null, true, true, 
 	new animateITEM(16, 16, [new animSet("seq", [4,0,2,1,3])], 49, 5));
 
+//tilebased objects
+var keyhole = new ITEM("empty", 20, 14, new boundArea(0,0,1,1), ["(you don't have | a key)"]);
 
-var items = [poles, car, dummy, cloud1, cloud2, cloud3, cloud4];
+
+var items = [keyhole, coin, poles, car, dummy, cloud1, cloud2, cloud3, cloud4];

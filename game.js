@@ -66,6 +66,12 @@ journalIMG.src = "gui/journal.png";
 var journalReady = false;
 journalIMG.onload = function(){journalReady = true;};
 
+//quest object
+var tradeObjIMG = new Image();
+tradeObjIMG.src = "items/trades.png";
+var tradeReady = false;
+tradeObjIMG.onload = function(){tradeReady = true;};
+
 
 // directionals
 var upKey = 38;     //[Up]
@@ -138,7 +144,7 @@ function init(){
 ]
 
 level_loaded = true;
-
+	story.kyle = kyle;
 }
 
 
@@ -552,18 +558,23 @@ function faceOpposite(npc){
 
 //non-cutscene specific behavior
 function defaultBehavior(npc){
-	if(npc.interact){
-		clearInterval(npc.wt);
-		npc.wt = 0;
-	}
-	if(npc.move === "drunk_walk" && !npc.interact && npc.show){
-		if(npc.wt == 0 && !npc.moving){
-			npc.wt = setInterval(function(){
-				drunkardsWalk(npc, npc.boundary);
-				clearInterval(npc.wt);
-				npc.wt = 0;
-			}, (Math.random() * 2 + 1)*1000);
+	if(!story.cutscene){
+		if(npc.interact){
+			clearInterval(npc.wt);
+			npc.wt = 0;
 		}
+		if(npc.move === "drunk_walk" && !npc.interact && npc.show){
+			if(npc.wt == 0 && !npc.moving){
+				npc.wt = setInterval(function(){
+					drunkardsWalk(npc, npc.boundary);
+					clearInterval(npc.wt);
+					npc.wt = 0;
+				}, (Math.random() * 2 + 1)*1000);
+			}
+		}
+	}else{
+	  clearInterval(npc.wt);
+	  npc.wt = 0;
 	}
 }
 
@@ -709,6 +720,14 @@ function checkRender(){
 			}
 		}
 	}
+
+	//gui
+	if(!dialogReady){
+		dialogIMG.onload = function(){dialogReady = true;};
+	}
+	if(!tradeReady){
+		tradeObjIMG.onload = function(){tradeReady = true;};
+	}
 }
 
 //rendering function for the map
@@ -837,18 +856,53 @@ function drawDialog(){
 		showText();
 
 		if(choice.show){
+			//choice boxes
 			for(var c=0;c<choice.options.length;c++){
 				var cx = camera.x+116;
-				var cy = camera.y+108+(-11*(c+1));
+				var cy = camera.y+95+(-11*(c+1));
 				ctx.drawImage(optionIMG, cx, cy);
-				ctx.font = "10px Gameboy";
-				ctx.fillText(choice.options[choice.options.length-(c+1)], cx+4, cy+7);
+				ctx.font = "6px Gameboy";
+				ctx.fillText(choice.options[choice.options.length-(c+1)], cx+4, cy+9);
 			}
 
-			ctx.drawImage(selectIMG, camera.x+116, camera.y+108+(11*(choice.index-choice.options.length)));
+			//select
+			ctx.drawImage(selectIMG, camera.x+116, camera.y+95+(11*(choice.index-choice.options.length)));
 		}
+		/*
+		if(choice.show){
+			//choice boxes
+			for(var c=0;c<choice.options.length;c++){
+				var cx = camera.x+116;
+				var cy = camera.y+95+(-11*(c+1));
+				ctx.drawImage(optionIMG, 0,0, optionIMG.width, optionIMG.height, 
+								cx, cy, longest*(optionIMG.width), optionIMG.height);
+				ctx.font = "6px Gameboy";
+				ctx.fillText(choice.options[choice.options.length-(c+1)], cx+4, cy+9);
+			}
+
+			//select
+			ctx.drawImage(selectIMG, 0,0, selectIMG.width, selectIMG.height, 
+								camera.x+116, camera.y+95+(11*(choice.index-choice.options.length)), 
+								longest*(selectIMG.width), selectIMG.height);
+		}
+		*/
 	}
 }
+
+function drawTrade(){
+	var row = Math.floor(kyle.tradeIndex / 7);
+	var col = Math.floor(kyle.tradeIndex % 7);
+
+	if(tradeReady)
+		ctx.drawImage(tradeObjIMG,
+			col * 16, row * 16,
+			16, 16, 
+			camera.x + 144, camera.y + 0, 
+			16, 16
+			)
+}
+
+/*
 var indexOffset;
 
 function drawJournal(){
@@ -888,9 +942,11 @@ function drawJournal(){
 			56, 12);
 	}
 }
+*/
 
 function drawGUI(){
 	//drawJournal();
+	drawTrade();
 	drawDialog();
 }
 
@@ -909,7 +965,10 @@ var jump = -1;
 function typewrite(){	
 	//pre-processing and reset
 	if(!texting){
-		curText = kyle.other.text[kyle.other.text_index];		//set the text to the NPC or item text 
+		curText = story.dialogue.text[story.dialogue.index];		//set the text to the NPC or item text 
+		if(!curText)
+			return;
+
 		//check if section jump
 		if(jump == -1){
 			var jumper = curText.match(/<[0-9]+>/g);
@@ -1063,7 +1122,7 @@ var kt = null;
 //check for keydown
 document.body.addEventListener("keydown", function (e) {
 	//scroll through the options to choose for dialog
-	if(story.choice_box.show){
+	if(story.cutscene && story.choice_box.show){
 		var c = story.choice_box;
 		if(e.keyCode == downKey || e.keyCode == rightKey)
 			story.choice_box.index = (c.index + 1) % c.options.length;
@@ -1117,7 +1176,7 @@ function anyKey(){
 
 //movement arrow keys
 function moveKeys(){
-	if(!kyle.moving && !kyle.interact  && !story.pause && !story.journal.show){
+	if(!kyle.moving && !kyle.interact  && !story.pause && !story.cutscene){
 		if(keyTick < 1){
 		if(keys[leftKey])         //left key
 			kyle.dir = "west";
@@ -1143,8 +1202,8 @@ function moveKeys(){
 
 //action and interaction keys
 var reInteract = true;
+var cutT = 0;
 function actionKeys(){
-
 	//interact [Z]
 	var dialogue = story.dialogue;
 	if(keys[a_key] && !kyle.interact && !kyle.moving && normal_game_action() && !story.journal.show){
@@ -1152,10 +1211,12 @@ function actionKeys(){
 			if(canInteract(kyle, items[i]) && items[i].text){
 				story.trigger = "touch_" + items[i].name;
 				reInteract = false;
-				kyle.other = items[i];
-				kyle.interact = true;
-				dialogue.text = items[i].text;
-				dialogue.index = 0;
+				if(!story.cutscene){
+					kyle.other = items[i];
+					kyle.interact = true;
+					dialogue.text = items[i].text;
+					dialogue.index = 0;
+				}
 				typewrite();
 				return;
 			}
@@ -1163,6 +1224,8 @@ function actionKeys(){
 		for(var i=0;i<npcs.length;i++){
 			if(canTalk(kyle, npcs[i]) && npcs[i].text){
 				story.trigger = "talk_" + npcs[i].name;
+
+				//setup
 				reInteract = false;
 				kyle.other = npcs[i];
 				kyle.other.interact = true;
@@ -1170,48 +1233,71 @@ function actionKeys(){
 				kyle.interact = true;
 				clearInterval(npcs[i].wt);
 				npcs[i].wt = 0;
-				typewrite();
+
+				//normal interaction
+				if(!story.cutscene && !triggerWord(story.trigger)){
+					dialogue.text = npcs[i].text;
+					dialogue.index = npcs[i].text_index;
+					typewrite();
+				}
+				//cutscene interaction
+				else{
+					dialogue.index = 0;
+					play();
+					typewrite();
+				}
 				return;
 			}
 		}
-	}else if(keys[a_key] && dialogue.show && reInteract && !texting){
+	}
+	//finished current dialogue text
+	else if(keys[a_key] && dialogue.show && reInteract && !texting){
 		var other = kyle.other;
 		reInteract = false;
-		if(other.text_index +1 == other.text.length){
+		//end of dialogue
+		if(dialogue.index +1 == dialogue.text.length){
+			kyle.interact = false;
+
 			//select item if options showing
 			if(story.choice_box.show){
 				story.trigger = "> " + story.choice_box.options[story.choice_box.index];
+				story.taskIndex++;
+				dialogue.index = 0;
+				play();
+				typewrite();
+				return;
 			}
 
-			kyle.interact = false;
-			kyle.other.interact = false;
-
-			if(jump !== -1){
-				kyle.other.text_index = jump;
-				jump = -1;
+			//normal reset
+			if(!story.cutscene){
+				kyle.other.interact = false;
+				if(jump !== -1){
+					kyle.other.text_index = jump;
+					jump = -1;
+				}
+				dialogue.index = 0;
+			}else{
+				story.taskIndex++;
 			}
-			
-		}else{
-			kyle.other.text_index++;
-			typewrite();
-		//console.log('next')
 		}
-	}else if(keys[a_key] && dialogue.show && texting){
-		text_speed = 50;
+		//still more dialogue left
+		else{
+			kyle.other.text_index++;
+			dialogue.index++;
+			typewrite();
+		}
+	}
+	//increase typewriter speed 
+	else if(keys[a_key] && dialogue.show && texting){
+		text_speed = 40;
+		reInteract = false;
 	}
 
-	/*
-	//journal
-	if(keys[b_key] && normal_game_action()){
-		story.journal.show = !story.journal.show;
-		reInteract = !story.journal.show;
-	}
-	*/
 }
 
 
 function normal_game_action(){
-	return (reInteract && !story.pause);
+	return (!story.cutscene && reInteract && !story.pause);
 }
 
 
@@ -1240,10 +1326,12 @@ function main(){
 	}
 	
 
-	if(kyle.interact){
-		story.dialogue.show = true;
-	}else
-		story.dialogue.show = false;
+	if(!story.cutscene){
+		if(kyle.interact){
+			story.dialogue.show = true;
+		}else
+			story.dialogue.show = false;
+	}
 	
 
 	//keyboard ticks
@@ -1270,7 +1358,7 @@ function main(){
 
 	var settings = "X: " + Math.round(kyle.x) + " | Y: " + Math.round(kyle.y);
 	settings += " --- Pix X: " + pixX + " | Pix Y: " + pixY;
-	settings += " --- " + story.dialogue.show + " | " + texting;
+	settings += " --- " + story.cutscene + " | " + story.dialogue.index + " | " + story.taskIndex;
 
 	/*
 	if(npcs.length > 0){
