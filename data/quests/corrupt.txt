@@ -1,0 +1,34 @@
+CORRUPT QUEST
+++++++++++++++
+
+? If you trade with someone who doesn't match the item - these dialogs trigger
+? They can be traded back unless they are traded with someone who matches the item
+? The quest then switches over to that item quest - but triggers a corrupt end game
+
+Kimi [Trade?] : "..."
+				"...fine"
+Sid [Trade?] :	"Um...."
+				"Sure dude"
+Chi [Trade?] :	"Ah..."
+				"I suppose it is meant to be"
+Grace [Trade?] : "Oh..."
+				 "If you want"
+Kay [Trade?] :	"What?"
+				"Oh right..."
+Amber [Trade?] : "*sigh*"
+				 "Okaaay..."	
+
+Kimi [Trade Back?] 	: "Sounds good"
+Sid [Trade Back?] 	: "Heck yes!"
+Chi [Trade Back?] 	: "Aaah"
+Grace [Trade Back?]	: "Yay!"
+Kay [Trade Back?]	: "Of course!"
+Amber [Trade Back?] : "Absolutely!"
+
+
+End Game
+---------
+: (you feel dark and cold)
+: (something doesn't feel right - a unbalance and conflict)
+: (you are very uncomfortable)
+: Try again?

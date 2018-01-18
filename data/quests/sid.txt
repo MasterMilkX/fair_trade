@@ -1,0 +1,84 @@
+SID TRUE QUEST
++++++++++++++++
+
+$ Item : Token
+---------------
+	Sid :	"Whoa!"
+			"Hey, I didn't see you there!"
+			"How's it going, dude? I'm Sid"
+			> [Kyle]
+				"Nice... That's a pretty great name"
+			> [Name's Kyle]
+				"Coolio dude!"
+				"Nice to meet you"
+			> [I think I'm Kyle]
+				"You think?"
+				"Well.. I'll call you Kyle until you feel like being called something else"
+			> [Sup? I'm Kyle]
+				"Whoa you seem cool Kyle!"
+			"Hey do you have any records?"
+			"I've gotten really into vinyl lately"
+			> [Nope, sorry]
+				"Ah no worries my dude"
+				"They're hard to come by anyways"
+			> [No, but I have this]
+				"Have what?"
+			> [I broke them]
+				"Aw bummer..."
+				"Oh well!"
+			"Yo! What's that?"
+			> [A token?]
+				"A token..."
+				"That seems about right!"
+			> [I don't know]
+				"It looks super cool though!"
+			> [I found it]
+				"Whoa really? Just like that?"
+				"Must be lucky!"
+			"I'll trade you something really cool for it"
+			"Really really cool"
+			> [Deal]
+				"Sweet! Thanks!"
+				"(you give the token to Sid)"
+				"Here you go my dude"
+				"(you got a mixtape from Sid)"
+				"That's one of my fire mixtapes"
+				"I've been meaning to spread the word and tell people about it"
+				"But it's still needs something..."
+				"Talk to people about the mixtape and they'll probably give you stuff to trade for it"
+				"If you can find me the thing that I need, I'll trade you something even cooler, Kyle"
+				"Fair trade"
+				& Activate Sid Quest
+			> [No deal]
+				"Aw c'mon"
+				"Really dude?"
+				"Are you ABSOLUTELY sure, Kyle?"
+				> [I changed my mind]
+					*see [Deal] above
+				> [I don't want it anymore]
+					*see [Deal] above
+				> [Actually... take it]
+					*see [Deal] above
+
+$ Item : Mixtape
+-----------------
+	Grace :	"Oh! Is that one of those mixtapes I've heard about?"
+			> [Trade?]
+				"Oh yes please!"
+				"(you give Grace the mixtape)"
+				"Thanks! I'm so excited to listen to it!"
+				"I found this really pretty gem - you can have it"
+				"(you got a sapphire from Grace)"
+				"It matches your hair and clothes!"
+			> [Yeah it's fire]
+				"Oh wow! I haven't listened to it yet"
+				"I'll be sure to keep an extinguisher around"
+	
+$ Item : Sapphire
+------------------
+	Amber : "Ohmigosh! That gem!"
+			> [Trade?]
+				"Wow really? Thanks!"
+				"(you give the sapphire to Amber)"
+				"This'll look great on my crown"
+				

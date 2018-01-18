@@ -60,12 +60,6 @@ selectIMG.src = "gui/select_box.png";
 var selectReady = false;
 selectIMG.onload = function(){selectReady = true;};
 
-//journal system
-var journalIMG = new Image();
-journalIMG.src = "gui/journal.png";
-var journalReady = false;
-journalIMG.onload = function(){journalReady = true;};
-
 //quest object
 var tradeObjIMG = new Image();
 tradeObjIMG.src = "items/trades.png";
@@ -233,7 +227,7 @@ function travel(sprite){
 				sprite.action = "idle";
 				sprite.moving = false;
 			}
-			}
+		}
 	}
 }
 
@@ -316,7 +310,7 @@ function hitNPC(person){
 	for(var i=0;i<npcs.length;i++){
 		var n = npcs[i];
 
-		if(n == person)
+		if(n == person || !n.show)
 			continue;
 
 		nx = Math.floor(n.x / size);
@@ -470,6 +464,9 @@ function collide(sprite, boundary=null){
 
 //the interact function
 function canInteract(person, item){
+	if(!item.show)
+		return false;
+
 	//get the positions
 		var rx;
 		var ry;
@@ -516,7 +513,7 @@ function canInteract(person, item){
 
 //the talk function
 function canTalk(person, other_pers){
-	if(other_pers.moving)
+	if(other_pers.moving || !other_pers.show)
 		return false;
 
 	//get the positions
@@ -855,10 +852,11 @@ function drawDialog(){
 		//wrapText(dialogue.text[dialogue.index], camera.x + 12, camera.y + 116)
 		showText();
 
+		/*
 		if(choice.show){
 			//choice boxes
 			for(var c=0;c<choice.options.length;c++){
-				var cx = camera.x+116;
+				var cx = camera.x+6;
 				var cy = camera.y+95+(-11*(c+1));
 				ctx.drawImage(optionIMG, cx, cy);
 				ctx.font = "6px Gameboy";
@@ -866,28 +864,80 @@ function drawDialog(){
 			}
 
 			//select
-			ctx.drawImage(selectIMG, camera.x+116, camera.y+95+(11*(choice.index-choice.options.length)));
+			ctx.drawImage(selectIMG, camera.x+6, camera.y+95+(11*(choice.index-choice.options.length)));
 		}
-		/*
+		*/
+
+		
 		if(choice.show){
+			//get the maximum x length
+			var longest = 10;
+			if(!hasMultiLine()){
+				longest = bigChoice(choice.options);
+			}
+
 			//choice boxes
+			var cx = camera.x+3;
 			for(var c=0;c<choice.options.length;c++){
-				var cx = camera.x+116;
-				var cy = camera.y+95+(-11*(c+1));
+				var cy = camera.y+95+(-((optionIMG.height-2)/2)*(sumLines(c)))
+
+				//var cy = camera.y+95+(-(optionIMG.height-1)*((sumLines(c)*11)+1));
 				ctx.drawImage(optionIMG, 0,0, optionIMG.width, optionIMG.height, 
-								cx, cy, longest*(optionIMG.width), optionIMG.height);
-				ctx.font = "6px Gameboy";
-				ctx.fillText(choice.options[choice.options.length-(c+1)], cx+4, cy+9);
+								cx, cy, (longest/10)*(optionIMG.width), (choice.lines[c]/2)*optionIMG.height);
+				choiceText(choice.options[c], choice.lines[c], cy+9);
+
+				//ctx.font = "6px Gameboy";
+				//ctx.fillText(choice.options[choice.options.length-(c+1)], cx+4, cy+9);
 			}
 
 			//select
+			var cy2 = camera.y+95-((optionIMG.height-2)/2)*(sumLines(choice.index));
+			//((((optionIMG.height-2)/2)*(sumLines(choice.index)))*(choice.index-choice.options.length)), 
+
 			ctx.drawImage(selectIMG, 0,0, selectIMG.width, selectIMG.height, 
-								camera.x+116, camera.y+95+(11*(choice.index-choice.options.length)), 
-								longest*(selectIMG.width), selectIMG.height);
+								cx, cy2,
+								(longest/10)*(selectIMG.width), (choice.lines[choice.index]/2)*selectIMG.height);
 		}
-		*/
+		
 	}
 }
+
+//find the longest line of text
+function bigChoice(arr){
+	var longest = 0;
+	for(var i=0;i<arr.length;i++){
+		longest = (arr[i].length > longest ? arr[i].length : longest);
+	}
+	return longest+1;
+}
+
+//wrap the text if overflowing on the choice box
+function choiceText(text, lines, y) {
+	var texts = text.split(" | ");
+	ctx.font = "6px Gameboy";
+	for(var l=0;l<lines;l++){
+		ctx.fillText(texts[l], camera.x+7, y+(l*8));
+	}
+}	
+
+//
+function sumLines(i){
+	var lines = story.choice_box.lines;
+	var sum = 0;
+	for(var l=i;l<lines.length;l++){
+		sum += lines[l];
+	}
+	return sum;
+}
+
+function hasMultiLine(){
+	for(var l=0;l<story.choice_box.lines.length;l++){
+		if(story.choice_box.lines[l] > 1)
+			return true;
+	}
+	return false;
+}
+
 
 function drawTrade(){
 	var row = Math.floor(kyle.tradeIndex / 7);
@@ -899,50 +949,8 @@ function drawTrade(){
 			16, 16, 
 			camera.x + 144, camera.y + 0, 
 			16, 16
-			)
+		)
 }
-
-/*
-var indexOffset;
-
-function drawJournal(){
-	var j = story.journal;
-
-	if(j.show){
-		//w:112 h:240
-		ctx.drawImage(journalIMG, camera.x+100, camera.y+12);
-		
-		//set the cutoff
-		var max = (j.entries.length > 9 ? 9 : j.entries.length);
-		if(j.index >= (j.window+10))
-			j.window = j.index-9;
-		else if(j.index < (j.window))
-			j.window--;
-
-		//var indexOffset;
-		if (j.index == (j.window+9))
-			indexOffset = 9
-		else if(j.index == (j.window))
-			indexOffset = 0;
-		else
-			indexOffset = j.index - j.window;
-
-		for(var i=0;i<=max;i++){
-			var ix = camera.x+100;
-			var iy = camera.y+12+(11*(i));
-			ctx.font = "8px Gameboy";
-			ctx.fillStyle = "#000000";
-			ctx.fillText(j.entries[i+j.window], ix+4, iy+7);
-		}
-		
-		ctx.drawImage(selectIMG, 
-			0, 0,
-			40, 12,
-			camera.x+100, camera.y+12+(11*(indexOffset)),
-			56, 12);
-	}
-}
-*/
 
 function drawGUI(){
 	//drawJournal();
@@ -1129,15 +1137,6 @@ document.body.addEventListener("keydown", function (e) {
 		else if(e.keyCode == upKey || e.keyCode == leftKey)
 			story.choice_box.index = ((c.index + c.options.length) - 1) % c.options.length;
 	}
-
-	//scroll through the journal
-	if(story.journal.show){
-		var i = story.journal;
-		if(e.keyCode == downKey || e.keyCode == rightKey)
-			story.journal.index = (i.index + 1) % i.bag.length;
-		else if(e.keyCode == upKey || e.keyCode == leftKey)
-			story.journal.index = ((i.index + i.bag.length) - 1) % i.bag.length;
-	}
 });
 
 //determine if valud key to press
@@ -1206,7 +1205,7 @@ var cutT = 0;
 function actionKeys(){
 	//interact [Z]
 	var dialogue = story.dialogue;
-	if(keys[a_key] && !kyle.interact && !kyle.moving && normal_game_action() && !story.journal.show){
+	if(keys[a_key] && !kyle.interact && !kyle.moving && normal_game_action()){
 		for(var i=0;i<items.length;i++){
 			if(canInteract(kyle, items[i]) && items[i].text){
 				story.trigger = "touch_" + items[i].name;

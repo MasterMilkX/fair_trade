@@ -27,23 +27,57 @@ var story = {
 	choice_box : {
 		options : [],
 		index : 0,
+		lines : [],
 		show : false
-	},
-
-	//inventory
-	journal : {
-		entries : ['hover board', 'guitar pick', 'banana', 
-		'your mom', 'doggo', 'pikachu', 
-		'communism', 'dick fingers', 'fart in a jar',
-		'space book', 'piggy', 'hacker manifesto'],
-		index : 0, 
-		show : 0,
-		window : 0
 	},
 
 	curItem : ""
 
 };
+
+//reset the gui and cutscene stuff within the game
+function endScene(){
+	story.taskIndex = 0;
+	story.dialogue.show = false;
+	story.choice_box.show = false;
+	story.cutscene = false;
+	story.kyle.other.interact = false;
+	story.kyle.interact = false;
+	story.dialogue.index = 0;
+}
+
+
+//check for trigger words
+function triggerWord(word){
+	if(story.quest === "Introduction"){
+		if(word === "talk_Kimi")
+			return true;
+	}
+}
+
+//count the lines from each choice given
+function countChoice(){
+	var choice = story.choice_box;
+	var lines = [];
+	for(var c=0;c<choice.options.length;c++){
+		lines.push(choice.options[c].split(" | ").length);
+	}
+	choice.lines = lines;
+}
+
+//make new choice boxes
+function newChoice(options){
+	story.choice_box.show = true;
+	story.choice_box.options = options;
+	countChoice();
+}
+
+//reset the choice options
+function endChoice(){
+	story.choice_box.show = false;
+	story.choice_box.index = 0;
+	story.choice_box.lines = [];
+}
 
 //the entire script for the game
 function play(){
@@ -64,12 +98,12 @@ if(story.quest === "Introduction" && storyIndex == 0){
 			dialogue.text = ["...", "...Uh, hi?"];
 			dialogue.show = true;
 		}else if(taskIndex == 1){
-			choice.show = true;
-			choice.options = ["Hi", "...hi", "Hey there!"];
+			//newChoice(["Hi", "...hi", "Hi there!"]);
+			newChoice(["Hi", "...hi", "How's it | going?"]);
 		}
 	}else if(trigger === "> Hi"){
 		if(taskIndex == 2){
-			choice.show = false;
+			endChoice();
 			dialogue.text = ["...", "Ok then..."];
 			dialogue.show = true;
 		}else if(taskIndex == 3){
@@ -77,16 +111,16 @@ if(story.quest === "Introduction" && storyIndex == 0){
 		}
 	}else if(trigger === "> ...hi"){
 		if(taskIndex == 2){
-			choice.show = false;
+			endChoice()
 			dialogue.text = ["Well somebody's | moody", 
 							"And for once | it's not me"];
 			dialogue.show = true;
 		}else if(taskIndex == 3){
 			endScene();
 		}
-	}else if(trigger === "> Hey there!"){
+	}else if(trigger === "> Hi there!" || trigger === "> How's it | going?"){
 		if(taskIndex == 2){
-			choice.show = false;
+			endChoice()
 			dialogue.text = ["!", 
 							"God you're | chipper", 
 							"It's almost | annoying actually"];
@@ -199,23 +233,4 @@ if(aMission("Lucky") && storyIndex == 0){
 }
 */
 
-}
-//reset the gui and cutscene stuff within the game
-function endScene(){
-	story.taskIndex = 0;
-	story.dialogue.show = false;
-	story.choice_box.show = false;
-	story.cutscene = false;
-	story.kyle.other.interact = false;
-	story.kyle.interact = false;
-	story.dialogue.index = 0;
-}
-
-
-//check for trigger words
-function triggerWord(word){
-	if(story.quest === "Introduction"){
-		if(word === "talk_Kimi")
-			return true;
-	}
 }
