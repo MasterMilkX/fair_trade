@@ -3,66 +3,66 @@ KIMI TRUE QUEST
 
 $ Item : Token
 --------------
-	Kimi : 	"..."
-		   	"..Uh, hi?"
+	Kimi : 	...
+			..Uh, hi?
 			> [Hi.]
-				"..."
-				"...Right..."
+				...
+				...Right...
 			> [Hi?]
-				"Hmm..."
-				"You seem unsure of that"
+				Hmm...
+				You seem unsure of that
 			> [Hi!]
-				"!"
-				"God you're chipper..."
-				"It's almost annoying actually"
-			"I don't think I've seen you around"
-			"Who are you?"
+				!
+				God you're chipper...
+				It's almost annoying actually
+			I don't think I've seen you around
+			Who are you?
 			> [Kyle]
-				"Huh..."
-				"Ok then...Kyle..."
+				Huh...
+				Ok then...Kyle...
 			> [Kyle apparently]
-				"Kyle Apparently?"
-				"That's quite a name"
-				"I'll call you Kyle for short"
+				Kyle Apparently?
+				That's quite a name
+				I'll call you Kyle for short
 			> [Kyle?]
-				"You don't know?"
-				"... well..."
-				"I guess people don't really have a choice on what they get to be called"
+				You don't know?
+				... well...
+				I guess people don't really have a choice on what they get to be called
 			> [I'm Kyle!]
-				"Wow..."
-				"You seem pretty proud of that"
-				"Kyle's an OK name I suppose..."
-			"I'm Kimi"
-			"How'd you get that token?"
+				Wow...
+				You seem pretty proud of that
+				Kyle's an OK name I suppose...
+			I'm Kimi
+			How'd you get that token?
 			> [Found it]
-				"Lucky you"
-				"That token can get you a lot here"
+				Lucky you
+				That token can get you a lot here
 			> [Trade?]
-				"Sure... but people don't just give things away around here"
+				Sure... but people don't just give things away around here
 			> [Beats me]
-				"Hmm..."
-			"I'll trade you something for it"
-			"On this world, we get what we need by trading"
-			"I need something very important"
-			"And I can give you something important in return"
-			"If you give me the token, I'll give you something that you can trade with other people"
-			"So what do you say?"
+				Hmm...
+			I'll trade you something for it
+			On this world, we get what we need by trading
+			I need something very important
+			And I can give you something important in return
+			If you give me the token, I'll give you something that you can trade with other people
+			So what do you say?
 			> [Deal]
-				"Cool"
-				"(you give the token to Kimi)"
-				"Take this"
-				"(you got a flute from Kimi)"
-				"You can't play it - even if you tried"
-				"There's another person around that can though - or would at least find some use for it"
-				"Go find them, and they'll probably trade you something for it"
-				"When you find something that I could use, come back to me"
-				"I'll give you something you need"
-				"Fair trade"
+				Cool
+				(you give the token to Kimi)
+				Take this
+				(you got a flute from Kimi)
+				You can't play it - even if you tried
+				There's another person around that can though - or would at least find some use for it
+				Go find them, and they'll probably trade you something for it
+				When you find something that I could use, come back to me
+				I'll give you something you need
+				Fair trade
 				& Activate Kimi Quest
 			> [No deal]
-				"Hmm..."
-				"Think again..."
-				"Are you ABSOLUTELY sure, Kyle?"
+				Hmm...
+				Think again...
+				Are you ABSOLUTELY sure, Kyle?
 				> [I changed my mind]
 					*see [Deal] above
 				> [I don't want it anymore]
@@ -72,105 +72,105 @@ $ Item : Token
 
 $ Item : Flute
 --------------
-	Sid :	"Whoa! Is that a flute?"
+	Sid :	Whoa! Is that a flute?
 			> [Trade?]
-				"Heck yeah, dude! I've always wanted to learn how to play a flute"
-				"(you give the flute to Sid)"
-				"Now I can finally play that solo from that one song"
-				"Here take this. It only feels fair if I give you something in return"
-				"(you got a S.A. Knife from Sid)"
-				"It's got all sorts of features and tools on it"
-				"You can totally fix anything with it"
+				Heck yeah, dude! I've always wanted to learn how to play a flute
+				(you give the flute to Sid)
+				Now I can finally play that solo from that one song
+				Here take this. It only feels fair if I give you something in return
+				(you got a S.A. Knife from Sid)
+				It's got all sorts of features and tools on it
+				You can totally fix anything with it
 			> [Sure is]
-				"Man I've always wanted a flute!"
-				"I bet you're pretty good with it"
-				"Can you play me a song?"
+				Man I've always wanted a flute!
+				I bet you're pretty good with it
+				Can you play me a song?
 				> [Of course]
-					"(you try to play the flute - but no music comes out)"
-					"Hmm... must be magic or something"
+					(you try to play the flute - but no music comes out)
+					Hmm... must be magic or something
 				> [I don't know how]
-					"Aw... that's ok dude!"
-					"Practice makes perfect anyways!"
+					Aw... that's ok dude!
+					Practice makes perfect anyways!
 
 $ Item : S.A. Knife
 -------------------
-	Kay : 	"Careful with that thing! Do you know how to use it?!"
+	Kay : 	Careful with that thing! Do you know how to use it?!
 			> [Trade?]
-				"I mean... if you're not gonna use it"
-				"I could use the knife to protect Amber from invaders"
-				"(you give the S.A. Knife to Kay)"
-				"Well I found this while patrolling the castle"
-				"(you got a feather from Kay)"
-				"I don't know who or what it came from but I'm sure you could"
+				I mean... if you're not gonna use it
+				I could use the knife to protect Amber from invaders
+				(you give the S.A. Knife to Kay)
+				Well I found this while patrolling the castle
+				(you got a feather from Kay)
+				I don't know who or what it came from but I'm sure you could
 			> [Mostly]
-				"Mostly?!?!"
-				"Oh gosh!"
-				"You could be a dangerous invader!"
-				"AAAGHGHGH!""
+				Mostly?!?!
+				Oh gosh!
+				You could be a dangerous invader!
+				AAAGHGHGH!
 
 $ Item : Feather
 ----------------
-	Grace : "Wow! That feather is beautiful!"
+	Grace : Wow! That feather is beautiful!
 			> [Trade?]
-				"Oh definitely!"
-				"I could probably tickle myself with it and have such a fun time!"
-				"(you give the feather to Grace)"
-				"Hey! I picked this the other day"
-				"(you got a flower from Grace)"
-				"You should give it to someone special"
+				Oh definitely!
+				I could probably tickle myself with it and have such a fun time!
+				(you give the feather to Grace)
+				Hey! I picked this the other day
+				(you got a flower from Grace)
+				You should give it to someone special
 			> [You think so?]
-				"Absoultely!"
-				"A beautiful feather from a beautiful creature"
+				Absoultely!
+				A beautiful feather from a beautiful creature
 
 $ Item : Flower
 ---------------
-	Chi : 	"That is certainly a healthy flower"
+	Chi : 	That is certainly a healthy flower
 			> [Trade?]
-				"I don't see why not"
-				"(you give the flower to Chi)"
-				"Wait I have an idea"
-				"(you got oil from Chi)"
-				"This oil is made from the same flower"
-				"It takes 5 years off your life - or at least makes you feel like it does"
-				"It full of positive energy"
+				I don't see why not
+				(you give the flower to Chi)
+				Wait I have an idea
+				(you got oil from Chi)
+				This oil is made from the same flower
+				It takes 5 years off your life - or at least makes you feel like it does
+				It full of positive energy
 			> [How can you tell?]
-				"The petals and the stem"
-				"Not many flowers like that grow around here"
-				"I haven't seen them in some time"
+				The petals and the stem
+				Not many flowers like that grow around here
+				I haven't seen them in some time
 
 $ Item : Oil
 -------------
-	Amber :	"Oh! What smells so heavenly?"
-			"Is it that oil?"
+	Amber :	Oh! What smells so heavenly?
+			Is it that oil?
 			> [Trade?]
-				"Yeah! It's looks amazing!"
-				"(you give the oil to Amber)"
-				"Here - I've got a new accessory so I won't be needing this old thing"
-				"(you got a ribbon from Amber)"
-				"I feel 5 years younger and so positive!"
+				Yeah! It's looks amazing!
+				(you give the oil to Amber)
+				Here - I've got a new accessory so I won't be needing this old thing
+				(you got a ribbon from Amber)
+				I feel 5 years younger and so positive!
 			> [No, it's just me]
-				"Oh wow!"
-				"Whatever you're doing keep it up"
-				"You'll have people following you wherever you go smelling that amazing"
+				Oh wow!
+				Whatever you're doing keep it up
+				You'll have people following you wherever you go smelling that amazing
 
 $ Item : Ribbon
 ----------------
-	Kimi : "...A ribbon?"
+	Kimi : ...A ribbon?
 			> [Trade?]
-				"Hmm..."
-				"I do need a new ribbon"
-				"And this one looks... nice"
-				"(you give Kimi the ribbon)"
-				"Ok... You got me what I needed"
-				"Here you go, Kyle"
-				"(you got a special key from Kimi)"
-				"That's a fair trade"
-				"Take good care of that key"
+				Hmm...
+				I do need a new ribbon
+				And this one looks... nice
+				(you give Kimi the ribbon)
+				Ok... You got me what I needed
+				Here you go, Kyle
+				(you got a special key from Kimi)
+				That's a fair trade
+				Take good care of that key
 				& Activate Kimi End Game
 			> [How does it make me look?]
-				"..."
-				"...Pretty?"
-				"Not really your style to be honest"
+				...
+				...Pretty?
+				It's not really your style to be honest
 
 End Game
 ---------
@@ -183,179 +183,179 @@ End Game
 
 
 
-HINTS
-++++++
+HINTS/SIDE CONVO
++++++++++++++++++
 
 $ Item : FLUTE
 ------
-Kimi : 	"Yeah?"
+Kimi : 	Yeah?
 			> [Trade?]
-				"..."
-				"Are you kidding?"
-				"I'm the one who gave you that"
-				"Find someone else who could use it"
+				...
+				Are you kidding?
+				I'm the one who gave you that
+				Find someone else who could use it
 			> [Can you play this?]
-				"..."
-				"A long time ago I could..."
-				"I don't anymore"
-	Chi : 	"Oh, what a lovely flute."
+				...
+				A long time ago I could...
+				I don't anymore
+	Chi : 	Oh, what a lovely flute.
 			> [Thanks. Kimi gave it to me]
-				"Really?"
-				"I never took Kimi for a musician"
-				"Sid seems more like the person with an ear for music"
-	Kay :	"AGH! What is that?! A weapon?!"
+				Really?
+				I never took Kimi for a musician
+				Sid seems more like the person with an ear for music
+	Kay :	AGH! What is that?! A weapon?!
 			> [It's a flute]
-				"A flute?"
-				"Like the music?"
-				"I don't trust it."
-				"I'd be careful with that thing"
-	Grace :	"Wow! A flute!"
-			"It looks really familiar..."
+				A flute?
+				Like the music?
+				I don't trust it.
+				I'd be careful with that thing
+	Grace :	Wow! A flute!
+			It looks really familiar...
 			> [Have you seen this before]
-				"Someone I used to know had a flute like that"
-				"They played it beautifully!"
-	Amber : "?"
-			"Is that a flute?"
+				Someone I used to know had a flute like that
+				They played it beautifully!
+	Amber : ?
+			Is that a flute?
 			> [Yep]
-				"Rad! It's absolutely gorgeous"
-				"Seems pretty old though..."
-				"I only like new stuff"
+				Rad! It's absolutely gorgeous
+				Seems pretty old though...
+				I only like new stuff
 
 S.A. Knife
 -----------
-	Sid :	"Hiya!"
+	Sid :	Hiya!
 			> [Trade?]
-				"Haha! I gave you that dude"
-				"I've fixed up just about everything on my car"
-				"Someone else might need it as a tool or weapon though"
+				Haha! I gave you that dude
+				I've fixed up just about everything on my car
+				Someone else might need it as a tool or weapon though
 			> [What does the S.A. stand for?]
-				"Uh..."
-				"Sushi Alliance?"
-	Kimi : 	"A knife?"
+				Uh...
+				Sushi Alliance?
+	Kimi : 	A knife?
 			> [Gimme all your money, punk]
-				"..."
-				"You know I'm a ninja/samurai, right?"
-				"With a much bigger weapon?"
-				"The odds are not in your favor, Kyle"
-	Chi :	"Hmm... A thing?"
+				...
+				You know I'm a ninja/samurai, right?
+				With a much bigger weapon?
+				The odds are not in your favor, Kyle
+	Chi :	Hmm... A thing?
 			> [A thingy]
-				"Well said, friend"
-				"An interesting thingy indeed"
-	Grace :	"*gasp* What a cool little doo-dad!"
+				Well said, friend
+				An interesting thingy indeed
+	Grace :	*gasp* What a cool little doo-dad!
 			> [I know right?]
-				"I bet you could make a fix all sorts of things!"
-	Amber : "Erm... What does that do?"
+				I bet you could make a fix all sorts of things!
+	Amber : Erm... What does that do?
 			> [Lots of stuff]
-				"Oh..."
-				"Rad"
-				"Kay likes things that do lots of stuff too"
-				"Or is it lots of stuff that do things?"
+				Oh...
+				Rad
+				Kay likes things that do lots of stuff too
+				Or is it lots of stuff that do things?
 
 Feather
 --------
-	Kay :	"Agh! A feather! A torture weapon!"
+	Kay :	Agh! A feather! A torture weapon!
 			> [Trade?]
-				"Well... I think I gave that to you"
-				"And frankly that thing scares me to death"
+				Well... I think I gave that to you
+				And frankly that thing scares me to death
 			> [Torture?]
-				"Tickle torture!"
-				"It's horrible!"
-				"It's like torture!"
-				"...wait..."
-	Kimi : "A feather?"
+				Tickle torture!
+				It's horrible!
+				It's like torture!
+				...wait...
+	Kimi : A feather?
 			> [Don't make me use this!]
-				"..."
-				"You're gonna tickle me to death?"
-				"Or are you just trying to make me smile?"
-				"Either way - it's not gonna work, Kyle"
-	Chi :	"Ah, a feather! As light as the soul"
+				...
+				You're gonna tickle me to death?
+				Or are you just trying to make me smile?
+				Either way - it's not gonna work, Kyle
+	Chi :	Ah, a feather! As light as the soul
 			> [How much do souls weigh?]
-				"Hmm..."
-				"As much as a feather, I'd wager!"
-				"You should ask Grace to be sure"
-	Sid :	"That's a big feather!"
+				Hmm...
+				As much as a feather, I'd wager!
+				You should ask Grace to be sure
+	Sid :	That's a big feather!
 			> [It came from a big bird]
-				"Must be exotic!"
-	Amber :	"That feather looks familiar"
+				Must be exotic!
+	Amber :	That feather looks familiar
 			> [Kay gave it to me]
-				"Oh, right."
-				"It probably fell out of his helmet and spooked him"
+				Oh, right.
+				It probably fell out of his helmet and spooked him
 
 Flower
 -------
-	Grace : "Do you like the flower?"
+	Grace : Do you like the flower?
 			> [Trade?]
-				"Psh! You're funny"
-				"I gave it to you silly!"
-				"You should give it to someone to brighten their day"
+				Psh! You're funny
+				I gave it to you silly!
+				You should give it to someone to brighten their day
 			> [I love it]
-				"I'm so glad!"
-				"I always loved flowers too"
-				"They smelled amazing"
-	Kimi :	"A flower?"
+				I'm so glad!
+				I always loved flowers too
+				They smelled amazing
+	Kimi :	A flower?
 			> [Pretty?]
-				"I suppose..."
-				"Smells nice at least"
-	Sid :	"Cool flower!"
+				I suppose...
+				Smells nice at least
+	Sid :	Cool flower!
 			> [A million psychadelic colors!]
-				"Heh...I might be slightly color-blind"
-				"It looks yellow to me"
-	Kay :	"Is that a flower?"
+				Heh...I might be slightly color-blind
+				It looks yellow to me
+	Kay :	Is that a flower?
 			> [Will you marry me?]
-				"!"
-				"I think you're supposed to propose with a ring..?!"
-	Amber : "What an exotic flower"
+				!
+				I think you're supposed to propose with a ring..?!
+	Amber : What an exotic flower
 			> [Exotic?]
-				"I don't see them grow often"
-				"Just around Grace and Chi once in a blue moon or whatever"
+				I don't see them grow often
+				Just around Grace and Chi once in a blue moon or whatever
 
 Oil
 ----
-	Chi :	"Lovely fragrance isn't it?"
+	Chi :	Lovely fragrance isn't it?
 			> [Trade?]
-				"But alas, I am the original owner"
-				"And the only fragrance I use is the natural odor of nature"
+				But alas, I am the original owner
+				And the only fragrance I use is the natural odor of nature
 			> [How'd you make it?]
-				"An old trade secret"
-	Kimi : 	"Hmm... smells nice"
+				An old trade secret
+	Kimi : 	Hmm... smells nice
 			> [How nice?]
-				"..."
-				"Nice?"
-	Sid :	"Whoa that smells better than my car!"
+				...
+				Nice?
+	Sid :	Whoa that smells better than my car!
 			> [Your car?]
-				"Yeah... it's smells like pizza and takeout food"
-				"I love it!"
-	Grace :	"Wow! Did my flower make that?"
+				Yeah... my car smells like pizza and takeout food
+				I love it!
+	Grace :	Wow! Did my flower make that?
 			> [Yep]
-				"It smells even better than it did as a flower!"
-	Kay :	"What's that smell?"
+				It smells even better than it did as a flower!
+	Kay :	What's that smell?
 			> [Oil]
-				"Amber would probably love that"
-				"She always smells so nice when I pass her"
+				Amber would probably love that
+				She always smells so nice when I pass her
 
 Ribbon
 -------
-	Amber :	"Hey~"
+	Amber :	Hey~
 			> [Trade?]
-				"Sweetie I gave you that ribbon"
-				"It's probably not your style - but there's gotta be someone who would rock it"
+				Sweetie I gave you that ribbon
+				It's probably not your style - but there's gotta be someone who would rock it
 			> [Happy Birthday]
-				"?"
-				"But it's not my birthday"
-				"... Are you the present?"
-	Sid : 	"That ribbon looks sleek"
+				?
+				But it's not my birthday
+				... Are you the present?
+	Sid : 	That ribbon looks sleek
 			> [It's really long]
-				"Yeah, you could probably jump rope with it!"
-	Grace : "What a pretty ribbon!"
+				Yeah, you could probably jump rope with it!
+	Grace : What a pretty ribbon!
 			> [I look pretty?]
-				"Uh huh!"
-				"You look just like Kimi actually!"
-	Chi :	"Ah a ribbon!"
+				Uh huh!
+				You look just like Kimi actually!
+	Chi :	Ah a ribbon!
 			> [What do I do with it?]
-				"You could use it to wrap a present"
-				"There's no better time like the present"
-	Kay :	"Ribbon?!"
+				You could use it to wrap a present
+				There's no better time like the present
+	Kay :	Ribbon?!
 			> [What's wrong?]
-				"Ribbons are so binding"
-				"They can be used as a blindfold!"
-				"Then who knows what could happen!"
+				Ribbons are so binding
+				They can be used as a blindfold!
+				Then who knows what could happen!

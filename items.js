@@ -67,7 +67,7 @@ var cloud4 = new ITEM("clouds", 33, 24, null, null, true, true,
 	new animateITEM(16, 16, [new animSet("seq", [4,0,2,1,3])], 49, 5));
 
 //tilebased objects
-var keyhole = new ITEM("empty", 20, 14, new boundArea(0,0,1,1), ["(you don't have | a key)"]);
+var keyhole = new ITEM("keyhole", 20, 14, new boundArea(0,0,1,1), ["(you don't have | a key)"]);
 
 
 var items = [keyhole, coin, poles, car, dummy, cloud1, cloud2, cloud3, cloud4];

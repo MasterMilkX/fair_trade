@@ -66,6 +66,12 @@ tradeObjIMG.src = "items/trades.png";
 var tradeReady = false;
 tradeObjIMG.onload = function(){tradeReady = true;};
 
+//endgame cover
+var endgameIMG = new Image();
+endgameIMG.src = "gui/end_game.png";
+var endgameReady = false;
+endgameIMG.onload = function(){endgameReady = true;};
+
 
 // directionals
 var upKey = 38;     //[Up]
@@ -346,7 +352,7 @@ function hitItem(person){
 	for(var i=0;i<items.length;i++){
 		var t = items[i];
 		var t_ba = t.area;
-		if(t_ba == null)
+		if(t_ba == null || !t.show)
 			continue;
 
 		//get bounding box area
@@ -952,9 +958,18 @@ function drawTrade(){
 		)
 }
 
+function drawEndGame(){
+	if(endgameReady && story.storyIndex == 1){
+		ctx.drawImage(endgameIMG,camera.x,camera.y);
+	}else if(!endgameReady){
+		endgameIMG.onload = function(){endgameReady = true;}
+	}
+}
+
 function drawGUI(){
 	//drawJournal();
 	drawTrade();
+	drawEndGame();
 	drawDialog();
 }
 
@@ -1210,13 +1225,18 @@ function actionKeys(){
 			if(canInteract(kyle, items[i]) && items[i].text){
 				story.trigger = "touch_" + items[i].name;
 				reInteract = false;
-				if(!story.cutscene){
-					kyle.other = items[i];
-					kyle.interact = true;
+				kyle.other = items[i];
+				kyle.interact = true;
+
+				if(!story.cutscene && !triggerWord(story.trigger)){
 					dialogue.text = items[i].text;
 					dialogue.index = 0;
+					typewrite();
+				}else{
+					dialogue.index = 0;
+					play();
+					typewrite();
 				}
-				typewrite();
 				return;
 			}
 		}
@@ -1358,7 +1378,7 @@ function main(){
 	var settings = "X: " + Math.round(kyle.x) + " | Y: " + Math.round(kyle.y);
 	settings += " --- Pix X: " + pixX + " | Pix Y: " + pixY;
 	settings += " --- " + story.cutscene + " | " + story.dialogue.index + " | " + story.taskIndex;
-
+	settings += " --- " + story.trigger
 	/*
 	if(npcs.length > 0){
 		settings += " --- " + npcs[0].lastPos;
@@ -1375,6 +1395,12 @@ function main(){
 
 	//console.log(keys);
 
+}
+
+function skip(quest, tradeItem, tradeIndex){
+	story.quest = quest;
+	kyle.tradeItem = tradeItem;
+	kyle.tradeIndex = tradeIndex;
 }
 
 main();
