@@ -186,9 +186,9 @@ End Game
 HINTS/SIDE CONVO
 +++++++++++++++++
 
-$ Item : FLUTE
+FLUTE
 ------
-Kimi : 	Yeah?
+	Kimi : 	Yeah?
 			> [Trade?]
 				...
 				Are you kidding?

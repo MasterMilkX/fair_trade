@@ -885,7 +885,7 @@ function drawDialog(){
 			//choice boxes
 			var cx = camera.x+3;
 			for(var c=0;c<choice.options.length;c++){
-				var cy = camera.y+95+(-((optionIMG.height-2)/2)*(sumLines(c)))
+				var cy = camera.y+95+(-((optionIMG.height-2)/2)*(sumLines(c)));
 
 				//var cy = camera.y+95+(-(optionIMG.height-1)*((sumLines(c)*11)+1));
 				ctx.drawImage(optionIMG, 0,0, optionIMG.width, optionIMG.height, 
@@ -922,7 +922,7 @@ function choiceText(text, lines, y) {
 	var texts = text.split(" | ");
 	ctx.font = "6px Gameboy";
 	for(var l=0;l<lines;l++){
-		ctx.fillText(texts[l], camera.x+7, y+(l*8));
+		ctx.fillText(texts[l], camera.x+7, y+(l*9));
 	}
 }	
 

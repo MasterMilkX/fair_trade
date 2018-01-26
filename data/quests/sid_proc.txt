@@ -1,0 +1,406 @@
+SID TRUE QUEST
++++++++++++++++
+
+$ Item : Token
+---------------
+	Sid :	
+			"Whoa!"
+			"Hey, I didn't | see you there!"
+			"How's it | going, dude? | I'm Sid"
+			> "Kyle"
+				"Nice... That's | a pretty great | name"
+			> "Name's | Kyle"
+				"Coolio dude!"
+				"Nice to meet | you"
+			> "I think | I'm Kyle"
+				"You think?"
+				"Well.. I'll | call you Kyle | until you feel | like being | called | something else"
+			> "Sup? I'm | Kyle"
+				"Man... you | seem cool | Kyle!"
+			"Hey do you | have any | records?"
+			"I've gotten | really into | vinyl lately"
+			> "Nope, | sorry"
+				"Ah no worries | my dude"
+				"They're hard | to come by | anyways"
+			> "No, but | I have | this"
+				"Have what?"
+			> "I broke | them"
+				"Aw bummer..."
+				"Oh well!"
+			"Yo! What's | that?"
+			> "A token?"
+				"A token..."
+				"That seems | about right!"
+			> "I don't | know"
+				"It looks super | cool though!"
+			> "I found | it"
+				"Whoa really? | Just like | that?"
+				"Must be lucky!"
+			"I'll trade you | something | really cool | for it"
+			"Really really | cool"
+			> "Deal"
+				"Sweet! Thanks!"
+				"(you give the | token to Sid)"
+				"Here you go my | dude"
+				"(you got a | mixtape from | Sid)"
+				"That's one of | my fire | mixtapes"
+				"I've been | meaning to | spread the | word and tell | people about | it"
+				"But it's still | needs | something..."
+				"Talk to people | about the | mixtape and | they'll | probably give | you stuff to | trade for it"
+				"If you can | find me the | thing that I | need, I'll | trade you | something even | cooler, Kyle"
+				"It'll be a | fair trade"
+				"& Activate Sid | Quest"
+			> "No deal"
+				"Aw c'mon"
+				"Really dude?"
+				"Are you | ABSOLUTELY | sure, Kyle?"
+				> "I | changed | my mind"
+					"*see [Deal] | above"
+				> "I don't | want it | anymore"
+					"*see [Deal] | above"
+				> "You can | have it"
+					"*see [Deal] | above"
+
+$ Item : Mixtape
+-----------------
+	Grace :	
+			"Oh! Is that | one of those | mixtapes I've | heard about?"
+			> "Trade?"
+				"Oh yes please!"
+				"(you give | Grace the | mixtape)"
+				"Thanks! I'm so | excited to | listen to it!"
+				"I found this | really pretty | gem - you can | have it"
+				"(you got a | sapphire from | Grace)"
+				"It matches | your hair and | clothes!"
+			> "Yeah | it's | fire"
+				"Oh wow! I | haven't | listened to it | yet"
+				"I'll be sure | to keep an | extinguisher | around"
+	
+$ Item : Sapphire
+------------------
+	Amber : 
+			"Ohmigosh! That | gem!"
+			> "Trade?"
+				"Wow really? | Thanks!"
+				"(you give the | sapphire to | Amber)"
+				"This'll look | great on my | crown"
+				"Here take | these"
+				"(you got | slippers from | Amber)"
+				"Those things | are super | comfy"
+				"They make you | feel like | you're walking | on air"
+			> "Razzle | Dazzle"
+				"?"
+				"Uh... ok?"
+
+$ Item : Slippers
+------------------
+	Kimi : 	
+			"Hmm... | slippers..."
+			> "Trade?"
+				"..."
+				"Sure..."
+				"They'll help | me sneak | around"
+				"(you give the | slippers to | Kimi)"
+				"I don't really | use this thing | anymore since | I have my | katana"
+				"So you can | have it"
+				"(you got a | staff from | Kimi)"
+				"Good for | whacking | people"
+			> "Click | your | heels"
+				"...why would I | do that?"
+				"This isn't | some kind of | fairy tale"
+
+$ Item : Staff
+---------------
+	Chi : 
+			"Oh my! That's | quite the | staff"
+			> "Trade?"
+				"It'd be my | pleasure"
+				"Staffs are the | perfect | instrument of | balance"
+				"(you give the | staff to Chi)"
+				"I've just | freshly brewed | some of this | tea"
+				"I'll give you | a cup"
+				"(you got tea | from Chi)"
+				"It's chai... I | think"
+			> "I know | kung fu"
+				"Is that so?"
+				"Can you | demonstrate | for me?"
+				> "I'd | rather | not"
+					"Understandable"
+					"Power like | that should be | reserved as | protection"
+				> "Of | course"
+					"(you try to | twirl the | staff but you | end up hitting | yourself in | the face)"
+					"..."
+					"*snicker*"
+
+
+$ Item : Tea
+-------------
+	Kay : 
+			"*sigh* This | armor can get | heavy"
+			> "Trade?"
+				"You want to | trade my | armor?"
+				"Wait is that | tea?"
+				"..."
+				"I can't give | you the | armor... But | I'm so | thirsty..."
+				"Tell you what | I'll give you | something else | that I've had | for a while"
+				"(you give the | tea to Kay)"
+				"(you got an EP | Record from | Kay)"
+				"I don't | remember who I | got that | record from..."
+				"And the band | sounds really | obscure"
+				"But thanks | for the tea!"
+			> "Can I | wear it?"
+				"?!"
+				"This armor is | for knights | only!"
+
+$ Item : EP Record
+-------------------
+	Sid : 
+			"Whoa! A | record! And my | favorite band | too!"
+			> "Trade?"
+				"Bro! It's just | what I wanted!"
+				"And in mint | condition too!"
+				"Kyle, my dude, | you've been a | real pal to | me."
+				"I want you to | have this"
+				"(you got a | special key | from Sid)"
+				"Fair trade | buddy"
+				"I'll see you | later!"
+				"& Activate Sid | End Game"
+			> "It's my | favorite | band too"
+				"Really?"
+				"What's your | favorite song?"
+				> "Uh"
+					"Oh man that's | a classic!"
+					"The guitar | solo is just | wicked"
+				> "I Can't | Remember"
+					"Oh that's | pretty popular"
+					"That's what | got me into | the band"
+				> "Generic | Songname"
+					"Dude! That's | the best one!"
+					"You have great | taste, Kyle"
+
+End Game
+---------
+: (you find yourself in a dark room filled with flashing blue neon lights, fog, and the static from a TV)
+: (you're sitting on a bean bag chair with a box of pizza, empty cans, and a video game controller in front of you)
+: (party music plays loudly but muffled in another area - the bass vibrating through your core)
+: (you feel a sense of peace... but incomplete)
+: (try again?)
+
+
+
+HINTS/SIDE CONVO
++++++++++++++++++
+
+MIXTAPE
+--------
+	Sid : 	
+			"Yo!"
+			> "Trade?"
+				"lol"
+				"I've listened | to that tape a | billion times | dude"
+				"Figured out | the perfect | sequence of | songs too!"
+			> "How can | I listen | to it?"
+				"Oh! Right! So!"
+				"... Um..."
+				"Hmm..."
+				"..."
+				"No clue..."
+	Kimi : 	
+			"...Is that a | tape?"
+			> "Yeah | it's | mixed"
+				"..."
+				"With what and | what?"
+	Chi :	
+			"Ah, a mixed | tape!"
+			> "Can | music | touch | you?"
+				"Music can | indeed touch | you"
+				"Make sure you | give consent | first"
+	Kay :	
+			"Cool mixtape."
+			> "Sid said | it's | fire"
+				"FIRE?!"
+				"Put it out!!"
+				"You could burn | down the | castle you | maniac!"
+	Amber : 
+			"Whoa, who's | hot jams?"
+			> "Sid made | it"
+				"No way!"
+				"He's got good | taste"
+				"Grace is a big | fan of his | tapes."
+
+SAPPHIRE
+---------
+	Grace : 
+			"Hi!"
+			> "Trade?"
+				"Oh I don't | need it back"
+				"I've stared at | it so much I'm | surprised I'm | not seeing | blue!"
+			> "The blue | is | really | pretty"
+				"Yeah!"
+				"It matches | your hair and | clothes!"
+	Kimi : 	
+			"Where'd you | get that | sapphire?"
+			> "Grace | gave it | to me"
+				"Hmm..."
+				"Nice shade of | blue..."
+				"Amber will | probably go | crazy for that | gem"
+	Chi :	
+			"A sapphire - | I've never | seen anything | so blue"
+			> "What | about | the sky?"
+				"..."
+				"The sky?"
+				"I thought the | sky was | multicolored | pixels"
+	Kay :	
+			"Agh! That gem | is so shiny | it's blinding!"
+			> "(point | it at | Kay)"
+				"AGH! My eyes!!"
+	Sid : 	
+			"Dude! That's | the coolest | rock I've ever | seen!"
+			> "How many | rocks | have you | seen?"
+				"At least..."
+				"..."
+				"15!"
+
+SLIPPERS
+---------
+	Amber : 
+			"Hey~"
+			> "Trade?"
+				"Boy! I gave | you those | slippers, | remember?"
+				"*sigh* You're | funny"
+			> "Do you | have | these in | a size | 10?"
+				"Um..."
+				"I don't think | so"
+	Grace : 
+			"Aw! Cute | slippers!"
+			> "Cute?"
+				"Definitely!"
+				"If they were | bunnies they'd | be even cuter!"
+	Chi :	
+			"Those slippers | look | comfortable"
+			> "Ultimate | comfort"
+				"That's a key | to happiness!"
+				"Live as | comfortably as | possible."
+	Kay :	
+			"Are those | magic | slippers?"
+			> "Magic?"
+				"Slippers can | make you move | quietly"
+				"Like a ninja | or something"
+				"Kimi would | know"
+	Sid : 	
+			"Slippers?"
+			> "Fancy | socks"
+				"Bro!"
+				"You make a | good point!"
+
+STAFF
+------
+	Kimi : 	
+			"Yeah?"
+			> "Trade?"
+				"..."
+				"I gave you | that staff"
+				"I'll stick | with my katana"
+			> "Wanna | go?"
+				"..."
+				"You know the | reason I gave | you that staff | was because I | upgraded to a | katana"
+				"Which means my | weapon is | better than | the one you | currently have"
+				"Are you | serious?"
+				> "Yeah | let's | fight!"
+					"Omae wa mou | shindeiru"
+					"(nani?)"
+					"(you get hit | in the face | with the butt | of Kimi's | katana)"
+					"I'll kill you | - I'm not even | worried about | it"
+				> "I | changed | my mind"
+					"Smart"
+	Grace : 
+			"*gasp* That | staff!"
+			> "What | about | it?"
+				"It looks so | cool!"
+				"It makes you | look like a | kung fu | master!"
+				"Just like Chi!"
+	Amber :	
+			"That's a | really long | stick!"
+			> "It's a | staff"
+				"Huh..."
+				"Must have came | from a really | tall tree"
+	Kay :	
+			"Hey! Watch | where you | swing that | thing!"
+			> "Huh?"
+				"(you turn | around | swinging the | staff)"
+				"AGH!"
+				"(Kay ducks | down)"
+				"Careful!!"
+	Sid : 	
+			"Can that thing | make you fly, | Kyle?"
+			> "Fly?"
+				"Yeah dude!"
+				"I saw a staff | that could | make a guy fly | one time!"
+
+TEA
+----
+	Chi :	
+			"Hello!"
+			> "Trade?"
+				"Oh I've got | plenty of tea"
+				"You should | share the tea | I gave you | with someone | who needs it"
+			> "Please | sir, may | I have | some | more?"
+				"You must empty | your cup | before you can | fill it again"
+	Grace : 
+			"Ooo, tea!"
+			> "Want | some?"
+				"I'd love to"
+				"But | unfortunately | tea just goes | straight | through me"
+				"Figuratively | and literally!"
+	Amber :	
+			"Is that tea?"
+			> "Yep"
+				"Hmm..."
+				"I'm more of a | iced | sugar-free | vanilla latte | with soy milk | and caramel | drizzle kind | of girl"
+	Kimi :	
+			"Hmm... smells | like chai"
+			> "It is"
+				"Ah..."
+				"Personally, I | think jasmine | is better"
+	Sid : 	
+			"Hey, tea!"
+			> "Thirsty?"
+				"Oh nah bro. | I've got | enough energy | drinks to keep | me awake for | an eternity"
+				"Kay is | probably | thirsty from | patrolling | that castle | though"
+				"And wearing | that heavy | armor"
+
+EP Record
+----------
+	Kay :	
+			"Oh... hi!"
+			> "Trade?"
+				"Um..."
+				"Actually... I | gave that | record to you"
+				"I don't have | time to play | it"
+				"I've got a | castle to | protect!"
+			> "How do I | play | this?"
+				"I think some | kind of spinny | thing"
+				"I've seen them | before | somewhere"
+				"Can't | remember..."
+	Grace : 
+			"What a cool | disk!"
+			> "Wanna | play | frisbee?"
+				"Oh my | coordination | is awful"
+				"I'm not very | good at | catching | anything"
+				"I can't even | catch a cold!"
+	Kimi : 	
+			"Who's record | is that?"
+			> "Kay's"
+				"..."
+				"Kay listens to | music?"
+				"I didn't think | he could hear | anything | through that | metal helmet"
+	Chi : 	
+			"Ah, an | old-fashioned | vinyl record"
+			> "Old?"
+				"Sid used to | have some a | very long time | ago"
+				"His music | choice was..."
+				"...unique"
+	Amber : 
+			"Hey, that's | pretty retro!"
+			> "Groovy | man"
+				"Right on!"
