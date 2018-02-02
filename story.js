@@ -698,7 +698,177 @@ else if(story.quest === "Introduction"){
 		}
 	}
 
-
+	///////////////////
+	//START CHI QUEST//
+	///////////////////
+	if(story.kyle.other.name === "Chi"){
+		if(trigger === "talk_Chi"){
+			story.cutscene = true;
+			if(taskIndex == 0){
+				newDialog(["Oh, hello",
+					"How are you | today?"]);
+			}else if(taskIndex == 1){
+				newChoice(["Great!", "I'm not | sure", "Meh"]);
+			}
+		}
+		//how are you?
+		else if(trigger === "> Great!"){
+			if(taskIndex == 2){
+				endChoice();
+				newDialog(["That's fantastic!",
+				"I hope your day | continues to stay | positive!",
+				"Nice to meet you",
+				"My name is Chi",
+				"And you are?"])
+			}else if(taskIndex == 3){
+				newChoice(["Kyle", "Kyle I | suppose", "You can | call me | Kyle", "I am | Kyle"])
+			}
+		}else if(trigger === "> I'm not | sure"){
+			if(taskIndex == 2){
+				endChoice();
+				newDialog(["Well that's | alright",
+				"The day still has | potential to | become | interesting!",
+				"Nice to meet you",
+				"My name is Chi",
+				"And you are?"])
+			}else if(taskIndex == 3){
+				newChoice(["Kyle", "Kyle I | suppose", "You can | call me | Kyle", "I am | Kyle"])
+			}
+		}else if(trigger === "> Meh"){
+			if(taskIndex == 2){
+				endChoice();
+				newDialog(["Oh I'm sorry to | hear that",
+				"Well there's | always tomorrow!",
+				"Nice to meet you",
+				"My name is Chi",
+				"And you are?"])
+			}else if(taskIndex == 3){
+				newChoice(["Kyle", "Kyle I | suppose", "You can | call me | Kyle", "I am | Kyle"])
+			}
+		}
+		//name
+		else if(trigger === "> Kyle"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Kyle?",
+				"The name suits | you!",
+				"Apologies for | intruding... But | what is that item | you have there?"])
+			}else if(taskIndex == 5){
+				newChoice(["This?", "A token", "It's an | illusion"]);
+			}
+		}else if(trigger === "> Kyle I | suppose"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["You suppose?",
+				"Well if that's | what feels right | to you, then Kyle | it shall be",
+				"Apologies for | intruding... But | what is that item | you have there?"])
+			}else if(taskIndex == 5){
+				newChoice(["This?", "A token", "It's an | illusion"]);
+			}
+		}else if(trigger === "> You can | call me | Kyle"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Excellent!",
+				"Kyle it is!",
+				"Apologies for | intruding... But | what is that item | you have there?"])
+			}else if(taskIndex == 5){
+				newChoice(["This?", "A token", "It's an | illusion"]);
+			}
+		}else if(trigger === "> I am | Kyle"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Ah, Kyle!",
+				"What a great | name!",
+				"Apologies for | intruding... But | what is that item | you have there?"])
+			}else if(taskIndex == 5){
+				newChoice(["This?", "A token", "It's an | illusion"]);
+			}
+		}
+		//token
+		else if(trigger === "> This?"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["Ah yes!",
+				"That item you | have is very | special!",
+				"I have a | proposition...",
+				"I'll trade you | something in my | possession for | that token in | your possession",
+				"And I'll trade | you whatever else | you want or need | if you can bring | me another item",
+				"Do we have a | deal?"])
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}else if(trigger === "> A token"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["A token!",
+				"I haven't seen | one in ages!",
+				"I have a | proposition...",
+				"I'll trade you | something in my | possession for | that token in | your possession",
+				"And I'll trade | you whatever else | you want or need | if you can bring | me another item",
+				"Do we have a | deal?"])
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}else if(trigger === "> It's an | illusion"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["Haha! Kyle...",
+				"I know illusions | when I see one - | and that right | there is not an | illusion",
+				"I have a | proposition...",
+				"I'll trade you | something in my | possession for | that token in | your possession",
+				"And I'll trade | you whatever else | you want or need | if you can bring | me another item",
+				"Do we have a | deal?"])
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}
+		//deal or no deal
+		else if(trigger === "> Deal"){
+			if(taskIndex == 8){
+				endChoice();
+				newDialog(["Fantastic!",
+				"(you give the | token to Chi)",
+				"And as promised, | here is my item",
+				"(you got an | energy ball from | Chi)",
+				"That's pure | energy",
+				"Someone else in | the world could | make some good | use of that",
+				"If you find that | someone, you can | start a chain of | trading and end | up with something | of greater value",
+				"Return to me when | you think you've | got an item I | could use",
+				"I'll make it a | fair trade"])
+			}else if(taskIndex == 9){
+				story.quest = "Chi"
+				story.kyle.tradeItem = "energy ball";
+				story.kyle.tradeIndex = 28;
+				endScene();
+			}
+		}else if(trigger === "> No deal"){
+			if(taskIndex == 8){
+				endChoice();
+				newDialog(["Aahh... Kyle...",
+					"Reconsider my | offer CAREFULLY",])
+			}else if(taskIndex == 9){
+				newChoice(["Never | mind", "My | mistake", "You can | have it"])
+			}
+		}else if((trigger === "> Never | mind") || (trigger === "> My | mistake") || (trigger === "> You can | have it")){
+			if(taskIndex == 10){
+				endChoice();
+				newDialog(["A wise decision | friend",
+				"(you give the | token to Chi)",
+				"And as promised, | here is my item",
+				"(you got an | energy ball from | Chi)",
+				"That's pure | energy",
+				"Someone else in | the world could | make some good | use of that",
+				"If you find that | someone, you can | start a chain of | trading and end | up with something | of greater value",
+				"Return to me when | you think you've | got an item I | could use",
+				"I'll make it a | fair trade"])
+			}else if(taskIndex == 11){
+				story.quest = "Chi"
+				story.kyle.tradeItem = "energy ball";
+				story.kyle.tradeIndex = 28;
+				endScene();
+			}
+		}
+	}
 }
 
 
@@ -1544,8 +1714,7 @@ else if(story.quest === "Kimi"){
 		}else if(trigger === "> No"){
 			if(taskIndex == 4){
 				endChoice();
-				endScene();
-				story.cutscene = true;
+				newDialog(["GAME OVER"]);
 			}
 		}else if(trigger === "> Yes"){
 			if(taskIndex == 4){
@@ -2542,8 +2711,7 @@ else if(story.quest === "Sid"){
 		}else if(trigger === "> No"){
 			if(taskIndex == 4){
 				endChoice();
-				endScene();
-				story.cutscene = true;
+				newDialog(["GAME OVER"]);
 			}
 		}else if(trigger === "> Yes"){
 			if(taskIndex == 4){
@@ -3549,8 +3717,7 @@ else if(story.quest === "Grace"){
 		}else if(trigger === "> No"){
 			if(taskIndex == 4){
 				endChoice();
-				endScene();
-				story.cutscene = true;
+				newDialog(["GAME OVER"]);
 			}
 		}else if(trigger === "> Yes"){
 			if(taskIndex == 4){
@@ -3566,5 +3733,990 @@ else if(story.quest === "Grace"){
 	}
 }
 
+
+
+
+else if(story.quest === "Chi"){
+	//energy ball
+	if(story.kyle.tradeItem === "energy ball"){
+		if(story.kyle.other == null)
+			return;
+		//non questors
+		if(story.kyle.other.name === "Chi"){
+			if(trigger === "talk_Chi"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Why hello!"])
+				}else if(taskIndex == 1){
+					newChoice(["Trade?",  "What | kind of | energy | is this?"]);
+				}
+			}else if(trigger === "> Trade?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Oh I gave you | that energy ball | if I recall | correctly",
+						"You should trade | it with someone | else who needs | the energy",
+						"Quickly! While | it's still fresh | and raw!"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}else if(trigger === "> What | kind of | energy | is this?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["That is pure raw | energy!",
+						"Condensed into a | small sphere!",
+						"It's both chaotic | and balanced | power all in one"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Kimi"){
+			if(trigger === "talk_Kimi"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["...What's that | glowing ball?"]);
+				}else if(taskIndex == 1){
+					newChoice(["Pure | energy"]);
+				}
+			}else if(trigger === "> Pure | energy"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Pure? Yeah | right...",
+						"It's probably | watered down with | an energy drink"])
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Sid"){
+			if(trigger === "talk_Sid"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Wow! That's a | huge energy ball!"]);
+				}else if(taskIndex == 1){
+					newChoice(["It took | 7 | episodes | to form"]);
+				}
+			}else if(trigger === "> It took | 7 | episodes | to form"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Only 7?",
+						"I've waited whole | seasons to make | energy like that"])
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Kay"){
+			if(trigger === "talk_Kay"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Wait! What's | that?"]);
+				}else if(taskIndex == 1){
+					newChoice(["Kaaaa | meeee"]);
+				}
+			}else if(trigger === "> Kaaaa | meeee"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["(the energy ball | glows)",
+					"Wait! Don't do | it!"])
+				}else if(taskIndex == 3){
+					newChoice(["Rasengan", "haaa | meee"]);
+				}
+			}else if(trigger === "> Rasengan"){
+				if(taskIndex == 4){
+					endChoice();
+					newDialog(["(a tiny ball of | energy forms in | your palm but | fizzles out)",
+						"Ha! You're | technique has | failed you!",
+						"You need more | training!"])
+				}else if(taskIndex == 5){
+					endScene();
+				}
+			}else if(trigger === "> haaa | meee"){
+				if(taskIndex == 4){
+					endChoice();
+					newDialog(["(the energy ball | glows brighter)",
+					"I'm warning you!"])
+				}else if(taskIndex == 5){
+					newChoice(["HA!", "HADOUKEN"]);
+				}
+			}else if(trigger === "> HA!"){
+				if(taskIndex == 6){
+					endChoice();
+					newDialog(["(a beam of energy | explodes from | your hands just | barely missing | Kay)",
+						"AAGHGHGHGHGH!!!!"])
+				}else if(taskIndex == 7){
+					endScene();
+				}
+			}else if(trigger === "> HADOUKEN"){
+				if(taskIndex == 6){
+					endChoice();
+					newDialog(["(a small blast of | energy comes out | of your hands but | fizzles out)",
+						"Heh! You had me | going there for | a second!"])
+				}else if(taskIndex == 7){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Amber"){
+			if(trigger === "talk_Amber"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["*gasp* Is that | one of those | fancy night | lights?"]);
+				}else if(taskIndex == 1){
+					newChoice(["Not | really?"]);
+				}
+			}else if(trigger === "> Not | really?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Ugh... that's | lame",
+						"It's pretty | though - Grace | would probably | love it | regardless"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}
+
+
+		//main questor
+		else if(story.kyle.other.name === "Grace"){
+			if(trigger === "talk_Grace"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Whoa! What is | that?",
+						"It's like a | bouncy ball full | of energy!"])
+				}else if(taskIndex == 1){
+					newChoice(["Trade?", "Bouncy?"]);
+				}
+			}else if(trigger === "> Trade?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Sure! I'd have so | much fun bouncing | it!",
+						"(you give the | energy ball to | Grace)",
+						"Oh man! It's just | full of energy!",
+						"Here you can have | this!",
+						"(you got poison | from Grace)",
+						"I honestly can't | remember where it | came from",
+						"It smells kinda | bitter so I | wouldn't | recommend | drinking it"]);
+				}else if(taskIndex == 3){
+					story.kyle.tradeItem = "poison";
+					story.kyle.tradeIndex = 29;
+					endScene();
+				}
+			}else if(trigger === "> Bouncy?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Yeah!",
+						"It looks like one | of those little | balls you get out | of a toy capsule | machine"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}
+	}
+	//poison
+	else if(story.kyle.tradeItem === "poison"){
+		if(story.kyle.other == null)
+			return;
+		//non questors
+		if(story.kyle.other.name === "Grace"){
+			if(trigger === "talk_Grace"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Hiya!"]);
+				}else if(taskIndex == 1){
+					newChoice(["Trade?", "Poison | is bad"]);
+				}
+			}else if(trigger === "> Trade?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Aw... I don't | want it back but | thanks",
+						"Solids and | liquids don't | really have an | effect on me | anyways",
+						"I miss vanilla | cake soooo much!"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}else if(trigger === "> Poison | is bad"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["You're right!",
+						"But one man's | poison is | another's elixir",
+						"...That's the | saying right?"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Sid"){
+			if(trigger === "talk_Sid"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Hey, what kind of | drink is that?"]);
+				}else if(taskIndex == 1){
+					newChoice(["Bitter | kind"]);
+				}
+			}else if(trigger === "> Bitter | kind"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Bitter? Bleh!",
+						"Kimi likes bitter | drinks though",
+						"I'll never | understand it"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Chi"){
+			if(trigger === "talk_Chi"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Poison?!"]);
+				}else if(taskIndex == 1){
+					newChoice(["Have you | seen | this?"]);
+				}
+			}else if(trigger === "> Have you | seen | this?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Only once before",
+						"I wouldn't hold | onto that for | long",
+						"It might slip | into your skin | and give you | negative feelings"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Kay"){
+			if(trigger === "talk_Kay"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["*gasp* ASSASSIN!"]);
+				}else if(taskIndex == 1){
+					newChoice(["What?"]);
+				}
+			}else if(trigger === "> What?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["You're here to | poison Amber!",
+						"I won't let you, | fiend!",
+						"You'll have to | get past me and | my | semi-predictable | patrol route!"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Amber"){
+			if(trigger === "talk_Amber"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Ooo! Is that | perfume?"]);
+				}else if(taskIndex == 1){
+					newChoice(["Nope!"]);
+				}
+			}else if(trigger === "> Nope!"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Pssh...",
+						"You're probably | just trying to | hog it all for | yourself",
+						"I see you"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}
+
+		//main questor
+		else if(story.kyle.other.name === "Kimi"){
+			if(trigger === "talk_Kimi"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["That poison..."])
+				}else if(taskIndex == 1){
+					newChoice(["Trade?", "What | kind of | poison | is it?"]);
+				}
+			}else if(trigger === "> Trade?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["I guess...",
+						"It's good for | ninja | assassination | missions",
+						"(you give the | poison to Kimi)",
+						"Take this",
+						"(you got an arrow | head from Kimi)",
+						"I found it a | while back stuck | in my ninja poles",
+						"I don't have a | bow to use it so | it's no use to me",
+						"Besides... blades | are better"]);
+				}else if(taskIndex == 3){
+					story.kyle.tradeItem = "arrow head";
+					story.kyle.tradeIndex = 30;
+					endScene();
+				}
+			}else if(trigger === "> What | kind of | poison | is it?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["...Nightshade",
+						"Also known as | belladonna"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}
+	}
+	//arrow head
+	else if(story.kyle.tradeItem === "arrow head"){
+		if(story.kyle.other == null)
+			return;
+		//non questors
+		if(story.kyle.other.name === "Kimi"){
+			if(trigger === "talk_Kimi"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["What?"]);
+				}else if(taskIndex == 1){
+					newChoice(["Trade?", "Who shot | the | arrow?"]);
+				}
+			}else if(trigger === "> Trade?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Didn't you hear | me before?",
+						"I don't have a | bow so why would | I want it back?"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}else if(trigger === "> Who shot | the | arrow?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["...Beats me",
+						"Rival ninjas I | guess?"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Sid"){
+			if(trigger === "talk_Sid"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Whoa that looks | so cool!"]);
+				}else if(taskIndex == 1){
+					newChoice(["How | cool?"]);
+				}
+			}else if(trigger === "> How | cool?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Like wearing | sunglasses | indoors, socks | with sandals, and | frosted hair | kinda cool!",
+						"Ironically cool!"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Chi"){
+			if(trigger === "talk_Chi"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["What a sharp | arrow head"]);
+				}else if(taskIndex == 1){
+					newChoice(["Pointy | too"]);
+				}
+			}else if(trigger === "> Pointy | too"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["I wouldn't | recommend | shooting it in | the air then",
+						"Unless you want | to add a bit of | extra danger to | your life",
+						"We all have our | own little | hobbies"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Grace"){
+			if(trigger === "talk_Grace"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["I like your metal | triangle!"]);
+				}else if(taskIndex == 1){
+					newChoice(["I think | it's a | diamond"]);
+				}
+			}else if(trigger === "> I think | it's a | diamond"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["That's a cool | shape too!",
+						"It matches Kay's | metal cylindar | helmet thingy"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Amber"){
+			if(trigger === "talk_Amber"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["What's that rock?"]);
+				}else if(taskIndex == 1){
+					newChoice(["An arrow | head"]);
+				}
+			}else if(trigger === "> An arrow | head"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Head?",
+						"Where's the rest | of it's body | then?"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}
+
+		//main questor
+		else if(story.kyle.other.name === "Kay"){
+			if(trigger === "talk_Kay"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Agh! That looks | pointy!"])
+				}else if(taskIndex == 1){
+					newChoice(["Trade?", "Wanna | play | darts?"]);
+				}
+			}else if(trigger === "> Trade?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Uh... yeah I'll | take it off your | hands",
+						"That's a | dangerous weapon! | It must be put in | good hands",
+						"(you give the | arrow head to | Kay)",
+						"Well... you can | have this",
+						"(you got a horn | from Kay)",
+						"I'm the only one | protecting the | castle so it's | not like I can | call anyone with | it"]);
+				}else if(taskIndex == 3){
+					story.kyle.tradeItem = "horn";
+					story.kyle.tradeIndex = 31;
+					endScene();
+				}
+			}else if(trigger === "> Wanna | play | darts?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Definitely not!",
+						"You'll shoot my | eye out!",
+						"And I don't trust | your aim"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}
+		
+	}
+	//horn
+	else if(story.kyle.tradeItem === "horn"){
+		if(story.kyle.other == null)
+			return;
+		//non questors
+		if(story.kyle.other.name === "Kay"){
+			if(trigger === "talk_Kay"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Oh! Uh, hi"]);
+				}else if(taskIndex == 1){
+					newChoice(["Trade?", "How do I | play it?"]);
+				}
+			}else if(trigger === "> Trade?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["I gave you that | horn",
+						"You don't want it | anymore?!",
+						"That horn's been | passed down for | generations!"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}else if(trigger === "> How do I | play it?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["You shouldn't | ever!",
+						"It's only to be | used in dire | emergencies!",
+						"Like an invasion | or flying snake | attack"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Sid"){
+			if(trigger === "talk_Sid"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Dude! Blow that | horn!"]);
+				}else if(taskIndex == 1){
+					newChoice(["doot | doot!"]);
+				}
+			}else if(trigger === "> doot | doot!"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Yeah man!",
+						"We should throw a | parade",
+						"But...",
+						"Confetti is kinda | hard to come by | these days...",
+						"And floats are | hard to make...",
+						"...",
+						"We can keep it in | mind!"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Chi"){
+			if(trigger === "talk_Chi"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Is that Kay's | horn?"]);
+				}else if(taskIndex == 1){
+					newChoice(["Awoooo!"]);
+				}
+			}else if(trigger === "> Awoooo!"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Uh oh...",
+						"Kay only blows | that horn for | trouble",
+						"Now Amber will | think something's | wrong",
+						"You better go | calm her down",
+						"Tell her to | remember her deep | breathing"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Grace"){
+			if(trigger === "talk_Grace"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Wowsers! A real | horn!"]);
+				}else if(taskIndex == 1){
+					newChoice(["Noot | noot!"]);
+				}
+			}else if(trigger === "> Noot | noot!"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Aaaaawww!",
+						"You sound just | like a baby | penguin!"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Kimi"){
+			if(trigger === "talk_Kimi"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["What the..."]);
+				}else if(taskIndex == 1){
+					newChoice(["brrpphh!"]);
+				}
+			}else if(trigger === "> brrpphh!"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["(Kimi doesn't | flinch but looks | very annoyed)",
+						"(she continues to | stare at you and | slowly reaches | for her katana's | hilt)"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}
+
+		//main questor
+		if(story.kyle.other.name === "Amber"){
+			if(trigger === "talk_Amber"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Hey is that a | horn?"])
+				}else if(taskIndex == 1){
+					newChoice(["Trade?", "Toot | toot!"]);
+				}
+			}else if(trigger === "> Trade?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Sure!",
+						"I can use it to | call Kay whenever | I need him to get | me something",
+						"(you give the | horn to Amber)",
+						"Speaking of which | - I'm done with | this pizza he | brought me",
+						"You can have the | leftovers!",
+						"(you got pizza | from Amber)",
+						"There's enough | slices left to | share",
+						"Or save for later | - your choice"]);
+				}else if(taskIndex == 3){
+					story.kyle.tradeItem = "pizza";
+					story.kyle.tradeIndex = 32;
+					endScene();
+				}
+			}else if(trigger === "> Toot | toot!"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Yaass!",
+						"Blow that horn, | boi!"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}
+		
+	}
+	
+	//pizza
+	else if(story.kyle.tradeItem === "pizza"){
+		if(story.kyle.other == null)
+			return;
+		//non questors
+		if(story.kyle.other.name === "Amber"){
+			if(trigger === "talk_Amber"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Hey there!"]);
+				}else if(taskIndex == 1){
+					newChoice(["Trade?", "Is this | deep | dish?"]);
+				}
+			}else if(trigger === "> Trade?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Noooo way!",
+						"I'm going on a | diet so I don't | even wanna look | at that pizza | anymore",
+						"Despite how | deliciously | mouthwatering it | looks"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}else if(trigger === "> Is this | deep | dish?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Deeper than Chi's | philosophical | questions!"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Kay"){
+			if(trigger === "talk_Kay"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["That pizza looks | familiar..."]);
+				}else if(taskIndex == 1){
+					newChoice(["Uh..."]);
+				}
+			}else if(trigger === "> Uh..."){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Hey that's | Amber's favorite!",
+						"You two have | similar taste!",
+						"She and Sid were | the only ones I | knew of who like | deep dish",
+						"But now there's 3 | on that list"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Chi"){
+			if(trigger === "talk_Chi"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["*achoo*"]);
+				}else if(taskIndex == 1){
+					newChoice(["Are you | ok?"]);
+				}
+			}else if(trigger === "> Are you | ok?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Yes I'm fine",
+						"I'm just allergic | to cheese",
+						"I'm lactose | intolerant you | see"]);
+				}else if(taskIndex == 3){
+					newChoice(["So you | sneezed?", "What | about | milk?",  "Can you | cut | cheese?"]);
+				}
+			}else if(trigger === "> So you | sneezed?"){
+				if(taskIndex == 4){
+					endChoice();
+					newDialog(["It's the smell of | the cheese",
+						"...",
+						"I wouldn't | question it too | much"])
+				}else if(taskIndex == 5){
+					endScene();
+				}
+			}else if(trigger === "> What | about | milk?"){
+				if(taskIndex == 4){
+					endChoice();
+					newDialog(["Oh milk is | absolutely fine",
+					"It's one of my | favorite drinks | actually",
+						"...",
+						"I wouldn't | question it too | much"])
+				}else if(taskIndex == 5){
+					endScene();
+				}
+			}else if(trigger === "> Can you | cut | cheese?"){
+				if(taskIndex == 4){
+					endChoice();
+					newDialog(["Heheh...",
+						"I can...",
+						"...",
+						"I wouldn't | question it too | much"])
+				}else if(taskIndex == 5){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Grace"){
+			if(trigger === "talk_Grace"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Oooo pizza!"]);
+				}else if(taskIndex == 1){
+					newChoice(["Want a | slice?"]);
+				}
+			}else if(trigger === "> Want a | slice?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["No thank you!",
+					"I'm more of a | calzone and pizza | roll kinda gal",
+					"I also can't eat",
+					"I'm a little | dead",
+					"Hehe!"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Kimi"){
+			if(trigger === "talk_Kimi"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["...Is that pizza?"]);
+				}else if(taskIndex == 1){
+					newChoice(["Cheesy | goodness"]);
+				}
+			}else if(trigger === "> Cheesy | goodness"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Ha...",
+						"A greasy mess is | more like it"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}
+		
+
+		//main questor
+		if(story.kyle.other.name === "Sid"){
+			if(trigger === "talk_Sid"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Yo! Is that a | pizza?"])
+				}else if(taskIndex == 1){
+					newChoice(["Trade?", "I need | more | pizza"]);
+				}
+			}else if(trigger === "> Trade?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Oh bro! Thanks!",
+						"(you give the | pizza to Sid)",
+						"Now I can eat all | the pizza I want",
+						"Here I still have | this box that was | sitting in my car",
+						"(you got takeout | food from Sid)",
+						"I think it was | only in there | for...",
+						"...A week?",
+						"It should still | be good though!"]);
+				}else if(taskIndex == 3){
+					story.kyle.tradeItem = "takeout food";
+					story.kyle.tradeIndex = 33;
+					endScene();
+				}
+			}else if(trigger === "> I need | more | pizza"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["No problemo dude!",
+						"I know the secret | to make infinite | pizza",
+						"(Sid cuts a large | rectangle down | the middle of the | pizza)",
+						"(he merges the 2 | leftover halves | back into one to | make it whole)",
+						"Ta-da! Infinite | pizza"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}
+	}
+	//takeout food
+	else if(story.kyle.tradeItem === "takeout food"){
+		if(story.kyle.other == null)
+			return;
+		//non questors
+		if(story.kyle.other.name === "Sid"){
+			if(trigger === "talk_Sid"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Heyo!"]);
+				}else if(taskIndex == 1){
+					newChoice(["Trade?", "What's | this | green | stuff?"]);
+				}
+			}else if(trigger === "> Trade?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Ah bro I couldn't | eat another bite | of that",
+						"It actually | started making me | sick",
+						"...Because of how | much I ate!",
+						"Definitely not | because of the | age... heh heh..."]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}else if(trigger === "> What's | this | green | stuff?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["?",
+						"Oh! Uh...",
+						"Vegetables I | hope!"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Kimi"){
+			if(trigger === "talk_Kimi"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["!",
+						"UGH! What is | that?!"]);
+				}else if(taskIndex == 1){
+					newChoice(["Takeout | food"]);
+				}
+			}else if(trigger === "> Takeout | food"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["That smells worse | than a stink | bomb!",
+						"Chi would | probably eat | that garbage",
+						"I don't think | he's ever had a | sense of smell"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Kay"){
+			if(trigger === "talk_Kay"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["*sniff sniff*",
+						"(Kay dry heaves)",
+						"HRRGHH!"]);
+				}else if(taskIndex == 1){
+					newChoice(["(open | the box)"]);
+				}
+			}else if(trigger === "> (open | the box)"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["...Why...",
+						"...must you...",
+						"...torture me...",
+						"...villain?!",
+						"(Kay faints)"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Grace"){
+			if(trigger === "talk_Grace"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["*gasp* What a | cute little box!"]);
+				}else if(taskIndex == 1){
+					newChoice(["It's a | takeout | box"]);
+				}
+			}else if(trigger === "> It's a | takeout | box"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["It's so compact | and efficient!",
+						"It's like a tiny | white lunchbox!"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}else if(story.kyle.other.name === "Amber"){
+			if(trigger === "talk_Amber"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["OMG What is | that smell?!"]);
+				}else if(taskIndex == 1){
+					newChoice(["Did you | fart?"]);
+				}
+			}else if(trigger === "> Did you | fart?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["What?!",
+						"A lady never | farts!",
+						"...When other | people are | present at least",
+						"It's like that | tree falling in | the forest | anecdote"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}
+
+		//main questor
+		if(story.kyle.other.name === "Chi"){
+			if(trigger === "talk_Chi"){
+				story.cutscene = true;
+				if(taskIndex == 0){
+					newDialog(["Is that takeout | food?"])
+				}else if(taskIndex == 1){
+					newChoice(["Trade?", "Smells | bad?"]);
+				}
+			}else if(trigger === "> Trade?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["Oh that'd be just | amazing!",
+						"(you give the | takeout food to | Chi)",
+						"Aaahh... noodles! | My favorite!",
+						"Tonight I shall | feast!",
+						"Thank you again, | Kyle",
+						"I am a monkey of | my word so here | you are",
+						"(you got a | special key from | Chi)",
+						"Safe travels, my | friend"]);
+				}else if(taskIndex == 3){
+					story.kyle.tradeItem = "special key";
+					story.kyle.tradeIndex = 34;
+					endScene();
+				}
+			}else if(trigger === "> Smells | bad?"){
+				if(taskIndex == 2){
+					endChoice();
+					newDialog(["No the opposite!",
+						"I haven't eaten | food in an | eternity so | everything smells | delicious",
+						"Perks of fasting | I suppose"]);
+				}else if(taskIndex == 3){
+					endScene();
+				}
+			}
+		}
+	}
+	//special key
+	else if(story.kyle.tradeItem === "special key"){
+		if(story.kyle.other == null)
+			return;
+
+		if(trigger === "talk_Grace" || trigger === "talk_Chi" || trigger === "talk_Sid" || trigger === "talk_Amber" || trigger === "talk_Kay" || trigger === "talk_Kimi"){
+			story.cutscene = true;
+			if(taskIndex == 0){
+				newDialog(["Use the key"])
+			}else if(taskIndex == 1){
+				endScene();
+			}
+		}
+
+		if(trigger === "touch_keyhole"){
+			story.cutscene = true;
+			if(taskIndex == 0){
+				newDialog(["Use the key?"])
+			}else if(taskIndex == 1){
+				newChoice(["Leave", "Stay"]);
+			}
+		}else if(trigger === "> Stay"){
+			if(taskIndex == 2){
+				endChoice();
+				endScene();
+			}
+		}
+		//epilogue
+		else if(trigger === "> Leave"){
+			if(taskIndex == 2){
+				endChoice();
+				story.storyIndex = 1;
+				newDialog(["(you find | yourself on a | mountain cliff | with a running | waterfall on | either side of | you)",
+					"(you're sitting | on a bed of | flowers | surrounded by | warm candles and | a plate of wafer | cookies)",
+					"(the sunset in | the distance | makes the sky a | deep red-orange | mixture and you | hear bells chime | in the distance)",
+					"(you feel a | sense of peace - | but incomplete)",
+					"(try again?)"])
+			}else if(taskIndex == 3){
+				newChoice(["Yes", "No"]);
+			}
+		}else if(trigger === "> No"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["GAME OVER"]);
+			}
+		}else if(trigger === "> Yes"){
+			if(taskIndex == 4){
+				endChoice();
+				story.quest = "Begin";
+				story.storyIndex = 0;
+				story.kyle.tradeItem = "none";
+				story.kyle.tradeIndex = 0;
+				coin.show = true;
+				endScene();
+			}
+		}
+	}
+}
 
 }

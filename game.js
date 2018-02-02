@@ -704,6 +704,9 @@ function checkRender(){
 	//kyle
 	if(!kyle.ready){
 		kyle.img.onload = function(){kyle.ready = true;}
+		if(kyle.img.width !== 0){
+			kyle.ready = true;
+		}
 	}
 
 	//npcs
@@ -1401,6 +1404,7 @@ function skip(quest, tradeItem, tradeIndex){
 	story.quest = quest;
 	kyle.tradeItem = tradeItem;
 	kyle.tradeIndex = tradeIndex;
+	coin.show = false;
 }
 
 main();

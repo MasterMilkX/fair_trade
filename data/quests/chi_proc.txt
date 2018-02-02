@@ -1,0 +1,429 @@
+CHI TRUE QUEST
++++++++++++++++
+
+$ Item : Token
+---------------
+	Chi :
+			"Oh, hello",
+			"How are you | today?",
+			> "Great!"
+				"That's fantastic!",
+				"I hope your day | continues to stay | positive!",
+			> "I'm not | sure"
+				"Well that's | alright",
+				"The day still has | potential to | become | interesting!",
+			> "Meh"
+				"Oh I'm sorry to | hear that",
+				"Well there's | always tomorrow!",
+			"Nice to meet you",
+			"I'm Chi",
+			"And you are?",
+			> "Kyle"
+				"Kyle?",
+				"The name suits | you!",
+			> "Kyle I | suppose"
+				"You suppose?",
+				"Well if that's | what feels right | to you, then Kyle | it shall be",
+			> "You can | call me | Kyle"
+				"Excellent!",
+				"Kyle it is!",
+			> "I am | Kyle"
+				"Ah, Kyle!",
+				"What a great | name!",
+			"Apologies for | intruding... But | what is that item | you have there?",
+			> "This?"
+				"Ah yes!",
+				"That item you | have is very | special!",
+			> "A token"
+				"A token!",
+				"I haven't seen | one in ages!",
+			> "It's an | illusion"
+				"Haha! Kyle...",
+				"I know illusions | when I see one - | and that right | there is not an | illusion",
+			"I have a | proposition...",
+			"I'll trade you | something in my | possession for | that token in | your possession",
+			"And I'll trade | you whatever else | you want or need | if you can bring | me another item",
+			"Do we have a | deal?",
+			> "Deal"
+				"Fantastic!",
+				"(you give the | token to Chi)",
+				"And as promised, | here is my item",
+				"(you got an | energy ball from | Chi)",
+				"That's pure | energy",
+				"Someone else in | the world could | make some good | use of that",
+				"If you find that | someone, you can | start a chain of | trading and end | up with something | of greater value",
+				"Return to me when | you think you've | got an item I | could use",
+				"I'll make it a | fair trade",
+			> "No deal"
+				"Aahh... Kyle...",
+				"Reconsider my | offer CAREFULLY",
+				> "Never | mind"
+					"*see DEAL above*",
+				> "My | mistake"
+					"*see DEAL above*",
+				> "You can | have it"
+					"*see DEAL above*",
+
+$ Item : Energy Ball
+---------------------
+	Grace :	
+			"Whoa! What is | that?",
+			"It's like a | bouncy ball full | of energy!",
+			> "Trade?"
+				"Sure! I'd have so | much fun bouncing | it!",
+				"(you give the | energy ball to | Grace)",
+				"Oh man! It's just | full of energy!",
+				"Here you can have | this!",
+				"(you got poison | from Grace)",
+				"I honestly can't | remember where it | came from",
+				"It smells kinda | bitter so I | wouldn't | recommend | drinking it",
+			> "Bouncy?"
+				"Yeah!",
+				"It looks like one | of those little | balls you get out | of a toy capsule | machine",
+
+$ Item : Poison
+----------------
+	Kimi :
+			"That poison...",
+			> "Trade"
+				"I guess...",
+				"It's good for | ninja | assassination | missions",
+				"(you give the | poison to Kimi)",
+				"Take this",
+				"(you got an arrow | head from Kimi)",
+				"I found it a | while back stuck | in my ninja poles",
+				"I don't have a | bow to use it so | it's no use to me",
+				"Besides... blades | are better",
+			> "What | kind of | poison | is it?"
+				"...Nightshade",
+				"Also known as | belladonna",
+
+$ Item : Arrow Head
+--------------------
+	Kay :
+			"Agh! That looks | pointy!",
+			> "Trade"
+				"Uh... yeah I'll | take it off your | hands",
+				"That's a | dangerous weapon! | It must be put in | good hands",
+				"(you give the | arrow head to | Kay)",
+				"Well... you can | have this",
+				"(you got a horn | from Kay)",
+				"I'm the only one | protecting the | castle so it's | not like I can | call anyone with | it",
+			> "Wanna | play | darts?"
+				"Definitely not!",
+				"You'll shoot my | eye out!",
+				"And I don't trust | your aim",
+
+$ Item : Horn
+--------------
+	Amber :
+			"Hey is that a | horn?",
+			> "Trade?"
+				"Sure!",
+				"I can use it to | call Kay whenever | I need him to get | me something",
+				"(you give the | horn to Amber)",
+				"Speaking of which | - I'm done with | this pizza he | brought me",
+				"You can have the | leftovers!",
+				"(you got pizza | from Amber)",
+				"There's enough | slices left to | share",
+				"Or save for later | - your choice",
+			> "Toot | toot!"
+				"Yaass!",
+				"Blow that horn, | boi!",
+
+$ Item : Pizza
+---------------
+	Sid :
+			"Yo! Is that a | pizza?",
+			> "Trade"
+				"Oh bro! Thanks!",
+				"(you give the | pizza to Sid)",
+				"Now I can eat all | the pizza I want",
+				"Here I still have | this box that was | sitting in my car",
+				"(you got takeout | food from Sid)",
+				"I think it was | only in there | for...",
+				"...A week?",
+				"It should still | be good though!",
+			> "I need | more | pizza"
+				"No problemo dude!",
+				"I know the secret | to make infinite | pizza",
+				"(Sid cuts a large | rectangle down | the middle of the | pizza)",
+				"(he merges the 2 | leftover halves | back into one to | make it whole)",
+				"Ta-da! Infinite | pizza",
+
+$ Item : Takeout Food
+----------------------
+	Chi :
+			"Is that takeout | food?",
+			> "Trade"
+				"Oh that'd be just | amazing!",
+				"(you give the | takeout food to | Chi)",
+				"Aaahh... noodles! | My favorite!",
+				"Tonight I shall | feast!",
+				"Thank you again, | Kyle",
+				"I am a monkey of | my word so here | you are",
+				"(you got a | special key from | Chi)",
+				"Safe travels, my | friend",
+			> "Smells | bad?"
+				"No the opposite!",
+				"I haven't eaten | food in an | eternity so | everything smells | delicious",
+				"Perks of starving | all the time I | suppose",
+
+End Game
+---------
+(you find yourself on a mountain cliff with a running waterfall on either side of you)
+(you're sitting on a bed of flowers surrounded by warm candles and a plate of wafer cookies)
+(the sunset in the distance makes the sky a deep red-orange mixture and you hear bells chime in the distance)
+(you feel a sense of peace - but incomplete)
+(try again?)
+
+
+
+HINTS/SIDE CONVO
++++++++++++++++++
+
+ENERGY BALL
+------------
+	Chi :
+			"Why hello!",
+			> "Trade?"
+				"Oh I gave you | that energy ball | if I recall | correctly",
+				"You should trade | it with someone | else who needs | the energy",
+				"Quickly! While | it's still fresh | and raw!",
+			> "What | kind of | energy | is this?"
+				"That is pure raw | energy!",
+				"Condensed into a | small sphere!",
+				"It's both chaotic | and balanced | power all in one",
+	Kimi :
+			"...What's that | glowing ball?",
+			> "Pure | energy"
+				"Pure? Yeah | right...",
+				"It's probably | watered down with | an energy drink",
+	Sid :
+			"Wow! That's a | huge energy ball!",
+			> "It took | 7 | episodes | to form"
+				"Only 7?",
+				"I've waited whole | seasons to make | energy like that",
+	Kay :
+			"Wait! What's | that?",
+			> "Kaaaa | meeee"
+				"(the energy ball | glows)",
+				"Wait! Don't do | it!",
+				> "Rasengan"
+					"(a tiny ball of | energy forms in | your palm but | fizzles out)",
+					"Ha! You're | technique has | failed you!",
+					"You need more | training!",
+				> "haaa | meee"
+					"(the energy ball | glows brighter)",
+					"I'm warning you!",
+					> "HA!"
+						"(a beam of energy | explodes from | your hands just | barely missing | Kay)",
+						"AAGHGHGHGHGH!!!!",
+					> "HADOUKEN"
+						"(a small blast of | energy comes out | of your hands but | fizzles out)",
+						"Heh! That was | quite the show!",
+	Amber :
+			"*gasp* Is that | one of those | fancy night | lights?",
+			> "Not | really?"
+				"Ugh... that's | lame",
+				"It's pretty | though - Grace | would probably | love it | regardless",
+
+POISON
+-------
+	Grace : 
+			"Hiya!",
+			> "Trade?"
+				"Aw... I don't | want it back but | thanks",
+				"Solids and | liquids don't | really have an | effect on me | anyways",
+				"I miss vanilla | cake soooo much!",
+			> "Poison | is bad"
+				"You're right!",
+				"But one man's | poison is | another's elixir",
+				"...That's the | saying right?",
+	Sid :
+			"Hey, what kind of | drink is that?",
+			> "Bitter | kind"
+				"Bitter? Bleh!",
+				"Kimi likes bitter | drinks though - | I'll never | understand it",
+	Chi : 
+			"Poison?!",
+			> "Have you | seen | this?"
+				"Only once before",
+				"I wouldn't hold | onto that for | long",
+				"It might slip | into your skin | and give you | negative feelings",
+	Kay :
+			"*gasp* ASSASSIN!",
+			> "What?"
+				"You're here to | poison the queen!",
+				"I won't let you, | fiend!",
+				"You'll have to | get past me and | my | semi-predictable | patrol route!",
+	Amber :
+			"Ooo! Is that | perfume?",
+			> "Nope!"
+				"Pssh...",
+				"You're probably | just trying to | hog it all for | yourself",
+				"I see you",
+
+ARROW HEAD
+-----------
+	Kimi :
+			"What?",
+			> "Trade?"
+				"Didn't you hear | me before?",
+				"I don't have a | bow so why would | I want it back?",
+			> "Who shot | the | arrow?"
+				"...Beat me",
+				"Rival ninjas I | guess?",
+	Sid :
+			"Whoa that looks | so cool!",
+			> "How | cool?"
+				"Like wearing | sunglasses | indoors, socks | with sandals, and | frosted hair | kinda cool!",
+				"Ironically cool!",
+	Grace :
+			"I like your metal | triangle!",
+			> "I think | it's a | diamond"
+				"That's a cool | shape too!",
+				"It matches Kay's | metal cylindar | helmet thingy",
+	Chi :
+			"What a sharp | arrow head",
+			> "Pointy | too"
+				"I wouldn't | recommend | shooting it in | the air then",
+				"Unless you want | to add a bit of | extra danger to | your life",
+				"We all have our | own little | hobbies",
+	Amber :
+			"What's that rock?",
+			> "An arrow | head"
+				"Head?",
+				"Where's the rest | of it's body | then?",
+
+HORN
+-----
+	Kay :
+			"Oh! Uh, hi",
+			> "Trade?"
+				"I gave you that | horn",
+				"You don't want it | anymore?!",
+				"That horn's been | passed down for | generations!",
+			> "How do I | play it?"
+				"You shouldn't | ever!",
+				"It's only to be | used in dire | emergencies!",
+				"Like an invasion | or flying snake | attack",
+	Kimi :
+			"What the...",
+			> "brrpphh!"
+				"(Kimi doesn't | flinch but looks | very annoyed)",
+				"(she continues to | stare at you and | places a hand on | her katana's | hilt)",
+	Sid :
+			"Dude! Blow that | horn!",
+			> "doot | doot!"
+				"Yeah man!",
+				"We should throw a | parade",
+				"But...",
+				"Confetti is kinda | hard to come by | these days...",
+				"And floats are | hard to make...",
+				"...",
+				"We can keep it in | mind!",
+	Grace :
+			"Wowsers! A real | horn!",
+			> "Noot | noot!"
+				"Aaaaawww!",
+				"You sound just | like a baby | penguin!",
+	Chi :
+			"Is that Kay's | horn?",
+			> "Awoooo!"
+				"Uh oh...",
+				"Kay only blows | that horn for | trouble",
+				"Now Amber will | think something's | wrong",
+				"You better go | calm her down",
+				"Tell her to | remember her deep | breathing",
+
+PIZZA
+------
+	Amber :
+			"Hey there!",
+			> "Trade?"
+				"Noooo way!",
+				"I'm going on a | diet so I don't | even wanna look | at that pizza | anymore",
+				"Despite how | deliciously | mouthwatering it | looks",
+			> "Is this | deep | dish?"
+				"Deeper than Chi's | philosophical | questions!",
+	Kay :
+			"That pizza looks | familiar...",
+			> "Uh..."
+				"Hey that's | Amber's favorite!",
+				"You two have | similar taste!",
+				"She and Sid were | the only ones I | knew of who like | deep dish",
+				"But now there's 3 | on that list",
+	Kimi :
+			"...Is that pizza?",
+			> "Cheesy | goodness"
+				"Ha...",
+				"A greasy mess is | more like it",
+	Grace :
+			"Oooo pizza!",
+			> "Want a | slice?"
+				"No thank you!",
+				"I'm more of a | calzone and pizza | roll kinda gal",
+				"I also can't eat | - I'm a little | dead",
+				"Hehe",
+	Chi :
+			"*achoo*",
+			> "Are you | ok?"
+				"Yes I'm fine",
+				"I'm just allergic | to cheese",
+				"I'm lactose | intolerant you | see",
+				> "But why | did you | sneeze?"
+					"It's the smell of | the cheese",
+				> "What | about | milk?"
+					"Oh milk is | absolutely fine",
+					"It's one of my | favorite drinks | actually",
+				> "So you | can't | cut | cheese?"
+					"Heheh...",
+					"Nooo I can...",
+				"...",
+				"I wouldn't | question it too | much",
+
+TAKEOUT FOOD
+-------------
+	Sid :
+			"Heyo!",
+			> "Trade?"
+				"Ah bro I couldn't | eat another bite | of that",
+				"It actually | started making me | sick",
+				"...Because of how | much I ate!",
+				"Definitely not | because of the | age... heh heh...",
+			> "What's | this | green | stuff?"
+				"?",
+				"Oh! Uh...",
+				"Vegetables I | hope!",
+	Kimi :
+			"!",
+			"UGH! What is | that?!",
+			> "Takeout | food"
+				"That smells worse | than a stink | bomb!",
+				"Chi would | probably eat it | that garbage",
+				"I don't think | he's ever had a | sense of smell",
+	Grace :
+			"*gasp* What a | cute little box!",
+			> "It's a | takeout | box"
+				"It's so compact | and efficient!",
+				"It's like a tiny | white lunchbox!",
+	Kay :
+			"(Kay dry heaves)",
+			"HRRGHH!",
+			> "(open | the box)"
+				"(Kay faints)",
+				"...Why...",
+				"...must you...",
+				"...torture me...",
+				"...villain?!",
+	Amber : 
+			OMG What is that smell?!
+			> "Did you | fart?"
+				"What?!",
+				"A lady never | farts!",
+				"...When other | people are | present at least",
+				"It's like that | tree falling in | the forest | anecdote",
+
+
+
