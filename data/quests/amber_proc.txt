@@ -1,0 +1,449 @@
+AMBER TRUE QUEST
++++++++++++++++++
+
+$ Item : Token
+---------------
+	Amber :
+			"Oh",
+			"My",
+			"Gosh!",
+			"Who did your | hair? I love it!",
+			> "I don't | know"
+				"Ooohh ok...",
+				"I see how it | is...",
+				"You wanna keep | your mysterious | hairdresser all | to yourself?",
+				"I can respect | that",
+				"I'd probably do | the same thing if | I had someone who | could work magic | on my hair",
+			> "It's | natural"
+				"No way!",
+				"I've never seen | anyone just born | with that hair | color",
+				"Except in | cartoons or | something",
+			> "I did"
+				"Whoa! You did?",
+				"You must be a | really good | stylist!",
+				"You gotta do mine | sometime! Please? | Pretty Please?",
+			"Oh! I'm Amber - | THE Amber",
+			> "Kyle"
+				"Hey Kyle",
+				"What's shakin'?",
+			> "Name's | Kyle"
+				"Wow, your name's | as cool as your | hair",
+			> "It's | Kyle?"
+				"Kyle?",
+				"Do you not know?",
+				"Oh whatever - I | like the name | Kyle so I'll | still call you | that",
+			> "The Kyle"
+				"Oooh! I've never | heard of you",
+				"You must be a | rising star! | Rad...",
+			"Hey Kyle... | What's that?",
+			> "What?"
+				"That thing!",
+				"In your pocket!",
+				"That token?",
+			> "Where?"
+				"In your pocket...",
+				"Is that a token?",
+			> "That?"
+				"Yeah that!",
+				"A token!",
+			"Kyle, my guy, I | loooove those | things",
+			"I'll trade you | something for it",
+			"It's cool I | promise",
+			"Cool?",
+			> "Deal"
+				"Lit! Thanks Kyle~",
+				"(you give the | token to Amber)",
+				"Ok here's my | stuff",
+				"(you got a rose | from Amber)",
+				"Don't take it | personally",
+				"I'm not asking | you out or | anything LOL",
+				"I just need one | more thing - so | if you give that | to someone they | can probably give | you another thing",
+				"And then the next | person can give | you something for | that and so on...",
+				"You feel me?",
+				"If you can bring | me something | cool, I'll give | you something I | know you'll love",
+				"Sound cool?",
+				"Fair trade Kyle. | Fair trade.",
+			> "No deal"
+				"Ugh... | Kyyyyllleee",
+				"Don't be | laaaaaame...",
+				"Pleeeeasssee?",
+				> "How | could I | say no?"
+				> "I'm | kidding"
+				> "Of | course!"
+
+$ Item : Rose
+--------------
+	Grace :
+			"*gasp* That rose | is even prettier | than the ones | around my grave!",
+			> "Trade?"
+				"Yay! Thanks!",
+				"(you give the | rose to Grace)",
+				"Oh! Here I have | something too!",
+				"(you got a shadow | from Grace)",
+				"I don't think | it's mine because | I can't really | make shadows",
+				"But it's gotta | belong to | someone!",
+				"I hope they find | their rightful | owner - it seemed | really sad",
+			> "It's | special"
+				"OMG I love it!",
+				"I believe every | flower is special",
+				"But special | flowers are SUPER | special!",
+
+$ Item : Shadow
+----------------
+	Kimi :
+			"...",
+			"That shadow | doesn't match | your body shape",
+			> "Trade?"
+				"Hmm...",
+				"Yeah I guess it | fits me better",
+				"(you give the | shadow to Kimi)",
+				"This'll help me | hide a lot better",
+				"Oh... Um I guess | you can have | this?",
+				"(you got a | bottlecap from | Kimi)",
+				"...It had a nice | design on it so I | kept it",
+				"But some people | use it as | currency",
+			> "It's my | friend"
+				"Oh... my | apologies",
+				"What's it's name?",
+				> "Shadow"
+					"...",
+					"Your shadow's | name is Shadow?",
+					"How edgy...",
+				> "Grey"
+					"Grey?",
+					"I guess that's a | pretty good name | for a shadow",
+				> "Light"
+					"Light?",
+					"Hmm... I like | it...",
+					"It's ironic...",
+
+$ Item : Bottlecap
+-------------------
+	Chi :
+			"Ah! A bottlecap!",
+			> "Trade?"
+				"Oh! You're too | generous",
+				"(you give the | bottlecap to Chi)",
+				"Here you go - | nectar of the | gods",
+				"(you got water | from Chi)",
+				"Make sure you | stay hydrated!",
+			> "What's | so | special | about | it?"
+				"That's a rare | bottlecap",
+				"The soda itself | is delicious but | it's the | bottlecap that | holds the real | value",
+
+$ Item : Water
+---------------
+	Sid :
+			"Oh man... my head | hurts",
+			> "Trade?"
+				"Oh man! You're a | life saver!",
+				"(you give the | water to Sid)",
+				"Oh hey! This | thing fell off of | my car",
+				"(you got a chain | from Sid)",
+				"I don't know what | it goes to but | it's probably | nothing important",
+				"Looks pretty cool | though!",
+			> "Rough | night?"
+				"Heh...",
+				"Rough but fun my | dude!",
+				"10/10 would do | again",
+
+$ Item : Chain
+---------------
+	Kay :
+			"That's a small | chain you have | there",
+			> "Trade?"
+				"Hmm... I have had | this thing I've | wanted to do but | I've been too shy | to try",
+				"(you give the | chain to Kay)",
+				"Ok... give me a | second",
+				"(Kay turns | around, hunched | over, making | grunting noises)",
+				"Ok I'm done!",
+				"(Kay turns back | to face you - his | hands are rough | and he's out of | breath)",
+				"Ta-da",
+				"(you got an | amulet from Kay)",
+				"Well what do you | think?",
+				"I've been trying | my hand at | jewreley making",
+				"...",
+				"What did you | think I was doing | with the chain?",
+			> "For | small | hands"
+				"Ah yes!",
+				"Those fiends | could slip right | out of normal | chains!",
+				"Smart thinking!",
+
+$ Item : Amulet
+----------------
+	Amber :
+			"That amulet...",
+			"It's gorgeous!",
+			> "Trade?"
+				"Yes please!",
+				"(you give the | amulet to Amber)",
+				"Oh it looks | amazing on me!",
+				"I'm going to wear | it everyday for | the rest of my | life",
+				"Thanks, Kyle!",
+				"You're the best",
+				"Oh! Here's that | cool thing I | promised you",
+				"(you got a | special key from | Amber)",
+				"I hope you have a | great time!",
+				"I'll see you | around!",
+			> "Kay made | it"
+				"Kay made that?",
+				"I didn't know he | was so talented!",
+				"I'll have to give | him a promotion!",
+
+End Game
+---------
+			"(you find | yourself in a | large throne room | with banners | hanging from the | ceiling and | stained-glass | windows flooding | light into the | room)",
+			"(you're sitting | on the throne in | colorfully | expensive clothes | - an empty, shiny | suit of armor | stands next to | you)",
+			"(outside you hear | festival music | and people | laughing and | singing - a long | table covered in | meats, drink, and | desserts before | you)",
+			"(you feel a sense | of peace - but | incomplete)",
+			"(try again?)",
+
+
+
+HINTS/SIDE CONVO
++++++++++++++++++
+
+ROSE
+-----
+	Amber :
+			"Hey Kyle~",
+			> "Trade"
+				"Kyyllleee...",
+				"I already picked | it! I don't want | it back",
+				"And it hurt a | lot.",
+				"You should give | it to someone you | like instead",
+			> "Is it | really a | rose?"
+				"Of course!",
+				""A rose by any | other name would | smell as sweet"",
+				"...Could just be | a red flower | though",
+	Kimi :
+			"A rose?",
+			> "Fills my | dreams"
+			"What dreams?",
+			"No one even | sleeps around | here",
+	Sid :
+			"Man that is a | pretty flower!",
+			> "Sharp | too"
+				"Really?",
+				"I guess it keeps | people from | picking it",
+				"Otherwise | EVERYONE would | have roses and it | probably wouldn't | be as treasured",
+	Chi :
+			"What an intricate | pattern!",
+			> "On the | rose?"
+				"Yes!",
+				"It weaves in and | out of it's own | petals",
+				"It's even more | intricate than | Grace's roses",
+	Kay :
+			"A princess rose!",
+			> "A what?"
+				"Princess roses | are magical",
+				"They usually have | enchanted spells | on it",
+				"Be careful with | the petals!",
+				"You might | accidentally | curse someone!",
+
+SHADOW
+-------
+	Grace :
+			"Hi!",
+			> "Trade?"
+				"Oh, no that's ok",
+				"I just want that | shadow to find a | nice home",
+				"A grave can get | kinda spooky with | a shadow around | it all the time",
+				"No offense to the | shadow!",
+			> "Which | way does | it face?"
+				"Oh... hmmm...",
+				"North?",
+				"Sometimes south?",
+				"I think it | depends on it's | mood",
+
+	Sid :
+			"Whoa! Is that a | shadow?",
+			> "It's not | mine"
+				"It's not yours?",
+				"I've never seen | someone with | another person's | shadow",
+				"That must be some | CRAZY magic | trick!",
+	Chi :
+			"How ominous",
+			> "How?"
+				"Shadows are the | darkness to our | light selves",
+				"Then again - | neither can live | without the other",
+				"So they also | represent harmony | and balance",
+	Kay :
+			"AGH! What is that | beast?!",
+			> "A | shadow?"
+				"How do you hit | it?!",
+				"It isn't affected | by anything | physical!",
+				"It's invincible!",
+				"Run for your | life!",
+	Amber :
+			"Oooo spooky | shadow!",
+			> "It's my | Hallo | -ween | costume"
+				"That's a snazzy | costume!",
+				"Seems hard to put | on and take off | though",
+
+BOTTLECAP
+----------
+	Kimi :
+			> "Trade?"
+				"...No?",
+				"I gave that one | to you",
+				"I know it's junk | - just convince | someone else to | trade with you",
+			> "Why do | you have | this?"
+				"...",
+				"I just think | they're neat...",
+	Sid :
+			"Hey is that a | bottlecap?",
+			> "Yep!"
+				"Coooool!",
+				"What soda was it | from?",
+				> "Cola"
+					"Classic!",
+					"They're great for | sharing",
+					"Or bets to chug | them in less than | a minute - heh | heh",
+				> "Root | beer"
+					"Ah, that's my | favorite!",
+					"I could drink | that stuff by the | keg!",
+				> "Ginger | beer"
+					"Whoa!",
+					"You're pretty | intense dude!",
+					"Those things | always burn the | back of my throat",
+				> "Orange | soda"
+					"Aw man those are | the best!",
+					"The perfect | amount of orange | and fizz",
+	Grace :
+			"Hey I've seen | those before!",
+			> "On | bottles?"
+				"Yeah!",
+				"They're better | than can sodas | because it's like | you get a little | souvenir when | you're done",
+	Kay :
+			"What kind of | medal is that?",
+			> "The | Ellie | badge"
+				"...",
+				"Who's Ellie?",
+	Amber :
+			"Are you starting | a collection of | those?",
+			> "Why?"
+				"Chi's into | collecting those | things",
+				"He thinks the | apocolypse is | coming and that | bottlecaps will | become the new | currency",
+				"...Or he just | really likes the | design",
+
+WATER
+------
+	Chi : 
+			"Why hello",
+			> "Trade?"
+				"Ah, that's quite | alright",
+				"I am extremely | hydrated at the | moment",
+				"Actually...",
+				"I might be a | little too | hydrated...",
+			> "Where | did you | get this"
+				"Every few years | it rains on this | world",
+				"On those few | chances I collect | the rain water | and purify it",
+				"I keep gallons | stored in my | secret stash",
+	Kimi :
+			"... Is that | water?",
+			> "Yep!"
+				"Water sucks",
+				"Gatorade is | better",
+				"...But stay | hydrated",
+				"Sid tends to | forget that often",
+
+	Grace :
+			"Ah! Water!",
+			> "So pure"
+				"Oh man that must | be spring water | from a secret | mountain or | something",
+				"It'll probably | cleanse your | whole soul!",
+	Kay :
+			"Water?!",
+			> "What's | wrong?"
+				"That'll rust my | armor!",
+				"It'll be almost | useless after | that!",
+				"That's why I hate | the rain",
+	Amber :
+			"Ugh waaater!",
+			> "Is that | good?"
+				"Yes! Water is | great!",
+				"You should drink | about 2 liters a | day",
+				"Or a whole lake | if you can!",
+
+CHAIN
+------
+	Sid : 
+			"Hey bro!",
+			> "Trade?"
+				"No thanks!",
+				"That chain just | gives me anxiety | just looking at | it",
+				"There's | DEFINITELY | something missing | from my car...",
+				"So better to just | ignore it!",
+			> "Why is | it so | small?"
+				"I can't tell if | it came from my | car...",
+				"Or old | jewreley...",
+				"Or maybe a tiny | car!",
+	Kimi :
+			"...A chain?",
+			> "Fun huh?"
+				"?!",
+				"(Kimi looks away | startled and | confused)",
+	Grace :
+			"Oooo chains!",
+			> "Oooo?"
+				"I was making | spooky ghosts | noises like with | rattling chains!",
+				"OoooOOOoooO!",
+				"Ha ha!",
+	Chi :
+			"Ah! Break free of | those chains!",
+			> "...I am | free"
+				"Oh!",
+				"I thought Kay | took you | prisoner...",
+				"But congrats on | being a free man!",
+	Amber :
+			"Why do you have | chains?",
+			> "I'm in a | gang"
+				"Whoa!",
+				"Do you know any | signs?",
+				> "Heck ye"
+					"(you attempt to | form a series of | complex gestures | with your hands)",
+					"(3 clones of | yourself | spontaneously | appear beside | you)",
+					"...",
+					"You're in a ninja | gang?!",
+				> "Nah"
+					"Heh...",
+					"Kyle you're such | a poser",
+					"It's still cool | though~",
+
+AMULET
+-------
+	Kay :
+			"Oh hi",
+			> "Trade?"
+				"Oh no, I don't | wear things I | make",
+				"Besides it | doesn't match my | eyes",
+			> "How'd | you make | this?"
+				"Um...",
+				"A secret trick a | wise man taught | me",
+				"I think he was | also a wizard and | a baker on the | side",
+	Kimi :
+			"...Hmm..",
+			"Pretty...",
+			> "Does it | match my | eyes?"
+				"Definitely not",
+				"Glowing white is | hard to match",
+	Sid :
+			"Hey that's a | really fancy | amulet!",
+			> "Kay made | it"
+				"Kay can make | jewreley?",
+				"Man, he's a guy | of many talents",
+				"If Amber knew | that, she'd be | all over him",
+				"He'd have to quit | his job as a | knight and become | an artisan for | her",
+	Grace :
+			"*gasp* That's so | pretty!",
+			> "Pretty?"
+				"Yeah it's | gorgeous!",
+				"I bet everywhere | you go people | fall in love with | you when you have | that on!",
+	Chi :
+			"That amulet! It's | so enchanting!",
+			> "Is it | magic?"
+				"It could be!",
+				"Amulets that red | and bright | usually hold some | sort of mystical | power",
+				"It could be a | horcrux! Or hold | a soul!",
+				"...Or just be a | really nice | fashion statement",
