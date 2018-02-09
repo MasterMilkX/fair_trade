@@ -1,0 +1,199 @@
+AMBER TRUE QUEST
++++++++++++++++++
+
+$ Item : Token
+---------------
+	Amber :
+			Oh
+			My 
+			Gosh!
+			Who did your hair? I love it!
+			> [I don't know]
+				Ooohh ok...
+				I see how it is...
+				You wanna keep your mysterious hairdresser all to yourself?
+				I can respect that 
+				I'd probably do the same thing if I had someone who could work magic on my hair
+			> [It's natural]
+				No way!
+				I've never seen anyone just born with that hair color
+				Except in cartoons or something
+			> [I did]
+				Whoa! You did?
+				You must be a really good stylist!
+				You gotta do mine sometime! Please? Pretty Please?
+			Oh! I'm Amber - THE Amber
+			> [Kyle]
+				Hey Kyle
+				What's shakin'?
+			> [Name's Kyle]
+				Wow, your name's as cool as your hair
+			> [It's Kyle?]
+				Kyle?
+				Do you not know?
+				Oh whatever - I like the name Kyle so I'll still call you that
+			> [The Kyle]
+				Oooh! I've never heard of you
+				You must be a rising star! Rad...
+			Hey Kyle... What's that?
+			> [What?]
+				That thing!
+				In your pocket!
+				That token?
+			> [Where?]
+				In your pocket...
+				Is that a token?
+			> [That?]
+				Yeah that!
+				A token!
+			Kyle, my guy, I loooove those things
+			I'll trade you something for it
+			It's cool I promise
+			Cool?
+			> [Deal]
+				Lit! Thanks Kyle~
+				(you give the token to Amber)
+				Ok here's my stuff
+				(you got a rose from Amber)
+				Don't take it personally
+				I'm not asking you out or anything LOL
+				I just need one more thing - so if you give that to someone they can probably give you another thing
+				And then the next person can give you something for that and so on...
+				You feel me?
+				If you can bring me something cool, I'll give you something I know you'll love
+				Sound cool? 
+				Fair trade Kyle. Fair trade.
+			> [No deal]
+				Ugh... Kyyyyllleee
+				Don't be laaaaaame...
+				Pleeeeasssee?
+				> [How could I say no?]
+				> [I'm kidding]
+				> [Of course!]
+
+$ Item : Rose
+--------------
+	Grace :
+			*gasp* That rose is even prettier than the ones around my grave!
+			> [Trade?]
+				Yay! Thanks!
+				(you give the rose to Grace)
+				Oh! Here I have something too!
+				(you got a shadow from Grace)
+				I don't think it's mine because I can't really make shadows
+				But it's gotta belong to someone!
+				I hope they find their rightful owner - it seemed really sad
+			> [It's special]
+				OMG I love it!
+				I believe every flower is special 
+				But special flowers are SUPER special!
+
+$ Item : Shadow
+----------------
+	Kimi :
+			...
+			That shadow doesn't match your body shape
+			> [Trade?]
+				Hmm... 
+				Yeah I guess it fits me better
+				(you give the shadow to Kimi)
+				This'll help me hide a lot better
+				Oh... Um I guess you can have this?
+				(you got a bottlecap from Kimi)
+				...It had a nice design on it so I kept it
+				But some people use it as currency
+			> [It's my friend]
+				Oh... my apologies
+				What's it's name?
+				> [Shadow]
+					...
+					Your shadow's name is Shadow?
+					How edgy...
+				> [Grey]
+					Grey?
+					I guess that's a pretty good name for a shadow
+				> [Light]
+					Light?
+					Hmm... I like it...
+					It's ironic...
+
+$ Item : Bottlecap
+-------------------
+	Chi :
+			Ah! A bottlecap!
+			> [Trade?]
+				Oh! You're too generous
+				(you give the bottlecap to Chi)
+				Here you go - nectar of the gods
+				(you got water from Chi)
+				Make sure you stay hydrated!
+			> [What's so special about it?]
+				That's a rare bottlecap
+				The soda itself is delicious but it's the bottlecap that holds the real value
+
+$ Item : Water
+---------------
+	Sid :
+			Oh man... my head hurts
+			> [Trade?]
+				Oh man! You're a life saver!
+				(you give the water to Sid)
+				Oh hey! This thing fell off of my car
+				(you got a chain from Sid)
+				I don't know what it goes to but it's probably nothing important
+				Looks pretty cool though!
+			> [Rough night?]
+				Heh... 
+				Rough but fun my dude!
+				10/10 would do again
+
+$ Item : Chain
+---------------
+	Kay :
+			That's a small chain you have there
+			> [Trade?]
+				Hmm... I have had this thing I've wanted to do but I've been too shy to try
+				(you give the chain to Kay)
+				Ok... give me a second
+				(Kay turns around, hunched over, making grunting noises)
+				Ok I'm done!
+				(Kay turns back to face you - his hands are rough and he's out of breath)
+				Ta-da
+				(you got an amulet from Kay)
+				Well what do you think?
+				I've been trying my hand at jewreley making
+				...
+				What did you think I was doing with the chain?
+			> [For small hands]
+				Ah yes!
+				Those fiends could slip right out of normal chains!
+				Smart thinking!
+
+$ Item : Amulet
+----------------
+	Amber :
+			That amulet...
+			It's gorgeous!
+			> [Trade?]
+				Yes please!
+				(you give the amulet to Amber)
+				Oh it looks amazing on me!
+				I'm going to wear it everyday for the rest of my life
+				Thanks, Kyle!
+				You're the best
+				Oh! Here's that cool thing I promised you
+				(you got a special key from Amber)
+				I hope you have a great time!
+				I'll see you around!
+			> [Kay made it]
+				Kay made that?
+				I didn't know he was so talented!
+				I'll have to give him a promotion!
+
+End Game
+---------
+			(you find yourself in a large throne room with banners hanging from the ceiling and stained-glass windows flooding light into the room)
+			(you're sitting on the throne in colorfully expensive clothes - an empty, shiny suit of armor stands next to you)
+			(outside you hear festival music and people laughing and singing - a long table covered in meats, drink, and desserts before you)
+			(you feel a sense of peace - but incomplete)
+			(try again?)

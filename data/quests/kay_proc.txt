@@ -1,0 +1,428 @@
+KAY TRUE QUEST
++++++++++++++++
+
+$ Item : Token
+---------------
+	Kay : 
+			"HALT! Who goes | there?",
+			> "Uh..."
+				"Not another word!",
+				"You're new here | so I'll go easy | on you",
+			> "No one"
+				"Ha! Do you take | me for a fool?",
+				"My helmet limits | my visibility but | there is | DEFINITELY | someone right in | front of me",
+			> "Me! | Fight | me!"
+				"What?!",
+				"I haven't had a | challenge in | years!",
+				"I'm a little | rusty...",
+				"In skill not just | armor",
+			"What is your | name, stranger?",
+			> "Kyle"
+				"Kyle? a very | threatening name",
+			> "Um... | Kyle?"
+				"Ha! You don't | even know your | own name?",
+				"You poor soul",
+			> "The | Mighty | Kyle"
+				"Mighty?!",
+				"Pssh... uh I | mean...",
+				"Yeah... mighty | where YOU come | from I guess",
+			> "I go by | Kyle"
+				"Ah... I see",
+				"Kyyylleee...",
+			"Alright then, | "Kyle"...",
+			"You can call me | Kay - Sir Kay!",
+			"I protect this | castle and the | beautiful lady | who inhabits it!",
+			"Say... What's | that in your | pocketses?",
+			> "A token"
+				"A token?!",
+				"How rare!",
+			> "Pocket | lint"
+				"Aside from | that...",
+				"That shiny coin!",
+			> "My | precious"
+				"!",
+				"Ok then...",
+			"I'll trade you a | valuable treasure | for it",
+			"A one-of-a-kind | item",
+			"What do you say, | Kyle?",
+			> "Deal"
+				"Tally ho!",
+				"(you give the | token to Kay)",
+				"Right then! A | deal's a deal",
+				"(you got a | medallion from | Kay)",
+				"See! Really | valuable, huh?",
+				"However, Kyle, I | need another | favor to ask of | you",
+				"I need a special | item",
+				"You can obtain it | through trading | that medallion | with others",
+				"Come back to me | when you have | said item and | I'll give you | another thing you | need for your | journey",
+				"By my knight's | honor, it's a | fair trade",
+			> "No deal"
+				"Kyle!",
+				"Don't be daft | man!",
+				"Are you quite | sure?",
+				> "My | mistake"
+				> "Here you | go"
+				> "I don't | need it"
+
+$ Item : Medallion
+--------------------
+	Chi :
+			"Oh! A power | medallion!",
+			> "Trade?"
+				"I'd be honored to | trade!",
+				"(you give the | medallion to Chi)",
+				"It's both | pleasing to the | eye and a | confidence | booster",
+				"Here take this | with you",
+				"(you got a bottle | from Chi)",
+				"An empty bottle | is much like a | young mind",
+				"It can be filled | with anything!",
+			> "Power?"
+				"That's right",
+				"Wearing that | medallion gives | you super | strength",
+				"Or at least acts | as a placebo to | make you think | you're super | strong",
+
+$ Item : Bottle
+----------------
+	Kimi :
+			"...",
+			"Is that an empty | bottle?",
+			> "Trade?"
+				"Fine by me",
+				"(you give the | bottle to Kimi)",
+				"I was going to | put this in the | bottle when I got | a chance",
+				"But it'd probably | be easier to just | have you deliver | this to me",
+				"(you got a letter | from Kimi)",
+				"Don't you DARE | open it!",
+				"I'll kill you | myself",
+				"The person who | it's for will | know it's | addressed to them",
+				"Don't let anyone | else read it | either",
+				"I'll have to kill | them too - and | that's just too | much effort",
+			> "It's | filled | with air"
+				"...",
+				"...Yeah",
+				"I guess you're | right",
+
+$ Item : Letter
+----------------
+	Grace :
+			"Hey a letter!",
+			> "Trade?"
+				"Ok!",
+				"(you give the | letter to Grace)",
+				"Oh! It's from | Kimi!",
+				"I'll read it | later - she | probably doesn't | want anyone else | to know",
+				"She so private! | But I respect it",
+				"Oh right! I need | to give you | something right?",
+				"(you got | headphones from | Grace)",
+				"They keep falling | through my head | so I just listen | to my music out | loud now",
+			> "You've | got | mail...?"
+				"Hmm.. I can't | remember..",
+				"Maybe?",
+				"I always love | getting mail!",
+
+$ Item : Headphones
+--------------------
+	Sid :
+			"Yo! Sick | headphones bro!",
+			> "Trade?"
+				"Dude! Heck yeah | I'll trade!",
+				"(you give the | headphones to | Sid)",
+				"Aw man - my music | is gonna sound | unreal in these | things",
+				"Here you go my | dude",
+				"(you got a DVD | from Sid)",
+				"That's one of my | favorite movies",
+				"I've seen it so | many times I can | basically quote | it line for line",
+				""Never fear - I | is here"",
+				"Classic!",
+			> "The bass | is | turned | up"
+				"Oh no way!",
+				"I love extra bass | in my songs!",
+				"You can really | FEEL the music",
+
+$ Item : DVD
+-------------
+	Amber :
+			"Whoa! Is that the | movie that I | think it is?",
+			> "Trade?"
+				"Sure!",
+				"Now I don't have | to keep recording | it when it comes | on cable",
+				"(you give the DVD | to Amber)",
+				"I've stopped | watching sad | romantic movies | and dramas lately",
+				"So I guess I | don't need this | old thing anymore",
+				"(you got a | handkerchief from | Amber)",
+				"That's made of | pure silk and | tears!",
+			> "Yes?"
+				"Uuuughhh... I | love that movie",
+				"It's so bad it's | good!",
+
+$ Item : Handkerchief
+----------------------
+	Kay :
+			"Is that my lady's | 'kerchief!",
+			> "Trade?"
+				"It'd be the | highest honor a | knight can | recieve!",
+				"A favor from his | lady!",
+				"(you give the | handkerchief to | Kay)",
+				"AH! I am a true | champion of my | lady now!",
+				"Thank you Kyle",
+				"You have done me | a grand favor",
+				"And now as | promised I return | the favor unto | you",
+				"(you got a | special key from | Kay)",
+				"Good luck on your | journey, kind | stranger",
+				"May we meet again | in the next life!",
+			> "Yeah | it's got | her | tears"
+				"Amber's tears?",
+				"Why was she | crying?",
+				"Who made her cry?",
+				"I'll banish them!",
+
+End Game
+---------
+			"(you find | yourself in a | large throne room | with banners | hanging from the | ceiling and | stained-glass | windows flooding | light into the | room)",
+			"(you're standing | next to the | throne in a full | suit of diamond | armor holding a | black steel sword | - the throne is | empty)",
+			"(outside you hear | festival music | and people | laughing and | singing - a long | table covered in | meats, drink, and | desserts before | you)",
+			"(you feel a sense | of peace - but | incomplete)",
+			"(try again?)",
+
+
+
+HINTS/SIDE CONVO
++++++++++++++++++
+
+MEDALLION
+----------
+	Kay : 
+			"Yep?",
+			> "Trade?"
+				"Although I would | miss that | medallion, I | cannot trade it | back",
+				"Trade with | someone else who | would value that | medal",
+				"Eventually you | will obtain what | I need",
+			> "Did you | win | this?"
+				"Indeed!",
+				"In a sparring | competition!",
+				"It's not first | prize since I got | knocked out in | the first round",
+				"But it's a | medallion for | having the best | spirit!",
+				"So it still | counts!",
+	Kimi : 
+			"...That's an...",
+			"...interesting | fashion statement",
+			> "(strike | a pose)"
+				"(you strike a | stylish pose and | a sparkle shines | off the | medallion)",
+				"...",
+				"(Kimi looks | slightly | uncomfortable)",
+	Sid :
+			"Whoa! Did you win | that medal in a | fight?",
+			> "An | awesome | fight"
+				"Broooooo",
+				"That's so cool!",
+				"I want you on my | team if I ever | get into a | rumble!",
+	Grace :
+			"Oh wow! That's a | shiny necklace!",
+			> "It's a | medal- | lion"
+				"A medallion?",
+				"You must have | done something | really cool to | get it though!",
+				"That's impressive",
+	Amber :
+			"Hey, I've seen | that somewhere | before",
+			""Good Spirit | Award"?",
+			> "I got | spirit! | Yes I do"
+				"Whoa! You really | do!",
+				"Almost more than | Chi actually!",
+
+BOTTLE
+-------
+	Chi : 
+			"Why hello!",
+			> "Trade?"
+				"Oh no thank you",
+				"I have no more | use for that | bottle",
+				"Since I... drank | all the contents | already...",
+				"Haha...",
+			> "What was | in this?"
+				"...Uh..",
+				"Special chakra | enhancing elixir!",
+				"Heh heh...",
+	Sid :
+			"Hey, what's that | clear stuff in | there?",
+			> "Air?"
+				"Or... it could be | an invisibility | potion!",
+				"That'd be so | cool!",
+				"Kimi would be | impossible to | find with that | stuff",
+	Grace :
+			"*gasp* A bottle!",
+			> "Why are | you | excited?"
+				"You can put so | much stuff into | bottles!",
+				"Fairies, potions, | secret messages, | tiny ships...",
+				"The possibilities | are endless",
+	Kay :
+			"What is that? A | poisonous gas?!",
+			> "In the | bottle?"
+				"Yes!",
+				"You be careful | with that thing, | Kyle!",
+				"If you release | it, the whole | world could | become infected!",
+				"What kind of gas | is in it?!",
+				> "A fart"
+					"That's the worse | kind!",
+					"Don't release | that evil unto | us!",
+				> "Hydrogen"
+					"HYDROGEN?!",
+					"You madman!",
+				> "Essence | of | waffle"
+					"Oh...",
+					"That's not too | bad I guess...",
+	Amber :
+			"Oh hey! Nice | bottle",
+			> "It's | empty"
+				"It's got a nice | aesthetic with it | though",
+				"You could | decorate it or | something",
+
+LETTER
+-------
+	Kimi :
+			"Uh.. yeah?",
+			> "Trade?"
+				"Why would I want | my own letter | back?",
+				"I already know | what it says",
+			> "Do you | have a | crush?"
+				"(Kimi's eyes turn | red)",
+				"(she draws her | katana and holds | it to your face)",
+				"(you fall | backwards in | shock)",
+	Sid :
+			"Ooo! A letter!",
+			> "You've | got | mail...?"
+				"Nah I didn't | expect any | letters",
+				"Only a package",
+				"It's supposed to | be another car so | the box should be | really big",
+				"...Unless I got | the toy car | again...",
+				"Aw jeez",
+	Chi :
+			"A letter?",
+			> "You've | got | mail...?"
+				"Not for me",
+				"I get all my | letters through | the wind",
+				"...It's hard to | transcribe",
+	Kay :
+			"Is that a letter?",
+			> "You've | got | mail...?"
+				"Sorry, Kyle",
+				"Amber's the only | one who writes to | me",
+				"Well... more like | calls to me from | the castle when | she needs | something",
+				"Grace sure does | get a lot of | letters though",
+				"It might be for | her",
+	Amber :
+			"Whoa, a letter!",
+			> "You've | got | mail...?"
+				"No way!",
+				"Letters are so | old schooled",
+				"I get all my | information | through social | media like a | normal person",
+
+HEADPHONES
+-----------
+	Grace :
+			"Hey!",
+			> "Trade?"
+				"Haha! I gave | those to you!",
+				"Are they not your | favorite color or | something?",
+				"I can understand | - blue would | probably be your | favorite color | instead",
+			> "Where's | the | wire?"
+				"I can't remember | if I bought them | because they were | wireless...",
+				"Or if I just lost | the wire to | them...",
+	Kimi :
+			"...Headphones?",
+			> "Wanna | listen?"
+				"...",
+				"...It's not | connected to | anything",
+				"Though I do enjoy | the sound of | silence",
+	Chi :
+			"Ah, nice | headphones",
+			> "Do you | listen | to music"
+				"Just the sound of | nature",
+				"It's a great | album! I highly | recommend it",
+				"Though Sid would | probably prefer | his "indie rock"",
+	Kay :
+			"Whose headphones | are those?",
+			> "Grace's"
+				"I thought they | looked familiar!",
+				"I prefer earbuds | anyways",
+				"Headphones got in | the way of my | helmet and just | looked weird",
+	Amber :
+			"Cool headphones!",
+			> "How | cool?"
+				"Super cool!",
+				"They make you | look hipster or | something",
+
+DVD
+----
+	Sid :
+			"What's good, bro?",
+			> "Trade?"
+				"Aw that's ok dude",
+				"I can play that | movie in my brain | from start to | finish whenever I | want",
+			> "How many | times | have you | seen it?"
+				"Hmm...",
+				"37?",
+				"Or was it 137?",
+	Kimi :
+			"Oh no...",
+			> "?"
+				"I hate that movie",
+				"It doesn't even | portray the | culture correctly",
+				"Amber would | probably find it | ironically cool",
+	Grace :
+			"Oh wow! That's | such a fun movie!",
+			> "Fun?"
+				"Yeah!",
+				"It's a great date | night movie",
+				"Or just if you | want a good laugh",
+	Chi :
+			"Ah, what an | inspiring movie",
+			> "Is it?"
+				"Absolutely!",
+				"It promotes the | freedom of | information!",
+				"Even by... | somewhat illegal | means",
+	Kay :
+			"That movie!",
+			> "What | about | it?"
+				"The title!",
+				"It's like | invaders - but | with computers!",
+				"But they're the | good guys so it's | confusing!",
+				"Agh! They must be | stopped, Kyle!",
+
+HANDKERCHIEF
+-------------
+	Amber :
+			"Hey there~",
+			> "Trade?"
+				"Ew no!",
+				"Uh I mean...",
+				"Thanks but that's | ok...",
+				"You might need it | later if someone | gets their heart | broken",
+			> "Is this | clean"
+				"Uh...",
+				"I think a part of | that corner is?",
+	Kimi :
+			"...Is that",
+			"A handkerchief?",
+			> "Full of | tears"
+				"...",
+				"Ew...",
+				"Emotions are | disgusting",
+	Sid :
+			"Is that a towel?",
+			> "Not | exactly"
+				"Oh well!",
+				"Just don't panic!",
+				"Keep that on you | at all times",
+	Grace :
+			"Aaaww... whose | handkerchief is | that?",
+			> "Amber's"
+				"Oh man!",
+				"I read somewhere | that princesses | used to give | favors to knights | before battle or | jousts",
+				"Kay would | probably go | absolutely crazy | for something | like that",
+	Chi :
+			"That handkerchief",
+			"It's filled with | emotion!",
+			> "What | kind?"
+				"Negative, | positive, neutral",
+				"It's quite a | mixture!",
+
