@@ -1,0 +1,872 @@
+KYLE TRUE QUEST
++++++++++++++++++
+
+KIMI
+-----
+			"...",
+			"..Uh, hi?",
+			> "Hi."
+				"...",
+				"...Right...",
+			> "Hi?"
+				"Hmm...",
+				"You seem unsure | of that",
+			> "Hi!"
+				"!",
+				"God you're | chipper...",
+				"It's almost | annoying actually",
+			"I don't think | I've seen you | around",
+			"Who are you?",
+			> "Kyle"
+				"Huh...",
+				"Ok then...Kyle...",
+			> "Kyle I | guess"
+				"Kyle I Guess?",
+				"That's quite a | name",
+				"I'll call you | Kyle for short",
+			> "Kyle?"
+				"You don't know?",
+				"... well...",
+				"I guess people | don't really have | a choice on what | they get to be | called",
+			> "I'm | Kyle!"
+				"Wow...",
+				"You seem pretty | proud of that",
+				"Kyle's an OK name | I suppose...",
+			"I'm Kimi",
+
+			"What are you | doing here?",
+			> "I need | to talk | to you"
+				"Hm...",
+				"I don't talk | Kyle...",
+			> "I need | some | -thing"
+				"Uh huh...",
+				"We all do Kyle",
+			> "I don't | know"
+				"Oh...",
+				"You don't | remember?",
+				"What a shame...",
+				"I can help",
+			"Let's do | something | different",
+			"If you really | know me - if | you've been here | before",
+			"Then answer these | questions",
+			"If you get enough | right, I'll give | you what you need",
+			"Deal?",
+			> "No deal"
+				"Suit yourself",
+				"Take this then",
+				"(you got a | corrupt key from | Kimi)",
+				"It's a way out | but you won't | like it",
+				"Come back when | you know more | about this world",
+			> "Deal"
+				"Ok...",
+				"What instrument | do I play?",
+				> "Violin"
+				> "Bass"
+				> "Flute"
+					"...",
+					"I did...",
+					"Well, you got the | first question | right",
+				"What weapon do I | use?",
+				> "Staff"
+				> "Arrow"
+				> "Katana"
+					"...",
+					"I do..",
+					"That seemed | obvious",
+					"I'm a | ninja/samurai | after all..",
+				"Who do I give | letters to?",
+				> "Sid"
+				> "Chi"
+				> "Amber"
+				> "Kay"
+				> "Grace"
+					"...",
+					"That's true..",
+					"She doesn't | remember me | though - or what | I did",
+					"That's probably | for the best...",
+				"Congrats, you | passed Kyle",
+				> "Are you | ok?"
+					"...",
+					"Fine I guess",
+					"Lonely and | miserable as | usual",
+					> "Why?"
+					> "Don't be | upset"
+					> "What | about | Grace?"
+					"...",
+				> "Now | what?"
+					"I don't know",
+					"I guess you're | stuck here like | the rest of us",
+					> "So you | lied?"
+						"...",
+						"Yeah...",
+						"Sometimes you | have to lie to | protect people",
+					> "Are you | gonna | help me?"
+						"...I don't know",
+						"I don't know if I | can",
+						"I'm bad at | helping people | anyways",
+				> "That's | it?"
+					"...Yeah",
+					"Sorry to ruin | your expectations",
+				"You're looking | for peace right?",
+				"No matter how | hard you try you | feel incomplete?",
+				> "Yeah"
+					"...Figures",
+				> "How'd | you know"
+					"Because we all | are doing the | same thing",
+				> "What?"
+					"...Never mind...",
+				"It doesn't exist",
+				"You did something | in your past life | and now you're | stuck here",
+				"Looking for a | non-existent | peace",
+				> "What | about | you"
+				> "What did | you do?"
+				> "How did | you get | stuck?"
+					"Me?",
+					"...",
+					"I tried to help | someone I loved",
+					"But ended up just | making it | worse...",
+					"She wasn't happy | with her life",
+					"And everything I | did couldn't make | her feel better",
+					"So she asked me | for one final | solution - and I | obliged",
+					"I gave her | nightshade",
+					"Now she's gone...",
+					"But she haunts | me, and she | doesn't remember | me - or what we | used to be",
+					"She's happy | though... but for | the wrong | reasons...",
+					"I couldn't help | her... And I | don't | understand...",
+					"I'm just lonely | and guilty now... | It's not fair...",
+				> "It's | gonna be | OK"
+				> "You're | not | alone"
+				> "You care | a lot"
+				"...",
+				"Thanks Kyle",
+				"I guess... If you | care about | someone...",
+				"You have to help | them through | whatever they're | going through",
+				"You have to keep | them safe and | protect them but | also take care of | yourself",
+				"Death shouldn't | ever be a | solution",
+				"Everything will | end up being OK | in the end",
+				"I wish I realized | that before...",
+				"...",
+				"Thank you Kyle",
+				"I feel at peace | now - I guess I | was wrong",
+				"It does exist",
+				"Here take this",
+				"(you got a katana | from Kimi)",
+				"I'm going to use | my key",
+				"Thanks again for | your help",
+				"I'll see you | around",
+				"(Kimi disappears)",
+
+
+
+
+
+SID
+----
+			"Whoa!",
+			"Hey, I didn't see | you there!",
+			"How's it going, | dude? I'm Sid",
+			> "Kyle"
+				"Nice... That's a | pretty great name",
+			> "Name's | Kyle"
+				"Coolio dude!",
+				"Nice to meet you",
+			> "I think | I'm Kyle"
+				"You think?",
+				"Well.. I'll call | you Kyle until | you feel like | being called | something else",
+			> "Sup? I'm | Kyle"
+				"Man... you seem | cool Kyle!",
+			"Hey do you have | any records?",
+			"I've gotten | really into vinyl | lately",
+			> "Nope, | sorry"
+				"Ah no worries my | dude",
+				"They're hard to | come by anyways",
+			> "No, but | I have | this"
+				"Have what?",
+			> "I broke | them"
+				"Aw bummer...",
+				"Oh well!",
+
+			"So what's up, my | dude?",
+			> "I need | to talk | to you"
+				"Oh yeah?",
+				"A TALK talk, huh?",
+				"Oh man...",
+			> "I need | some | -thing"
+				"Yeah?",
+				"I think I can | help!",
+			> "I don't | know"
+				"Haha! I feel you | bro",
+				"Maybe I can help | you remember",
+			"So here's what's | gonna happen",
+			"You've been here | before, amiright?",
+			"So then we've | been bros before | - and you know me | like a true bro",
+			"I'll quiz you",
+			"If you get all | the question | right, you win!",
+			"Cool beans?",
+			> "No deal"
+				"Aw, ok",
+				"Here you go then",
+				"(you got a | corrupt key from | Sid)",
+				"It's kinda crappy | to be honest",
+				"But it'll take | you where you | need to go",
+				"I hope we're bros | in another life!",
+			> "Deal"
+				"Sweeeet! Ok | Question 1:",
+				"What do I make my | music on?",
+				> "Mixtape"
+					"Correct!",
+					"Gotta go old | school",
+					"Heh heh",
+				"Question 2:",
+				"What's my | favorite soda?",
+				> "Cola"
+				> "Ginger | beer"
+				> "Orange | soda"
+				> "Root | beer"
+					"Right again!",
+					"Best party drink | ever!",
+				"Ok last | question...",
+				"Who did I give my | last record to?",
+				> "Kimi"
+				> "Grace"
+				> "Chi"
+				> "Amber"
+				> "Kay"
+					"Yeah!",
+					"He borrowed it | for a bit",
+					"I didn't even | know he liked | music",
+				"Well congrats | dude! You win!",
+				> "Prize?"
+					"Oh a prize right!",
+					"Uh...",
+				> "What do | I win?"
+					"Win?",
+					"Oh right! Hmm...",
+				> "Now | what?"
+					"Heh heh...",
+					"Uhhh...",
+				"You get to stay | here and party | with me forever!",
+				"Yaaay... Heh...",
+				> "Forever?"
+					"Yeah...",
+					"It's... not as | great as it | sounds in | reality...",
+				> "I don't | want to | party"
+					"Ah...",
+					"I understand...",
+					"To be honest, | I've gotten a | little sick of | partying too",
+				> "That's | not what | I need"
+					"Oh...",
+					"Yeah I guess | partying isn't a | priority given | the situation",
+				"I'm stuck here... | Just like | everyone else",
+				"You're trying to | find that sense | of peace or | something, right?",
+				> "Yeah"
+					"Ha! Same!",
+				> "How'd | you know"
+					"Oh! Because I am | too!",
+				> "What?"
+					"?",
+					"Oh, um..",
+					"Anyways!",
+				"I can't remember | how long I've | been here - I've | never found it",
+				> "Why are | you | stuck?"
+				> "Why | don't | you | party?"
+				> "You | can't | remem | -ber?"
+				"I... uhh... went | a little | overboard one | night",
+				"Made some really | bad decisions and | did some bad | things",
+				"I had no idea - I | ignored my limits | because I thought | it was cool",
+				"I was having such | a fun time - I | was the life of | the party!",
+				"So when I drove | home, there was | this sign that | was broken",
+				"And the road just | took a sharp turn | and then...",
+				"I ended up here!",
+				"I mean everyone | is nice and it's | cool and | everything but...",
+				"I still screwed | up... BIG TIME",
+				"Whoops... heh...",
+				> "It's | gonna be | ok"
+				> "Be more | careful"
+				> "Stay | safe"
+				"Yeah...",
+				"Yeah! You're | right Kyle!",
+				"I need to own up | to my mistakes!",
+				"Set limits! | Protect myself! | Watch out for bad | signs - literally | and figuratively",
+				"Thanks a billion | dude",
+				"I found my peace! | I finally found | it!",
+				"Here! Take this - | I insist",
+				"(you got a beanie | from Sid)",
+				"I'm gonna go and | use my key",
+				"I hope you find | yours too dude",
+				"Maybe we can | chill or hang | later",
+				"I'll be looking | for you",
+				"(Sid disappears)",
+
+
+
+
+
+GRACE
+-----
+			"*gasp*",
+			"You scared the | life out of me!",
+			"Haha! Just | kidding!",
+			"I'm already a | ghost",
+			> "You're | dead?"
+				"Yep!",
+				"It's ok though",
+				"It's really | relaxing just | floating around",
+			> "You're | taking | this | lightly"
+				"Haha! That was a | great pun!",
+			> "Are you | a ghost | or a | spirit"
+				"I'm a ghost but | full of spirit!",
+			"I'm Grace by the | way",
+			"What's your name?",
+			> "Kyle"
+				"Kyle?",
+				"That's a nice | name!",
+			> "I'm Kyle"
+				"Hi Kyle!",
+				"Nice to meet you!",
+			> "Probably | Kyle"
+				"Probably?",
+				"I don't meet a | lot of people | named "Probably"",
+				"But I'll | definitely | remember "Kyle" | so I'll call you | that",
+			> "Uh... | Kyle"
+				"Okee dokee Kyle!",
+
+			"So did you need | anything?",
+			> "I need | to talk | to you"
+				"Really?",
+				"I love talking to | people!",
+			> "I need | some | -thing"
+				"You do?",
+				"OK! I could | probably help you | get it!",
+			> "I don't | know"
+				"Aaaw...",
+				"We'll figure it | out together, OK?",
+			"*gasp* Let's play | a game!",
+			"\"How well do you | know me?\"",
+			"I'll make it | super duper easy | too",
+			"When you get them | all right | something special | happens!",
+			"Sound fun?",
+			> "No deal"
+				"Aaawww ok Kyle",
+				"Well you can have | this anyways",
+				"(you got a | corrupt key from | Grace)",
+				"Personally I | don't like using | that key",
+				"But it's a key! | And keys always | lead somewhere",
+				"Maybe something | on the otherside | can help you | figure out what | you need",
+				"Nice seeing you | Kyle!",
+			> "Deal"
+				"Yay! This is | gonna be so fun!",
+				"Alrighty...",
+				"What's my | favorite thing in | the whole world?",
+				> "The | world"
+				> "Your | grave"
+				> "Flowers"
+					"Uh huh!",
+					"That's why I put | them all around | my grave",
+					"It makes it super | pretty!",
+				"What's my | favorite cake | flavor?",
+				> "Choco | -late"
+				> "Yellow"
+				> "Vanilla"
+					"That's right!",
+					"It's soooooo good | - I could eat a | whole cake by | myself!",
+				"Who makes really | awesome mixtapes | for me?",
+				> "Kimi"
+				> "Chi"
+				> "Amber"
+				> "Kay"
+				> "Sid"
+					"Yeah!",
+					"He makes them | straight out of | his car too!",
+					"I really love the | violin in some of | the songs",
+			"Kyle! You did so | well!",
+			"Congratulations!",
+			> "Do I win | a prize?"
+				"Oh, um",
+				"Maybe?",
+			> "What | happens?"
+				"Hm...",
+				"I don't know | actually",
+			> "Now | what?"
+				"That's a good | question...",
+				"No clue!",
+			"I feel like I've | always been here",
+			"I can't really | remember anything | - what happened | before or what | happens after",
+			"But that's OK! I | kinda like it | here!",
+			> "You | don't | remem | -ber?"
+			> "You like | it?"
+			> "It's ok?"
+			"Yeah!",
+			"I mean I get | letters from Kimi | sometimes",
+			"She tells me | stories about | this one girl - | she seems really | sad",
+			"And this other | girl who tries to | help her not be | sad",
+			"I don't | understand it but | I really want to",
+			"But other times | Kimi writes me | really pretty | haikus",
+			"It's like I've | read them before | but I know I | haven't - almost | like a nostalgia",
+			"So yeah! I've got | my letters, my | flowers, my | music, my grave",
+			"It's fun!",
+			"But I still feel | like I'm missing | something...",
+			> "It's | gonna be | OK"
+			> "Reflect | on | yourself"
+			> "Look for | more in | life"
+			"*gasp* You're | right Kyle!",
+			"I'm happy for | what I have, but | I still need to | have a goal",
+			"I should talk to | Kimi about the | letters - I never | had a chance to",
+			"And even though I | look on the | bright side of | life, I have to | remember that | everything isn't | viewed through | rose colored | lenses",
+			"There's pain and | incompleteness - | but it'll be OK",
+			"Hey...",
+			"I felt | something... Just | now...",
+			"It's like... | peace?",
+			"That's weird - | even though I'm | dead, I've never | felt this feeling | before",
+			"I like it!",
+			"Thanks Kyle! You | rock",
+			"This is special | to me but I want | you to have it",
+			"(you got a soul | from Grace)",
+			"I think I'm gonna | head out and look | for more in the | second life I was | given",
+			"I'll see you on | the other side | Kyle!",
+			"(Grace | disappears)",
+
+
+
+
+
+
+CHI
+----
+			"Oh, hello",
+			"How are you | today?",
+			> "Great!"
+				"That's fantastic!",
+				"I hope your day | continues to stay | positive!",
+			> "I'm not | sure"
+				"Well that's | alright",
+				"The day still has | potential to | become | interesting!",
+			> "Meh"
+				"Oh I'm sorry to | hear that",
+				"Well there's | always tomorrow!",
+			"Nice to meet you",
+			"I'm Chi",
+			"And you are?",
+			> "Kyle"
+				"Kyle?",
+				"The name suits | you!",
+			> "Kyle I | suppose"
+				"You suppose?",
+				"Well if that's | what feels right | to you, then Kyle | it shall be",
+			> "You can | call me | Kyle"
+				"Excellent!",
+				"Kyle it is!",
+			> "I am | Kyle"
+				"Ah, Kyle!",
+				"What a great | name!",
+
+			"Now... What can I | do for you today?",
+			> "I need | to talk | to you"
+				"A talk?",
+				"So be it! Let's | talk",
+			> "I need | some | -thing"
+				"Ah of course!",
+				"I can be of | assistance",
+			> "I don't | know"
+				"Well that's quite | alright",
+				"Perhaps I can | enlighten you",
+			"But first... A | test of wits!",
+			"I'll challenge | you to a few | short questions",
+			"If you answer | correctly then I | shall aid you in | your journey for | information",
+			"So what is your | decision?",
+			> "No deal"
+				"Very well - I can | respect that",
+				"Take this item | instead",
+				"(you got a | corrupt key from | Chi)",
+				"It may not be | your preference | for answers",
+				"But it is answers | regardless",
+			> "Deal"
+				"Excellent!",
+				"We'll begin...",
+				"What lucky item | do I hold on me?",
+				> "Clover"
+				> "Horshoe"
+				> "Dice"
+					"Correct!",
+					"It's not as heavy | or perishable",
+				"What do I | collect?",
+				> "Stamps"
+				> "Bugs"
+				> "Bottle | -caps"
+					"Yes!",
+					"I predict that | someday it will | become a very | valuable currency",
+				"Who uses the oils | I make from | flowers?",
+				> "Kimi"
+				> "Sid"
+				> "Grace"
+				> "Kay"
+				> "Amber"
+					"Right!",
+					"She is quite the | fan of the | essence of nature",
+				"Well done Kyle",
+				"You've completed | the questionaire",
+				> "What do | I get?"
+					"You are now | smarter than you | were before we | started this | conversation",
+				> "Now | what?"
+					"Whatever you | wish!",
+				> "Cool"
+					"Yes it is very | cool indeed!",
+				"Now if you'll | excuse me I'll go | back to my | meditating",
+				> "I still | need | some | -thing"
+				> "Please | help"
+				> "What?"
+				"?",
+				"Oh... I'm sorry | Kyle but...",
+				"What you seek is | practically | impossible",
+				"It's peace right?",
+				> "Yes"
+				> "I think | so"
+				> "Maybe"
+				"*sigh* Peace is | hard to come by",
+				"So I've just | dedicated the | rest of my life | and focus to | meditating and | studying my state | of mind",
+				"It's not peace | but it's a nice | alternative",
+				> "Why?"
+				> "No way"
+				> "There's | gotta be | more"
+				"Kyle...",
+				"A long time ago, | I used to be | absorbed in | frivolous matters",
+				"I would dedicate | myself to being | the very best and | being a | perfectionist",
+				"I wanted every | material | possession, have | the most money, | be the top in my | career and | lifestyle",
+				"It ultimately got | me nowhere - and | I dissolved | relationships | with others",
+				"Now I'm here... | And I have all | the energy in the | world to focus on | one thing - like | I've always | wanted",
+				"So again... | please excuse me | while I meditate",
+				> "It's | gonna be | OK"
+				> "Take a | break"
+				> "Find a | balance"
+				"Hmm...",
+				"I never thought | about that",
+				"And I've done | nothing but think | about how to find | peace",
+				"But I've missed | the entire point | - I focus too | hard",
+				"I need to relax, | and focus on | different things",
+				"There is a | solution and a | finishing point | but no rush to | reach it",
+				"It's good to have | a goal - but | shutting out the | rest of the world | to achieve it | doesn't help | anyone",
+				"Thank you Kyle!",
+				"I feel truly | enlightened... | and at true | peace!",
+				"Here, keep this | as a token of my | gratitude",
+				"(you got a cloud | from Chi)",
+				"My meditation is | done and my goal | complete",
+				"I think I'll go | take a break and | use my key",
+				"May we cross | paths again, Kyle",
+				"(Chi disappears)",
+
+
+
+
+
+
+
+KAY
+----
+			"HALT! Who goes | there?",
+			> "Uh..."
+				"Not another word!",
+				"You're new here | so I'll go easy | on you",
+			> "No one"
+				"Ha! Do you take | me for a fool?",
+				"My helmet limits | my visibility but | there is | DEFINITELY | someone right in | front of me",
+			> "Me! | Fight | me!"
+				"What?!",
+				"I haven't had a | challenge in | years!",
+				"I'm a little | rusty...",
+				"In skill not just | armor",
+			"What is your | name, stranger?",
+			> "Kyle"
+				"Kyle? a very | threatening name",
+			> "Um... | Kyle?"
+				"Ha! You don't | even know your | own name?",
+				"You poor soul",
+			> "The | Mighty | Kyle"
+				"Mighty?!",
+				"Pssh... uh I | mean...",
+				"Yeah... mighty | where YOU come | from I guess",
+			> "I go by | Kyle"
+				"Ah... I see",
+				"Kyyylleee...",
+			"Alright then, | "Kyle"...",
+			"You can call me | Kay - Sir Kay!",
+			"I protect this | castle and the | beautiful lady | who inhabits it!",
+
+			"So what is your | business here?",
+			> "I need | to talk | to you"
+				"Talk?!",
+			> "I need | some | -thing"
+				"Agh!",
+				"A request?",
+				"All right then...",
+			> "I don't | know"
+				"Hmm...",
+				"That's a problem",
+			"Well then Kyle",
+			"Before we | continue with | this issue you | have - I'll test | to see if you are | worthy",
+			"Is this fair?",
+			> "No deal"
+				"I see...",
+				"Well in that | case!",
+				"I can give you | this instead",
+				"(you got a | corrupt key from | Kay)",
+				"In all honesty, | it's not the best | thing in the | world",
+				"But! A key is a | key! And you'll | have to make do | until you feel | worthy enough",
+			> "Deal"
+				"All right!",
+				"What did I win my | medal for?",
+				> "1st | place"
+				> "Best | Armor"
+				> "Good | Spirit"
+					"Correct!",
+					"Good spirit will | always see you | through a battle | if not your | weapon",
+				"What color is my | ideal sword?",
+				> "Silver"
+				> "Gold"
+				> "Black"
+					"Yes!",
+					"Honestly not for | the strength of | the metal - I | just think it | looks more | intimidating",
+				"Who makes the | best tea?",
+				> "Kimi"
+				> "Sid"
+				> "Grace"
+				> "Amber"
+				> "Chi"
+					"Ha! Right!",
+					"It's absolutely | heavenly actually",
+				"Good show Kyle! | You passed!",
+				> "What do | I win?"
+					"Kyle!",
+					"It's not about | winning - it's | about having fun",
+				> "Now | what?"
+					"Um... Well...",
+					"Whatever you want | I suppose!",
+				> "Am I a | knight | now?"
+					"Knighthood?",
+					"For completing a | test?",
+					"HAHAHAHAHA!",
+					"I wish it was | that easy...",
+				"Now you can go | forth with your | new title of | \"Test | Completer\"",
+				> "I still | need | some | -thing"
+				> "Help me"
+				> "You're | my only | hope"
+				"?!",
+				"Oh boy...",
+				"Uh... Listen | Kyle...",
+				"This isn't going | to be easy to | take in...",
+				"That thing you | need? It's | peace... Is that | right?",
+				> "Yes!"
+				> "Of | course"
+				> "Yessir"
+				"Yes... well...",
+				"No one has ever | been able to find | it",
+				"I've searched for | it - EVERYWHERE",
+				"Not for myself | but mostly for | Amber",
+				"It's my fault | she's here | anyways",
+				> "What do | you | mean?"
+				> "Your | fault?"
+				> "Why for | Amber?"
+				"Well...",
+				"Back in the days | of knights and | princesses",
+				"A knight was | supposed to | protect his | princess",
+				"And I wasn't | the... best of | the knights",
+				"I fell asleep on | the job and | lacked motivation | to train and go | on quests",
+				"I said no | whenever anyone | asked me to do | anything",
+				"And one day - | when I was | supposed to be on | patrol and | guarding the | castle",
+				"Invaders came | and... burned the | castle down...",
+				"It's all my | fault!",
+				"So now I protect | the castle with | my life and | patrol the | entrance non-stop | everyday!",
+				"I know it can | never make up for | what happened",
+				"I'm still the | worst knight ever",
+				> "It's | gonna be | OK"
+				> "You're a | good | knight"
+				> "You can | do it"
+				"?",
+				"Really?",
+				"You think so?",
+				"...",
+				"OK!",
+				"I slacked off in | the past and it | cost me my life | and others lives",
+				"But my history | doesn't define me | - I'll rise up to | any challenge now",
+				"My motivation and | drive is stronger | than ever - and | I'll protect | people",
+				"I'm a good knight | for what I choose | to do now - not | what I've done in | the past",
+				"Thank you Kyle! | Thank you so | much!",
+				"I found my peace | and completed my | lifelong quest",
+				"I can't grant you | knighthood - but | I'll give you the | second best",
+				"(you got a shield | from Kay)",
+				"My key calls to | me so I shall | part ways with | you",
+				"Please take care | of Amber for me",
+				"I'd be honored to | meet you again",
+				"(Kay disappears)",
+
+
+
+
+
+
+
+AMBER
+------
+			"Oh",
+			"My",
+			"Gosh!",
+			"Who did your | hair? I love it!",
+			> "I don't | know"
+				"Ooohh ok...",
+				"I see how it | is...",
+				"You wanna keep | your mysterious | hairdresser all | to yourself?",
+				"I can respect | that",
+				"I'd probably do | the same thing if | I had someone who | could work magic | on my hair",
+			> "It's | natural"
+				"No way!",
+				"I've never seen | anyone just born | with that hair | color",
+				"Except in | cartoons or | something",
+			> "I did"
+				"Whoa! You did?",
+				"You must be a | really good | stylist!",
+				"You gotta do mine | sometime! Please? | Pretty Please?",
+			"Oh! I'm Amber - | THE Amber",
+			> "Kyle"
+				"Hey Kyle",
+				"What's shakin'?",
+			> "Name's | Kyle"
+				"Wow, your name's | as cool as your | hair",
+			> "It's | Kyle?"
+				"Kyle?",
+				"Do you not know?",
+				"Oh whatever - I | like the name | Kyle so I'll | still call you | that",
+			> "The Kyle"
+				"Oooh! I've never | heard of you",
+				"You must be a | rising star! | Rad...",
+			"So Kyle...",
+			"What brings you | to these parts?",
+			> "I need | to talk | to you"
+				"Yaaas!",
+				"I haven't had | anyone else to | talk to besides | Kay in forever!",
+			> "I need | some | -thing"
+				"Oh really?",
+				"I might have | something around | her for you",
+			> "I don't | know"
+				"Wooooow",
+				"Was it one of | those moments | where you walked | into a room and | you forget what | you went in for?",
+				"I get those all | the time",
+			"Ok - first things | first",
+			"We gotta lay down | the law and I | gotta see if | you're legit",
+			"I'm gonna quiz | you on stuff | about me",
+			"If you get them | all right then | we're green - | super green",
+			"You feel me?",
+			> "No deal"
+				"OK OK",
+				"I'm not gonna | force you into | anything don't | worry",
+				"But here this | might help you | anyways",
+				"(you got a | corrput key from | Amber)",
+				"It may or may not | help you - I | dunno",
+				"But I hope you | find what you | needed!",
+			> "Deal"
+				"Raaaad!",
+				"Let's do this",
+				"What's my | favorite flower?",
+				> "Daisy"
+				> "Violet"
+				> "Rose"
+					"Of course!",
+					"They're the | absolute best | flowers",
+					"Every romantic | movie uses them!",
+				"What do I use to | call Kay?",
+				> "Whistle"
+				> "Phone"
+				> "Horn"
+					"Yepperoni!",
+					"He made it | himself too - | it's cute",
+				"Who's got the | best fashion | sense - other | than me and you",
+				> "Chi"
+				> "Sid"
+				> "Grace"
+				> "Kay"
+				> "Kimi"
+					"Uh yeah!",
+					"Our styles are | surprisingly | similar",
+					"She gives me her | old hats and I | give her ribbons | and slippers | sometimes",
+				"Kyle! You did | awesome!",
+				"I'm so proud - | you know me so | well!",
+				> "Can you | help me?"
+					"Right!",
+					"About that...",
+				> "Is there | more?"
+					"More what?",
+					"Oh! Um...",
+				> "Now | what?"
+					"Now?",
+				"Actually Kyle - | and don't be mad",
+				"I know what you | need",
+				"It's that | complete peace | stuff right?",
+				> "Yep"
+				> "Uh huh"
+				> "Correcto"
+				"I knew it!",
+				"Yeah so we're all | out of that",
+				"And by \"all | out\" I mean we | never had it to | begin with - no | one did",
+				"Everyone is | supposed to find | it on their own",
+				"It's so hard - | it's like a | puzzle to solve",
+				"Something to do | with fixing our | old selves or | something",
+				> "Puzzle?"
+				> "Old | self?"
+				> "Fix?"
+				"Yep",
+				"My old self was | soooooo pathetic | - not gonna lie",
+				"Old Amber isn't | as cool as new | Amber",
+				"I used to be so | self-conscious",
+				"I thought people | were always | watching me and | judging me",
+				"Well... everyone | watches | princesses",
+				"But I was always | the center of | gossip and people | would say things | about me behind | my back",
+				"I'd hear rumors | about people | talking about how | I looked, or what | I said, or how I | acted",
+				"I felt like I | couldn't trust | anyone - or | myself",
+				"Why would people | do such things?",
+				> "It's | gonna be | OK"
+				> "Don't | worry | about | them"
+				> "Haters | gonna | hate"
+				"...",
+				"YEAH!",
+				"HECK YEAH!",
+				"You're so right | Kyle!",
+				"Why should I let | other people make | me feel so bad | about myself?",
+				"I barely know | them! And they | barely know me",
+				"My self-esteem | almost shattered | because people | were just hating",
+				"The people that | really care about | me will see me | for my true self | - past my | insecurities",
+				"And those other | jerks can just | suck it - cuz' | they don't matter | anyways!",
+				"Ahhh... I feel so | relieved!",
+				"Is this... that | peace?",
+				"I love it!",
+				"Thanks Kyle! I | totally owe you | one!",
+				"Actually - I have | an idea",
+				"Take this - it | doesn't hold any | power over me now",
+				"(you got a crown | from Amber)",
+				"Wow! I think I'll | use that key I | got a long time | ago",
+				"Everything's so | fantastic now",
+				"Kyle - I'll catch | you later",
+				"Maybe if you | wanna go shopping | or something",
+				"Byyyyeee~",
+				"(Amber | disappears)",
+
+
+
+
+
+
+
+KYLE
+-----
+	Dummy :
+			"You redeemed | yourself by | helping others",
+			"Here's your key",
+			"(you got a | special key from | the dummy)",
+			"Goodbye Kyle",
+			"And thank you",
+
+
+
+	END GAME :
+			"(you find | yourself in a | bright, warm and | comfortable area)",
+			"(you see all of | your friends | smiling and | laughing in the | distance)",
+			"(they wave to you | and you walk to | join them)",
+			"(you feel a sense | of total peace | and complete)",
+			"(THE END)",

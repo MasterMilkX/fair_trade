@@ -181,7 +181,7 @@ $ Item : EP Record
 End Game
 ---------
 : (you find yourself in a dark room filled with flashing blue neon lights, fog, and the static from a TV)
-: (you're sitting on a bean bag chair with a box of pizza, empty cans, and a video game controller in front of you)
+: (you're sitting on a bean bag chair with a box of pizza, empty cans of root beer, and a video game controller in front of you)
 : (party music plays loudly but muffled in another area - the bass vibrating through your core)
 : (you feel a sense of peace... but incomplete)
 : (try again?)

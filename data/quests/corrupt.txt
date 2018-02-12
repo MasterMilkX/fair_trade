@@ -28,7 +28,7 @@ Amber [Trade Back?] : "Absolutely!"
 
 End Game
 ---------
-: (you find yourself surrounded by darkness - you are very cold)
-: (something doesn't feel right - a unbalance and conflict)
-: (you are very uncomfortable)
-: Try again?
+(you find yourself surrounded by darkness - you are very cold)
+(something doesn't feel right - a unbalance and conflict)
+(you are very uncomfortable)
+(try again?)

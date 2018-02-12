@@ -10,7 +10,7 @@ var story = {
 
 	//mission
 	//quest : "Introduction",
-	quest : "Begin",
+	quest : "Kyle",
 	storyIndex : 0,
 	taskIndex : 0,
 	trigger : "none",
@@ -31,7 +31,7 @@ var story = {
 		show : false
 	},
 
-	corrupt : false
+	kyleCt : 0,
 
 };
 
@@ -127,7 +127,10 @@ function play(){
 	}
 
 
-if(story.quest === "Begin"){
+if(story.quest === "Kyle"){
+
+	//TRIGGERS AN NPC QUEST
+
 	if(trigger === "touch_coin"){
 		story.cutscene = true;
 		if(taskIndex == 0){
@@ -140,6 +143,2083 @@ if(story.quest === "Begin"){
 			endScene();
 		}
 	}
+
+	//FINISHED GAME
+	if(story.kyleCt >= 7){
+		coin.show = false;
+		dummy.x = 19;
+		dummy.y = 14;
+		kimi.show = false;
+		sid.show = false;
+		grace.show = false;
+		chi.show = false;
+		kay.show = false;
+		amber.show = false;
+		if(trigger === "touch_dummy"){
+			story.cutscene = true;
+			if(taskIndex == 0){
+				newDialog(["...",
+				"You redeemed | yourself by | helping others",
+				"Here's your key",
+				"(you got a | special key from | the dummy)",
+				"Goodbye Kyle",
+				"And thank you",
+				"(the dummy | disappears)"]);
+			}else if(taskIndex == 1){
+				dummy.show = false;
+				story.kyle.tradeItem = "special key";
+				story.kyle.tradeIndex = 55;
+				endScene();
+			}
+		}
+	}
+	
+
+
+	if(story.kyle == null || story.kyle.other == null)
+		return;
+
+
+	////////////////////
+	//START KYLE QUEST//
+	////////////////////
+
+	//CORRUPT KEY QUEST
+	if(story.kyle.tradeItem === "corrupt key"){
+		if(story.kyle.other == null)
+			return;
+
+		if(trigger === "talk_Grace" || trigger === "talk_Chi" || trigger === "talk_Sid" || trigger === "talk_Amber" || trigger === "talk_Kay" || trigger === "talk_Kimi"){
+			story.cutscene = true;
+			if(taskIndex == 0){
+				newDialog(["Use the key"])
+			}else if(taskIndex == 1){
+				endScene();
+			}
+		}
+
+		if(trigger === "touch_keyhole"){
+			story.cutscene = true;
+			if(taskIndex == 0){
+				newDialog(["Use the key?"])
+			}else if(taskIndex == 1){
+				newChoice(["Leave", "Stay"]);
+			}
+		}else if(trigger === "> Stay"){
+			if(taskIndex == 2){
+				endChoice();
+				endScene();
+			}
+		}
+		//epilogue
+		else if(trigger === "> Leave"){
+			if(taskIndex == 2){
+				endChoice();
+				story.storyIndex = 1;
+				newDialog(["(you find | yourself | surrounded by | darkness - you | are very cold)",
+					"(something | doesn't feel | right - a | unbalance and | conflict)",
+					"(you are very | uncomfortable)",
+					"(try again?)"])
+			}else if(taskIndex == 3){
+				newChoice(["Yes", "No"]);
+			}
+		}else if(trigger === "> No"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["GAME OVER"]);
+			}
+		}else if(trigger === "> Yes"){
+			if(taskIndex == 4){
+				endChoice();
+				story.quest = "Kyle";
+				story.storyIndex = 0;
+				story.kyle.tradeItem = "none";
+				story.kyle.tradeIndex = 0;
+				story.kyleCt = 0;
+				coin.show = true;
+				endScene();
+			}
+		}
+
+	}
+	//FINAL KEY QUEST
+	else if(story.kyle.tradeItem === "special key"){
+		if(story.kyle.other == null)
+			return;
+
+		if(trigger === "touch_keyhole"){
+			story.cutscene = true;
+			if(taskIndex == 0){
+				newDialog(["Use the key?"])
+			}else if(taskIndex == 1){
+				newChoice(["Leave", "Stay"]);
+			}
+		}else if(trigger === "> Stay"){
+			if(taskIndex == 2){
+				endChoice();
+				endScene();
+			}
+		}
+		//epilogue
+		else if(trigger === "> Leave"){
+			if(taskIndex == 2){
+				endChoice();
+				story.storyIndex = 1;
+				newDialog(["(you find | yourself in a | bright, warm and | comfortable area)",
+				"(you see all of | your friends | smiling and | laughing in the | distance)",
+				"(they wave to you | and you walk to | join them)",
+				"(you feel a sense | of total peace | and complete)",
+				"(THE END)"])
+			}
+		}
+
+	}
+
+
+	//NPC INTERACTION QUEST
+	else{
+
+	////////
+	//KIMI//
+	////////
+	if(story.kyle.other.name === "Kimi"){
+		if(trigger === "talk_Kimi"){
+			story.cutscene = true;
+			coin.show = false;
+			if(taskIndex == 0){
+				newDialog(["...", "...Uh, hi?"]);
+			}else if(taskIndex == 1){
+				newChoice(["Hi.", "Hi?", "Hi!"]);
+			}
+		}
+
+		//SAY HI
+		else if(trigger === "> Hi."){
+			if(taskIndex == 2){
+				endChoice();
+				newDialog(["...", "...Right", 
+							"I don't think | I've seen you | around", "Who are you?"]);
+			}else if(taskIndex == 3){
+				newChoice(["Kyle", "Kyle I | guess", "Kyle?", "I'm Kyle!"])
+			}
+		}else if(trigger === "> Hi?"){
+			if(taskIndex == 2){
+				endChoice()
+				newDialog(["Hmm...", "You seem | unsure of that",
+						"I don't think | I've seen you | around", "Who are you?"]);
+			}else if(taskIndex == 3){
+				newChoice(["Kyle", "Kyle I | guess", "Kyle?", "I'm Kyle!"])
+			}
+		}else if(trigger === "> Hi!"){
+			if(taskIndex == 2){
+				endChoice()
+				newDialog(["!", 
+								"God you're | chipper", 
+								"It's almost | annoying actually",
+								"I don't think | I've seen you | around", "Who are you?"]);
+			}else if(taskIndex == 3){
+				newChoice(["Kyle", "Kyle I | guess", "Kyle?", "I'm Kyle!"])
+			}
+		}
+
+		//WHO ARE YOU?
+		else if(trigger === "> Kyle"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Hmm...", "Ok then... | Kyle...",
+						"I'm Kimi",
+						"What are you | doing here?"])
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}else if(trigger === "> Kyle I | guess"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Kyle I. Guess?", 
+					"That's quite a | name", 
+					"I'll call you | Kyle for short",
+					"I'm Kimi",
+					"What are you | doing here?"])
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}else if(trigger === "> Kyle?"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["You don't know?", 
+							"... Well...", 
+							"I guess people | don't really have | a choice on what | they get to be | called",
+							"I'm Kimi", 
+							"What are you | doing here?"])
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}else if(trigger === "> I'm Kyle!"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Wow...", "You seem pretty | proud of that", 
+					"Kyle's an OK name | I suppose...",
+					"I'm Kimi",
+					"What are you | doing here?"]);
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}
+
+		//WHAT DO YOU WANT?
+		else if(trigger === "> I need | to talk | to you"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["Hm...",
+				"I don't talk | Kyle...",
+				"Let's do | something | different",
+				"If you really | know me - if | you've been here | before",
+				"Then answer these | questions",
+				"If you get enough | right, I'll give | you what you need",
+				"Deal?"]);
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}else if(trigger === "> I need | some | -thing"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["Uh huh...",
+				"We all do Kyle",
+				"Let's do | something | different",
+				"If you really | know me - if | you've been here | before",
+				"Then answer these | questions",
+				"If you get enough | right, I'll give | you what you need",
+				"Deal?"]);
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}else if(trigger === "> I don't | know"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["Oh...",
+				"You don't | remember?",
+				"What a shame...",
+				"I can help",
+				"Let's do | something | different",
+				"If you really | know me - if | you've been here | before",
+				"Then answer these | questions",
+				"If you get enough | right, I'll give | you what you need",
+				"Deal?"]);
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}
+
+		//DEAL
+		else if(trigger === "> No deal"){
+			if(taskIndex == 8){
+				endChoice();
+				newDialog(["Suit yourself",
+				"Take this then",
+				"(you got a | corrupt key from | Kimi)",
+				"It's a way out | but you won't | like it",
+				"Come back when | you know more | about this world"])
+			}else if(taskIndex == 9){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}
+
+		//QUIZ
+		else if(trigger === "> Deal"){
+			if(taskIndex == 8){
+				endChoice();
+				newDialog(["Ok...",
+				"What instrument | do I play?"])
+			}else if(taskIndex == 9){
+				newChoice(["Violin", "Bass", "Flute"]);
+			}
+		}
+		else if(trigger === "> Flute"){
+			if(taskIndex == 10){
+				endChoice();
+				newDialog(["...",
+					"I did...",
+					"Well, you got the | first question | right",
+					"What weapon do I | use?"]);
+			}else if(taskIndex == 11){
+				newChoice(["Staff", "Katana", "Arrow"]);
+			}
+		}else if(trigger === "> Katana"){
+			if(taskIndex == 12){
+				endChoice();
+				newDialog(["...",
+					"I do..",
+					"That seemed | obvious",
+					"I'm a | ninja/samurai | after all..",
+					"Who do I give | letters to?"]);
+			}else if(taskIndex == 13){
+				newChoice(["Sid", "Grace", "Chi", "Amber", "Kay"]);
+			}
+		}else if(trigger === "> Grace"){
+			if(taskIndex == 14){
+				endChoice();
+				newDialog(["...",
+					"That's true..",
+					"She doesn't | remember me | though - or what | I did",
+					"That's probably | for the best...",
+					"Congrats, you | passed Kyle"]);
+			}else if(taskIndex == 15){
+				newChoice(["Are you | ok?", "Now | what?", "That's | it?"]);
+			}
+		}
+
+		//WRONG ANSWER
+		else if((trigger === "> Violin") || (trigger === "> Bass")){
+			if(taskIndex == 10){
+				endChoice();
+				newDialog(["...", "Sorry", "Wrong answer",
+					"Take this then",
+				"(you got a | corrupt key from | Kimi)",
+				"It's a way out | but you won't | like it",
+				"Come back when | you know more | about this world"]);
+			}else if(taskIndex == 11){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}else if((trigger === "> Arrow") || (trigger === "> Staff")){
+			if(taskIndex == 12){
+				endChoice();
+				newDialog(["...", "Sorry", "Wrong answer",
+					"Take this then",
+				"(you got a | corrupt key from | Kimi)",
+				"It's a way out | but you won't | like it",
+				"Come back when | you know more | about this world"]);
+			}else if(taskIndex == 13){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}else if((trigger === "> Sid") || (trigger === "> Chi") || (trigger === "> Amber") || (trigger === "> Kay")){
+			if(taskIndex == 14){
+				endChoice();
+				newDialog(["...", "Sorry", "Wrong answer",
+					"Take this then",
+				"(you got a | corrupt key from | Kimi)",
+				"It's a way out | but you won't | like it",
+				"Come back when | you know more | about this world"]);
+			}else if(taskIndex == 15){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}
+
+
+		//NOW WHAT
+		else if(trigger === "> Are you | ok?"){
+			if(taskIndex == 16){
+				endChoice();
+				newDialog(["...",
+					"Fine I guess",
+					"Lonely and | miserable as | usual"]);
+			}else if(taskIndex == 17){
+				newChoice(["Why?", "Don't be | upset", "What | about | Grace?"]);
+			}
+		}else if((trigger === "> Why?") || (trigger === "> Don't be | upset") || (trigger === "> What | about | Grace?")){
+			if(taskIndex == 18){
+				endChoice();
+				newDialog(["...", "You're looking | for peace right?",
+				"No matter how | hard you try you | feel incomplete?"]);
+			}else if(taskIndex == 19){
+				newChoice(["Yeah", "How'd | you know?", "What?"]);
+			}
+		}else if((trigger === "> Yeah") || (trigger === "> How'd | you know?") || (trigger === "> What?")){
+			if(taskIndex == 20){
+				endChoice();
+				newDialog(["It doesn't exist",
+				"You did something | in your past life | and now you're | stuck here",
+				"Looking for a | non-existent | peace"]);
+			}else if(taskIndex == 21){
+				newChoice(["What | about | you?", "What did | you do?", "How did | you get | stuck?"]);
+			}
+		}
+		//KIMI'S STORY
+		else if((trigger === "> What | about | you?") || (trigger === "> What did | you do?") || (trigger === "> How did | you get | stuck?")){
+			if(taskIndex == 22){
+				endChoice();
+				newDialog(["Me?",
+					"...",
+					"I tried to help | someone I loved",
+					"But ended up just | making it | worse...",
+					"She wasn't happy | with her life",
+					"And everything I | did couldn't make | her feel better",
+					"So she asked me | for one final | solution - and I | obliged",
+					"I gave her | nightshade",
+					"Now she's gone...",
+					"But she haunts | me, and she | doesn't remember | me - or what we | used to be",
+					"She's happy | though... but for | the wrong | reasons...",
+					"I couldn't help | her... And I | don't | understand...",
+					"I'm just lonely | and guilty now... | It's not fair..."]);
+			}else if(taskIndex == 23){
+				newChoice(["It's | gonna be | OK", "You're | not | alone", "You care | a lot"]);
+			}
+		}
+		//ACCEPTANCE
+		else if((trigger === "> It's | gonna be | OK") || (trigger === "> You're | not | alone") || (trigger === "> You care | a lot")){
+			if(taskIndex == 24){
+				endChoice();
+				newDialog(["...",
+				"Thanks Kyle",
+				"I guess... If you | care about | someone...",
+				"You have to help | them through | whatever they're | going through",
+				"You have to keep | them safe and | protect them but | also take care of | yourself",
+				"Death shouldn't | ever be a | solution",
+				"Everything will | end up being OK | in the end",
+				"I wish I realized | that before...",
+				"...",
+				"Thank you Kyle",
+				"I feel at peace | now - I guess I | was wrong",
+				"It does exist",
+				"Here take this",
+				"(you got a katana | from Kimi)",
+				"I'm going to use | my key",
+				"Thanks again for | your help",
+				"I'll see you | around",
+				"(Kimi disappears)"]);
+			}else if(taskIndex == 25){
+				kimi.show = false;
+				story.kyleCt++;
+				story.kyle.tradeItem = "katana";
+				story.kyle.tradeIndex = 49;
+				endScene();
+			}
+		}
+	}
+
+
+	///////
+	//SID//
+	///////
+
+	if(story.kyle.other.name === "Sid"){
+		if(trigger === "talk_Sid"){
+			story.cutscene = true;
+			coin.show = false;
+			if(taskIndex == 0){
+				newDialog(["Whoa!",
+				"Hey, I didn't | see you there!",
+				"How's it going, | dude? I'm Sid"])
+			}else if(taskIndex == 1){
+				newChoice(["Kyle", "Name's | Kyle", "I think | I'm Kyle", "Sup? I'm | Kyle"]);
+			}
+		}
+		//name choice
+		else if(trigger === "> Kyle"){
+			if(taskIndex == 2){
+				endChoice();
+				newDialog(["Nice... That's a | pretty great | name",
+						"Hey do you have | any records?",
+						"I've gotten | really into | vinyl lately"])
+			}else if(taskIndex == 3){
+				newChoice(["Nope, | sorry", "What's a | record?", "I broke | them"]);
+			}
+		}else if(trigger === "> Name's | Kyle"){
+			if(taskIndex == 2){
+				endChoice();
+				newDialog(["Coolio dude!",
+						"Nice to meet you",
+						"Hey do you have | any records?",
+						"I've gotten | really into | vinyl lately"])
+			}else if(taskIndex == 3){
+				newChoice(["Nope, | sorry", "What's a | record?", "I broke | them"]);
+			}
+		}else if(trigger === "> I think | I'm Kyle"){
+			if(taskIndex == 2){
+				endChoice();
+				newDialog(["You think?",
+					"Well.. I'll call | you Kyle until | you feel like | being called | something else",
+						"Hey do you have | any records?",
+						"I've gotten | really into | vinyl lately"])
+			}else if(taskIndex == 3){
+				newChoice(["Nope, | sorry", "What's a | record?", "I broke | them"]);
+			}
+		}else if(trigger === "> Sup? I'm | Kyle"){
+			if(taskIndex == 2){
+				endChoice();
+				newDialog(["Man... you seem | cool Kyle!",
+						"Hey do you have | any records?",
+						"I've gotten | really into | vinyl lately"])
+			}else if(taskIndex == 3){
+				newChoice(["Nope, | sorry", "What's a | record?", "I broke | them"]);
+			}
+		}
+		//no record
+		else if(trigger === "> Nope, | sorry"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Ah no worries my | dude",
+							"They're hard to | come by anyways",
+							"So what's up, my | dude?"]);
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}else if(trigger === "> What's a | record?"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["They're like | really huge | CDs",
+							"It's pretty old | school stuff",
+							"So what's up, my | dude?"]);
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}else if(trigger === "> I broke | them"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Aw bummer...",
+							"Oh well!",
+							"So what's up, my | dude?"]);
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}
+
+		//lets talk
+		else if(trigger === "> I need | to talk | to you"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["Oh yeah?",
+				"A TALK talk, huh?",
+				"Oh man...",
+				"So here's what's | gonna happen",
+				"You've been here | before, amiright?",
+				"So then we've | been bros before | - and you know me | like a true bro",
+				"I'll quiz you",
+				"If you get all | the question | right, you win!",
+				"Cool beans?"]);
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}else if(trigger === "> I need | some | -thing"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["Yeah?",
+					"I think I can | help!",
+					"So here's what's | gonna happen",
+					"You've been here | before, amiright?",
+					"So then we've | been bros before | - and you know me | like a true bro",
+					"I'll quiz you",
+					"If you get all | the question | right, you win!",
+					"Cool beans?"]);
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}else if(trigger === "> I don't | know"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["Haha! I feel you | bro",
+					"Maybe I can help | you remember",
+					"So here's what's | gonna happen",
+					"You've been here | before, amiright?",
+					"So then we've | been bros before | - and you know me | like a true bro",
+					"I'll quiz you",
+					"If you get all | the question | right, you win!",
+					"Cool beans?"]);
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}
+
+		//DEAL
+		else if(trigger === "> No deal"){
+			if(taskIndex == 8){
+				endChoice();
+				newDialog(["Aw, ok",
+				"Here you go then",
+				"(you got a | corrupt key from | Sid)",
+				"It's kinda crappy | to be honest",
+				"But it'll take | you where you | need to go",
+				"I hope we're bros | in another life!"])
+			}else if(taskIndex == 9){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}
+
+		//QUIZ
+		else if(trigger === "> Deal"){
+			if(taskIndex == 8){
+				endChoice();
+				newDialog(["Sweeeet! Ok | Question 1:",
+				"What do I put my | music on?"])
+			}else if(taskIndex == 9){
+				newChoice(["CD", "Mixtape", "Vinyl"]);
+			}
+		}else if(trigger === "> Mixtape"){
+			if(taskIndex == 10){
+				endChoice();
+				newDialog(["Correct!",
+					"Gotta go old | school",
+					"Heh heh",
+					"Question 2:",
+					"What's my | favorite soda?"])
+			}else if(taskIndex == 11){
+				newChoice(["Cola", "Ginger | beer", "Orange | soda", "Root | beer"]);
+			}
+		}else if(trigger === "> Root | beer"){
+			if(taskIndex == 12){
+				endChoice();
+				newDialog(["Right again!",
+					"Best party drink | ever!",
+					"Ok last | question...",
+					"Who did I give my | last record to?"]);
+			}else if(taskIndex == 13){
+				newChoice(["Kimi", "Grace", "Chi", "Amber", "Kay"]);
+			}
+		}else if(trigger === "> Kay"){
+			if(taskIndex == 14){
+				endChoice();
+				newDialog(["Yeah!",
+					"He borrowed it | for a bit",
+					"I didn't even | know he liked | music", 
+					"You get to stay | here and party | with me forever!",
+					"Yaaay... Heh..."])
+			}else if(taskIndex == 15){
+				newChoice(["Forever?", "I don't | want to | party", "That's | not what | I need"]);
+			}
+		}
+
+		//WRONG CHOICES
+		else if((trigger === "> CD") || (trigger === "> Vinyl")){
+			if(taskIndex == 10){
+				endChoice();
+				newDialog(["Aww duuude!", "Not quite!",
+					"Well, here you | go then",
+					"(you got a | corrupt key from | Sid)",
+					"It's kinda crappy | to be honest",
+					"But it'll take | you where you | need to go",
+					"I hope we're bros | in another life!"]);
+			}else if(taskIndex == 11){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}else if((trigger === "> Cola") || (trigger === "> Ginger | Beer") || (trigger === "> Orange | soda")){
+			if(taskIndex == 12){
+				endChoice();
+				newDialog(["Aww duuude!", "Not quite!",
+					"Well, here you | go then",
+					"(you got a | corrupt key from | Sid)",
+					"It's kinda crappy | to be honest",
+					"But it'll take | you where you | need to go",
+					"I hope we're bros | in another life!"]);
+			}else if(taskIndex == 13){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}else if((trigger === "> Kimi") || (trigger === "> Grace") || (trigger === "> Chi") || (trigger === "> Amber")){
+			if(taskIndex == 14){
+				endChoice();
+				newDialog(["Aww duuude!", "Not quite!",
+					"Well, here you | go then",
+					"(you got a | corrupt key from | Sid)",
+					"It's kinda crappy | to be honest",
+					"But it'll take | you where you | need to go",
+					"I hope we're bros | in another life!"]);
+			}else if(taskIndex == 15){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}
+
+
+		//PARTY ON
+		else if(trigger === "> Forever?"){
+			if(taskIndex == 16){
+				endChoice();
+				newDialog(["Yeah...",
+					"It's... not as | great as it | sounds in | reality...",
+					"I'm stuck here... | Just like | everyone else",
+				"You're trying to | find that sense | of peace or | something, right?"])
+			}else if(taskIndex == 17){
+				newChoice(["Yeah", "How'd | you know?", "What?"]);
+			}
+		}else if(trigger === "> I don't | want to | party"){
+			if(taskIndex == 16){
+				endChoice();
+				newDialog(["Ah...",
+					"I understand...",
+					"To be honest, | I've gotten a | little sick of | partying too",
+					"I'm stuck here... | Just like | everyone else",
+				"You're trying to | find that sense | of peace or | something, right?"])
+			}else if(taskIndex == 17){
+				newChoice(["Yeah", "How'd | you know?", "What?"]);
+			}
+		}else if(trigger === "> That's | not what | I need"){
+			if(taskIndex == 16){
+				endChoice();
+				newDialog(["Oh...",
+					"Yeah I guess | partying isn't a | priority given | the situation",
+					"I'm stuck here... | Just like | everyone else",
+				"You're trying to | find that sense | of peace or | something, right?"])
+			}else if(taskIndex == 17){
+				newChoice(["Yeah", "How'd | you know?", "What?"]);
+			}
+		}
+		
+		//SID'S STORY
+		else if((trigger === "> Yeah") || (trigger === "> How'd | you know?") || (trigger === "> What?")){
+			if(taskIndex == 18){
+				endChoice();
+				newDialog(["Heh.. Well... | I'm in the same | boat", 
+					"I can't remember | how long I've | been here - I've | never found it"])
+			}else if(taskIndex == 19){
+				newChoice(["You're | stuck?", "You | don't | party?", "Never?"]);
+			}
+		}
+		else if((trigger === "> You're | stuck?") || (trigger === "> You | don't | party?") || (trigger === "> Never?")){
+			if(taskIndex == 20){
+				endChoice();
+				newDialog(["Yeaaaahhh....",
+				"I... uhh... went | a little | overboard one | night",
+				"Made some really | bad decisions and | did some bad | things",
+				"I had no idea - I | ignored my limits | because I thought | it was cool",
+				"I was having such | a fun time - I | was the life of | the party!",
+				"So when I drove | home, there was | this sign that | was broken",
+				"And the road just | took a sharp turn | and then...",
+				"I ended up here!",
+				"I mean everyone | is nice and it's | cool and | everything but...",
+				"I still screwed | up... BIG TIME",
+				"Whoops... heh..."])
+			}else if(taskIndex == 21){
+				newChoice(["It's | gonna be | ok", "Be more | careful", "Stay | safe"]);
+			}
+		}else if((trigger === "> It's | gonna be | ok") || (trigger === "> Be more | careful") || (trigger === "> Stay | safe")){
+			if(taskIndex == 22){
+				endChoice();
+				newDialog(["Yeah...",
+				"Yeah! You're | right Kyle!",
+				"I need to own up | to my mistakes!",
+				"Set limits! | Protect myself! | Watch out for bad | signs - literally | and figuratively",
+				"Thanks a billion | dude",
+				"I found my peace! | I finally found | it!",
+				"Here! Take this - | I insist",
+				"(you got a beanie | from Sid)",
+				"I'm gonna go and | use my key",
+				"I hope you find | yours too dude",
+				"Maybe we can | chill or hang | later",
+				"I'll be looking | for you",
+				"(Sid disappears)"])
+			}else if(taskIndex == 23){
+				sid.show = false;
+				story.kyleCt++;
+				story.kyle.tradeItem = "beanie";
+				story.kyle.tradeIndex = 50;
+				endScene();
+			}
+		}
+
+	}
+
+
+	/////////
+	//GRACE//
+	/////////
+
+	if(story.kyle.other.name === "Grace"){
+		if(trigger === "talk_Grace"){
+			story.cutscene = true;
+			coin.show = false;
+			if(taskIndex == 0){
+				newDialog(["*gasp*",
+					"You scared the | life out of me!",
+					"Haha! Just | kidding!",
+					"I'm already a | ghost"])
+			}else if(taskIndex == 1){
+				newChoice(["You're | dead?", "You took | this | lightly", "A ghost | or a | spirit"]);
+			}
+		}
+		//ghost?
+		else if(trigger === "> You're | dead?"){
+			if(taskIndex == 2){
+				endChoice();
+				newDialog(["Yep!",
+					"It's ok though",
+					"It's really | relaxing just | floating around",
+					"I'm Grace by the | way",
+					"What's your name?"]);
+			}else if(taskIndex == 3){
+				newChoice(["Kyle", "I'm Kyle", "Probably | Kyle", "Uh... | Kyle"])
+			}
+		}else if(trigger === "> You took | this | lightly"){
+			if(taskIndex == 2){
+				endChoice()
+				newDialog(["Haha! That was a | great pun!",
+					"I'm Grace by the | way",
+					"What's your name?"]);
+			}else if(taskIndex == 3){
+				newChoice(["Kyle", "I'm Kyle", "Probably | Kyle", "Uh... | Kyle"])
+			}
+		}else if(trigger === "> A ghost | or a | spirit"){
+			if(taskIndex == 2){
+				endChoice()
+				newDialog(["I'm a ghost but | full of spirit!",
+					"I'm Grace by the | way",
+					"What's your name?"]);
+			}else if(taskIndex == 3){
+				newChoice(["Kyle", "I'm Kyle", "Probably | Kyle", "Uh... | Kyle"])
+			}
+		}
+		//what's your name
+		else if(trigger === "> Kyle"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Kyle?",
+					"That's a nice | name!",
+					"So did you need | anything?"])
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}else if(trigger === "> I'm Kyle"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Hi Kyle!",
+					"Nice to meet you!",
+					"So did you need | anything?"])
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}else if(trigger === "> Probably | Kyle"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Probably?",
+					"I don't meet a | lot of people | named \"Probably\"",
+					"But I'll | definitely | remember \"Kyle\" | so I'll call you | that",
+					"So did you need | anything?"])
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}else if(trigger === "> Uh... | Kyle"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Okee dokee Kyle!",
+					"So did you need | anything?"])
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}
+		//lets talk
+		else if(trigger === "> I need | to talk | to you"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["Really?",
+				"I love talking to | people!",
+				"*gasp* Let's play | a game!",
+				"\"How well do you | know me?\"",
+				"I'll make it | super duper easy | too",
+				"When you get them | all right | something special | happens!",
+				"Sound fun?"]);
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}else if(trigger === "> I need | some | -thing"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["You do?",
+				"OK! I could | probably help you | get it!",
+				"*gasp* Let's play | a game!",
+				"\"How well do you | know me?\"",
+				"I'll make it | super duper easy | too",
+				"When you get them | all right | something special | happens!",
+				"Sound fun?"]);
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}else if(trigger === "> I don't | know"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["Aaaw...",
+				"We'll figure it | out together, OK?",
+				"*gasp* Let's play | a game!",
+				"\"How well do you | know me?\"",
+				"I'll make it | super duper easy | too",
+				"When you get them | all right | something special | happens!",
+				"Sound fun?"]);
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}
+
+		//DEAL
+		else if(trigger === "> No deal"){
+			if(taskIndex == 8){
+				endChoice();
+				newDialog(["Aaawww ok Kyle",
+				"Well you can have | this anyways",
+				"(you got a | corrupt key from | Grace)",
+				"Personally I | don't like using | that key",
+				"But it's a key! | And keys always | lead somewhere",
+				"Maybe something | on the otherside | can help you | figure out what | you need",
+				"Nice seeing you | Kyle!"])
+			}else if(taskIndex == 9){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}
+		//QUIZ
+		else if(trigger === "> Deal"){
+			if(taskIndex == 8){
+				endChoice();
+				newDialog(["Yay! This is | gonna be so fun!",
+				"Alrighty...",
+				"What's my | favorite thing in | the whole world?"])
+			}else if(taskIndex == 9){
+				newChoice(["The | world", "Your | grave", "Flowers"]);
+			}
+		}
+		else if(trigger === "> Flowers"){
+			if(taskIndex == 10){
+				endChoice();
+				newDialog(["Uh huh!",
+					"That's why I put | them all around | my grave",
+					"It makes it super | pretty!",
+					"What's my | favorite cake | flavor?"])
+			}else if(taskIndex == 11){
+				newChoice(["Vanilla", "Choco | -late", "Yellow"]);
+			}
+		}else if(trigger === "> Vanilla"){
+			if(taskIndex == 12){
+				endChoice();
+				newDialog(["That's right!",
+					"It's soooooo good | - I could eat a | whole cake by | myself!",
+					"Who makes really | awesome mixtapes | for me?"]);
+			}else if(taskIndex == 13){
+				newChoice(["Kimi", "Sid", "Chi", "Amber", "Kay"]);
+			}
+		}else if(trigger === "> Sid"){
+			if(taskIndex == 14){
+				endChoice();
+				newDialog(["Yeah!",
+					"He makes them | straight out of | his car too!",
+					"I really love the | violin in some of | the songs",
+					"Kyle! You did so | well!",
+					"Congratulations!"]);
+			}else if(taskIndex == 15){
+				newChoice(["Do I win | a prize?", "What | happens?", "Now | what?"]);
+			}
+		}
+
+
+		else if((trigger === "> The | world") || (trigger === "> Your | grave")){
+			if(taskIndex == 10){
+				endChoice();
+				newDialog(["Aw not quite",
+				"Well you can have | this anyways",
+				"(you got a | corrupt key from | Grace)",
+				"Personally I | don't like using | that key",
+				"But it's a key! | And keys always | lead somewhere",
+				"Maybe something | on the otherside | can help you | figure out what | you need",
+				"Nice seeing you | Kyle!"]);
+			}else if(taskIndex == 11){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}else if((trigger === "> Yellow") || (trigger === "> Choco | -late")){
+			if(taskIndex == 12){
+				endChoice();
+				newDialog(["Aw not quite",
+				"Well you can have | this anyways",
+				"(you got a | corrupt key from | Grace)",
+				"Personally I | don't like using | that key",
+				"But it's a key! | And keys always | lead somewhere",
+				"Maybe something | on the otherside | can help you | figure out what | you need",
+				"Nice seeing you | Kyle!"]);
+			}else if(taskIndex == 13){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}else if((trigger === "> Kimi") || (trigger === "> Chi") || (trigger === "> Kay") || (trigger === "> Amber")){
+			if(taskIndex == 14){
+				endChoice();
+				newDialog(["Aw not quite",
+				"Well you can have | this anyways",
+				"(you got a | corrupt key from | Grace)",
+				"Personally I | don't like using | that key",
+				"But it's a key! | And keys always | lead somewhere",
+				"Maybe something | on the otherside | can help you | figure out what | you need",
+				"Nice seeing you | Kyle!"]);
+			}else if(taskIndex == 15){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}
+
+
+		//NOW WHAT?
+		else if((trigger === "> Do I win | a prize?") || (trigger === "> What | happens?") || (trigger === "> Now | what?")){
+			if(taskIndex == 16){
+				endChoice();
+				newDialog(["Hm...",
+					"I don't know | actually",
+					"I feel like I've | always been here",
+					"I can't really | remember anything | - what happened | before or what | happens after",
+					"But that's OK! I | kinda like it | here!"]);
+			}else if(taskIndex == 17){
+				newChoice(["You | don't | remem | -ber?", "You like | it?", "It's ok?"])
+			}
+		}
+		//GRACE'S STORY
+		else if((trigger === "> You | don't | remem | -ber?") || (trigger === "> You like | it?") || (trigger === "> It's ok?")){
+			if(taskIndex == 18){
+				endChoice();
+				newDialog(["Yeah!",
+				"I mean I get | letters from Kimi | sometimes",
+				"She tells me | stories about | this one girl - | she seems really | sad",
+				"And this other | girl who tries to | help her not be | sad",
+				"I don't | understand it but | I really want to",
+				"But other times | Kimi writes me | really pretty | haikus",
+				"It's like I've | read them before | but I know I | haven't - almost | like a nostalgic | feeling",
+				"So yeah! I've got | my letters, my | flowers, my | music, my grave",
+				"It's fun!",
+				"But I still feel | like I'm missing | something..."]);
+			}else if(taskIndex == 19){
+				newChoice(["It's | gonna be | OK", "Reflect | on life", "Look for | more"]);
+			}
+		}
+		else if((trigger === "> It's | gonna be | OK") || (trigger === "> Reflect | on life") || (trigger === "> Look for | more")){
+			if(taskIndex == 20){
+				endChoice();
+				newDialog(["*gasp* You're | right Kyle!",
+				"I'm happy for | what I have, but | I still need to | have a goal",
+				"I should talk to | Kimi about the | letters - I never | had a chance to",
+				"And even though I | look on the | bright side of | life, I have to | remember that | everything isn't | viewed through | rose colored | lenses",
+				"There's pain and | incompleteness - | but it'll be OK",
+				"Hey...",
+				"I felt | something... Just | now...",
+				"It's like... | peace?",
+				"That's weird - | even though I'm | dead, I've never | felt this feeling | before",
+				"I like it!",
+				"Thanks Kyle! You | rock",
+				"This is special | to me but I want | you to have it",
+				"(you got a soul | from Grace)",
+				"I think I'm gonna | head out and look | for more in the | second life I was | given",
+				"I'll see you on | the other side | Kyle!",
+				"(Grace | disappears)"]);
+			}else if(taskIndex == 21){
+				grace.show = false;
+				story.kyleCt++;
+				story.kyle.tradeItem = "soul";
+				story.kyle.tradeIndex = 51;
+				endScene();
+			}
+		}
+	}
+
+
+	///////
+	//CHI//
+	///////
+
+	if(story.kyle.other.name === "Chi"){
+		if(trigger === "talk_Chi"){
+			story.cutscene = true;
+			coin.show = false;
+			if(taskIndex == 0){
+				newDialog(["Oh, hello",
+					"How are you | today?"]);
+			}else if(taskIndex == 1){
+				newChoice(["Great!", "I'm not | sure", "Meh"]);
+			}
+		}
+		//how are you?
+		else if(trigger === "> Great!"){
+			if(taskIndex == 2){
+				endChoice();
+				newDialog(["That's fantastic!",
+				"I hope your day | continues to stay | positive!",
+				"Nice to meet you",
+				"My name is Chi",
+				"And you are?"])
+			}else if(taskIndex == 3){
+				newChoice(["Kyle", "Kyle I | suppose", "You can | call me | Kyle", "I am | Kyle"])
+			}
+		}else if(trigger === "> I'm not | sure"){
+			if(taskIndex == 2){
+				endChoice();
+				newDialog(["Well that's | alright",
+				"The day still has | potential to | become | interesting!",
+				"Nice to meet you",
+				"My name is Chi",
+				"And you are?"])
+			}else if(taskIndex == 3){
+				newChoice(["Kyle", "Kyle I | suppose", "You can | call me | Kyle", "I am | Kyle"])
+			}
+		}else if(trigger === "> Meh"){
+			if(taskIndex == 2){
+				endChoice();
+				newDialog(["Oh I'm sorry to | hear that",
+				"Well there's | always tomorrow!",
+				"Nice to meet you",
+				"My name is Chi",
+				"And you are?"])
+			}else if(taskIndex == 3){
+				newChoice(["Kyle", "Kyle I | suppose", "You can | call me | Kyle", "I am | Kyle"])
+			}
+		}
+		//name
+		else if(trigger === "> Kyle"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Kyle?",
+				"The name suits | you!",
+				"Now... What can I | do for you today?"])
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}else if(trigger === "> Kyle I | suppose"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["You suppose?",
+				"Well if that's | what feels right | to you, then Kyle | it shall be",
+				"Now... What can I | do for you today?"])
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}else if(trigger === "> You can | call me | Kyle"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Excellent!",
+				"Kyle it is!",
+				"Now... What can I | do for you today?"])
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}else if(trigger === "> I am | Kyle"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Ah, Kyle!",
+				"What a great | name!",
+				"Now... What can I | do for you today?"])
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}
+		//lets talk
+		else if(trigger === "> I need | to talk | to you"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["A talk?",
+				"So be it! Let's | talk",
+				"But first... A | test of wits!",
+				"I'll challenge | you to a few | short questions",
+				"If you answer | correctly then I | shall aid you in | your journey for | information",
+				"So what is your | decision?"]);
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}else if(trigger === "> I need | some | -thing"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["Ah of course!",
+				"I can be of | assistance",
+				"But first... A | test of wits!",
+				"I'll challenge | you to a few | short questions",
+				"If you answer | correctly then I | shall aid you in | your journey for | information",
+				"So what is your | decision?"]);
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}else if(trigger === "> I don't | know"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["Well that's quite | alright",
+				"Perhaps I can | enlighten you",
+				"But first... A | test of wits!",
+				"I'll challenge | you to a few | short questions",
+				"If you answer | correctly then I | shall aid you in | your journey for | information",
+				"So what is your | decision?"]);
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}
+
+		//DEAL
+		else if(trigger === "> No deal"){
+			if(taskIndex == 8){
+				endChoice();
+				newDialog(["Very well - I can | respect that",
+				"Take this item | instead",
+				"(you got a | corrupt key from | Chi)",
+				"It may not be | your preference | for answers",
+				"But it is answers | regardless",
+				"Take care, Kyle"])
+			}else if(taskIndex == 9){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}
+
+		//QUIZ
+		else if(trigger === "> Deal"){
+			if(taskIndex == 8){
+				endChoice();
+				newDialog(["Excellent!",
+				"We'll begin...",
+				"What lucky item | do I hold?"]);
+			}else if(taskIndex == 9){
+				newChoice(["Dice", "Clover", "Penny"]);
+			}
+		}else if(trigger === "> Dice"){
+			if(taskIndex == 10){
+				endChoice();
+				newDialog(["Correct!",
+					"It comes in | pairs! Double | the luck",
+					"What do I | collect?"]);
+			}else if(taskIndex == 11){
+				newChoice(["Stamps", "Bugs", "Bottle | -caps"]);
+			}
+		}else if(trigger === "> Bottle | -caps"){
+			if(taskIndex == 12){
+				endChoice();
+				newDialog(["Yes!",
+					"I predict that | someday it will | become a very | valuable currency",
+					"Who uses the oils | I make from | flowers?"]);
+			}else if(taskIndex == 13){
+				newChoice(["Kimi", "Sid", "Grace", "Kay", "Amber"]);
+			}
+		}else if(trigger === "> Amber"){
+			if(taskIndex == 14){
+				endChoice();
+				newDialog(["Right!",
+					"She is quite the | fan of the | essence of nature",
+					"Well done Kyle",
+					"You've completed | the questionaire"]);
+			}else if(taskIndex == 15){
+				newChoice(["What do | I get?", "Now | what?", "Cool"]);
+			}
+		}
+
+		else if((trigger === "> Clover") || (trigger === "> Penny")){
+			if(taskIndex == 10){
+				endChoice();
+				newDialog(["Unfortunately | that is incorrect",
+					"Oh well...",
+				"Take this item | instead",
+				"(you got a | corrupt key from | Chi)",
+				"It may not be | your preference | for answers",
+				"But it is answers | regardless",
+				"Take care, Kyle"])
+			}else if(taskIndex == 11){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}
+		else if((trigger === "> Stamps") || (trigger === "> Bugs")){
+			if(taskIndex == 12){
+				endChoice();
+				newDialog(["Unfortunately | that is incorrect",
+					"Oh well...",
+				"Take this item | instead",
+				"(you got a | corrupt key from | Chi)",
+				"It may not be | your preference | for answers",
+				"But it is answers | regardless",
+				"Take care, Kyle"])
+			}else if(taskIndex == 13){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}
+		else if((trigger === "> Kimi") || (trigger === "> Sid") || (trigger === "> Grace") || (trigger === "> Kay")){
+			if(taskIndex == 14){
+				endChoice();
+				newDialog(["Unfortunately | that is incorrect",
+					"Oh well...",
+				"Take this item | instead",
+				"(you got a | corrupt key from | Chi)",
+				"It may not be | your preference | for answers",
+				"But it is answers | regardless",
+				"Take care, Kyle"])
+			}else if(taskIndex == 15){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}
+
+		//Prize
+		else if(trigger === "> What do | I get?"){
+			if(taskIndex == 16){
+				endChoice();
+				newDialog(["You are now | smarter than you | were before we | started this | conversation",
+				"Now if you'll | excuse me I'll go | back to my | meditating"]);
+			}else if(taskIndex == 17){
+				newChoice(["I still | need | some | -thing", "Please | help", "What?"]);
+			}
+		}else if(trigger === "> Now | what?"){
+			if(taskIndex == 16){
+				endChoice();
+				newDialog(["Whatever you | wish!",
+				"Now if you'll | excuse me I'll go | back to my | meditating"]);
+			}else if(taskIndex == 17){
+				newChoice(["I still | need | some | -thing", "Please | help", "What?"]);
+			}
+		}else if(trigger === "> Cool"){
+			if(taskIndex == 16){
+				endChoice();
+				newDialog(["Yes it is very | cool indeed!",
+				"Now if you'll | excuse me I'll go | back to my | meditating"]);
+			}else if(taskIndex == 17){
+				newChoice(["I still | need | some | -thing", "Please | help", "What?"]);
+			}
+		}
+
+		//help
+		else if((trigger === "> I still | need | some | -thing") || (trigger === "> Please | help") || (trigger === "> What?")){
+			if(taskIndex == 18){
+				endChoice();
+				newDialog(["?",
+				"Oh... I'm sorry | Kyle but...",
+				"What you seek is | practically | impossible",
+				"It's peace right?"])
+			}else if(taskIndex == 19){
+				newChoice(["Yes", "I think | so", "Maybe"]);
+			}
+		}else if((trigger === "> Yes") || (trigger === "> I think | so") || (trigger === "> Maybe")){
+			if(taskIndex == 20){
+				endChoice();
+				newDialog(["*sigh* Peace is | hard to come by",
+				"So I've just | dedicated the | rest of my life | and focus to | meditating and | studying my state | of mind",
+				"It's not peace | but it's a nice | alternative"]);
+			}else if(taskIndex == 21){
+				newChoice(["Why?", "No way", "There's | gotta be | more"]);
+			}
+		}
+		//CHI'S STORY
+		else if((trigger === "> Why?") || (trigger === "> No way") || (trigger === "> There's | gotta be | more")){
+			if(taskIndex == 22){
+				endChoice();
+				newDialog(["Kyle...",
+				"A long time ago, | I used to be | absorbed in | frivolous matters",
+				"I would dedicate | myself to being | the very best and | being a | perfectionist",
+				"I wanted every | material | possession, have | the most money, | be the top in my | career and | lifestyle",
+				"It ultimately got | me nowhere - and | I dissolved | relationships | with others",
+				"Now I'm here... | And I have all | the energy in the | world to focus on | one thing - like | I've always | wanted",
+				"So again... | please excuse me | while I meditate"]);
+			}else if(taskIndex == 23){
+				newChoice(["It's | gonna be | OK", "Take a | break", "Find a | balance"]);
+			}
+		}else if((trigger === "> It's | gonna be | OK") || (trigger === "> Take a | break") || (trigger === "> Find a | balance")){
+			if(taskIndex == 24){
+				endChoice();
+				newDialog(["Hmm...",
+				"I never thought | about that",
+				"And I've done | nothing but think | about how to find | peace",
+				"But I've missed | the entire point | - I focus too | hard",
+				"I need to relax, | and focus on | different things",
+				"There is a | solution and a | finishing point | but no rush to | reach it",
+				"It's good to have | a goal - but | shutting out the | rest of the world | to achieve it | doesn't help | anyone",
+				"Thank you Kyle!",
+				"I feel truly | enlightened... | and at true | peace!",
+				"Here, keep this | as a token of my | gratitude",
+				"(you got a cloud | from Chi)",
+				"My meditation is | done and my goal | complete",
+				"I think I'll go | take a break and | use my key",
+				"May we cross | paths again, Kyle",
+				"(Chi disappears)"]);
+			}else if(taskIndex == 25){
+				chi.show = false;
+				story.kyleCt++;
+				story.kyle.tradeItem = "cloud";
+				story.kyle.tradeIndex = 52;
+				endScene();
+			}
+		}
+	}	
+
+
+	///////
+	//KAY//
+	///////
+
+	if(story.kyle.other.name === "Kay"){
+		if(trigger === "talk_Kay"){
+			story.cutscene = true;
+			coin.show = false;
+			if(taskIndex == 0){
+				newDialog(["HALT! Who goes | there?"]);
+			}else if(taskIndex == 1){
+				newChoice(["Uh...", "No one", "Me! | Fight | me!"]);
+			}
+		}
+		//how are you?
+		else if(trigger === "> Uh..."){
+			if(taskIndex == 2){
+				endChoice();
+				newDialog(["Not another word!",
+				"You're new here | so I'll go easy | on you",
+				"What is your | name, stranger?"
+				])
+			}else if(taskIndex == 3){
+				newChoice(["Kyle", "Um... | Kyle?", "The | Mighty | Kyle", "I go by | Kyle"])
+			}
+		}else if(trigger === "> No one"){
+			if(taskIndex == 2){
+				endChoice();
+				newDialog(["Ha! Do you take | me for a fool?",
+				"My helmet limits | my visibility but | there is | DEFINITELY | someone right in | front of me",
+				"What is your | name, stranger?"])
+			}else if(taskIndex == 3){
+				newChoice(["Kyle", "Um... | Kyle?", "The | Mighty | Kyle", "I go by | Kyle"])
+			}
+		}else if(trigger === "> Me! | Fight | me!"){
+			if(taskIndex == 2){
+				endChoice();
+				newDialog(["What?!",
+				"I haven't had a | challenge in | years!",
+				"I'm a little | rusty...",
+				"In skill not just | armor",
+				"What is your | name, stranger?"])
+			}else if(taskIndex == 3){
+				newChoice(["Kyle", "Um... | Kyle?", "The | Mighty | Kyle", "I go by | Kyle"])
+			}
+		}
+		//name
+		else if(trigger === "> Kyle"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Kyle?",
+				"Not a very | threatening name",
+				"Alright then, | \"Kyle\"...",
+				"You can call me | Kay - Sir Kay!",
+				"I protect this | castle and the | beautiful lady | who inhabits it!",
+				"So what is your | business here?"
+				])
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}else if(trigger === "> Um... | Kyle?"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Ha! You don't | even know your | own name?",
+				"You poor soul",
+				"Alright then, | \"Kyle\"...",
+				"You can call me | Kay - Sir Kay!",
+				"I protect this | castle and the | beautiful lady | who inhabits it!",
+				"So what is your | business here?"
+				])
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}else if(trigger === "> The | Mighty | Kyle"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Mighty?!",
+				"Pssh... uh I | mean...",
+				"Yeah... mighty | where YOU come | from I guess",
+				"Alright then, | \"Kyle\"...",
+				"You can call me | Kay - Sir Kay!",
+				"I protect this | castle and the | beautiful lady | who inhabits it!",
+				"So what is your | business here?"
+				])
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}else if(trigger === "> I go by | Kyle"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Ah... I see",
+				"Kyyylleee...",
+				"Alright then, | \"Kyle\"...",
+				"You can call me | Kay - Sir Kay!",
+				"I protect this | castle and the | beautiful lady | who inhabits it!",
+				"So what is your | business here?"
+				])
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}
+
+		//lets talk
+		else if(trigger === "> I need | to talk | to you"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["Talk?!",
+				"Well then Kyle",
+				"Before we | continue with | this issue you | have - I'll test | to see if you are | worthy",
+				"Is this fair?"]);
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}else if(trigger === "> I need | some | -thing"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["Agh!",
+				"A request?",
+				"All right then...",
+				"Well then Kyle",
+				"Before we | continue with | this issue you | have - I'll test | to see if you are | worthy",
+				"Is this fair?"]);
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}else if(trigger === "> I don't | know"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["Hmm...",
+				"That's a problem",
+				"Well then Kyle",
+				"Before we | continue with | this issue you | have - I'll test | to see if you are | worthy",
+				"Is this fair?"]);
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}
+
+		//DEAL
+		else if(trigger === "> No deal"){
+			if(taskIndex == 8){
+				endChoice();
+				newDialog(["I see...",
+				"Well in that | case!",
+				"I can give you | this instead",
+				"(you got a | corrupt key from | Kay)",
+				"In all honesty, | it's not the best | thing in the | world",
+				"But! A key is a | key! And you'll | have to make do | until you feel | worthy enough"])
+			}else if(taskIndex == 9){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}
+
+		//QUIZ
+		else if(trigger === "> Deal"){
+			if(taskIndex == 8){
+				endChoice();
+				newDialog(["All right!",
+				"What did I win my | medal for?"]);
+			}else if(taskIndex == 9){
+				newChoice(["1st | place", "Best | Armor", "Good | Spirit"]);
+			}
+		}else if(trigger === "> Good | Spirit"){
+			if(taskIndex == 10){
+				endChoice();
+				newDialog(["Correct!",
+					"Good spirit will | always see you | through a battle | if not your | weapon",
+					"What color is my | ideal sword?"]);
+			}else if(taskIndex == 11){
+				newChoice(["Black", "Silver", "Gold"]);
+			}
+		}else if(trigger === "> Black"){
+			if(taskIndex == 12){
+				endChoice();
+				newDialog(["Yes!",
+					"Honestly not for | the strength of | the metal - I | just think it | looks more | intimidating",
+					"Who makes the | best tea?"]);
+			}else if(taskIndex == 13){
+				newChoice(["Kimi", "Sid", "Grace", "Chi", "Amber"]);
+			}
+		}else if(trigger === "> Chi"){
+			if(taskIndex == 14){
+				endChoice();
+				newDialog(["Ha! Right!",
+					"It's absolutely | heavenly actually",
+				"Good show Kyle! | You passed!"]);
+			}else if(taskIndex == 15){
+				newChoice(["What do | I win?", "Now | what?", "Am I a | knight | now?"]);
+			}
+		}
+
+		else if((trigger === "> 1st | place") || (trigger === "> Best | Armor")){
+			if(taskIndex == 10){
+				endChoice();
+				newDialog(["Alas you are | wrong, Kyle...",
+				"Well anyways!",
+				"I can give you | this instead",
+				"(you got a | corrupt key from | Kay)",
+				"In all honesty, | it's not the best | thing in the | world",
+				"But! A key is a | key! And you'll | have to make do | until you feel | worthy enough"])
+			}else if(taskIndex == 11){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}
+		else if((trigger === "> Silver") || (trigger === "> Gold")){
+			if(taskIndex == 12){
+				endChoice();
+				newDialog(["Alas you are | wrong, Kyle...",
+				"Well anyways!",
+				"I can give you | this instead",
+				"(you got a | corrupt key from | Kay)",
+				"In all honesty, | it's not the best | thing in the | world",
+				"But! A key is a | key! And you'll | have to make do | until you feel | worthy enough"])
+			}else if(taskIndex == 13){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}
+		else if((trigger === "> Kimi") || (trigger === "> Sid") || (trigger === "> Grace") || (trigger === "> Amber")){
+			if(taskIndex == 14){
+				endChoice();
+				newDialog(["Alas you are | wrong, Kyle...",
+				"Well anyways!",
+				"I can give you | this instead",
+				"(you got a | corrupt key from | Kay)",
+				"In all honesty, | it's not the best | thing in the | world",
+				"But! A key is a | key! And you'll | have to make do | until you feel | worthy enough"])
+			}else if(taskIndex == 15){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}
+
+		//Prize
+		else if(trigger === "> What do | I win?"){
+			if(taskIndex == 16){
+				endChoice();
+				newDialog(["Kyle!",
+					"It's not about | winning - it's | about having fun",
+					"Now you can go | forth with your | new title of | \"Test | Completer\""]);
+			}else if(taskIndex == 17){
+				newChoice(["I still | need | some | -thing", "Help | me", "You're | my only | hope"]);
+			}
+		}else if(trigger === "> Now | what?"){
+			if(taskIndex == 16){
+				endChoice();
+				newDialog(["Um... Well...",
+					"Whatever you want | I suppose!",
+					"Now you can go | forth with your | new title of | \"Test | Completer\""]);
+			}else if(taskIndex == 17){
+				newChoice(["I still | need | some | -thing", "Help | me", "You're | my only | hope"]);
+			}
+		}else if(trigger === "> Am I a | knight | now?"){
+			if(taskIndex == 16){
+				endChoice();
+				newDialog(["Knighthood?",
+					"For completing a | test?",
+					"HAHAHAHAHA!",
+					"I wish it was | that easy...",
+				"Now you can go | forth with your | new title of | \"Test | Completer\""]);
+			}else if(taskIndex == 17){
+				newChoice(["I still | need | some | -thing", "Help | me", "You're | my only | hope"]);
+			}
+		}
+
+		//PEACE
+		else if((trigger === "> I still | need | some | -thing") || (trigger === "> Help | me") || (trigger === "> You're | my only | hope")){
+			if(taskIndex == 18){
+				endChoice();
+				newDialog(["?!",
+				"Oh boy...",
+				"Uh... Listen | Kyle...",
+				"This isn't going | to be easy to | take in...",
+				"That thing you | need? It's | peace... Is that | right?"]);
+			}else if(taskIndex == 19){
+				newChoice(["Yes!", "Of | course", "Yessir"]);
+			}
+		}else if((trigger === "> Yes!") || (trigger === "> Of | course") || (trigger === "> Yessir")){
+			if(taskIndex == 20){
+				endChoice();
+				newDialog(["Yes... well...",
+				"No one has ever | been able to find | it",
+				"I've searched for | it - EVERYWHERE",
+				"Not for myself | but mostly for | Amber",
+				"It's my fault | she's here | anyways"]);
+			}else if(taskIndex == 21){
+				newChoice(["What do | you | mean?", "Your | fault?", "Why for | Amber?"]);
+			}
+		}
+		//KAY'S STORY
+		else if((trigger === "> What do | you | mean?") || (trigger === "> Your | fault?") || (trigger === "> Why for | Amber?")){
+			if(taskIndex == 22){
+				endChoice();
+				newDialog(["Well...",
+				"Back in the days | of knights and | princesses",
+				"A knight was | supposed to | protect his | princess",
+				"And I wasn't | the... best of | the knights",
+				"I fell asleep on | the job and | lacked motivation | to train and go | on quests",
+				"I said no | whenever anyone | asked me to do | anything",
+				"And one day - | when I was | supposed to be on | patrol and | guarding the | castle",
+				"Invaders came | and... burned the | castle down...",
+				"It's all my | fault!",
+				"So now I protect | the castle with | my soul and | patrol the | entrance non-stop | everyday!",
+				"I know it can | never make up for | what happened",
+				"I'm still the | worst knight ever"]);
+			}else if(taskIndex == 23){
+				newChoice(["It's | gonna be | OK", "You're a | good | knight", "You can | do it"]);
+			}
+		}else if((trigger === "> It's | gonna be | OK") || (trigger === "> You're a | good | knight") || (trigger === "> You can | do it")){
+			if(taskIndex == 24){
+				endChoice();
+				newDialog(["?",
+				"Really?",
+				"You think so?",
+				"...",
+				"OK!",
+				"I slacked off in | the past and it | cost me my life | and others lives",
+				"But my history | doesn't define me | - I'll rise up to | any challenge now",
+				"My motivation and | drive is stronger | than ever - and | I'll protect | people",
+				"I'm a good knight | for what I choose | to do now - not | what I've done in | the past",
+				"Thank you Kyle! | Thank you so | much!",
+				"I found my peace | and completed my | lifelong quest",
+				"I can't grant you | knighthood - but | I'll give you the | second best",
+				"(you got a shield | from Kay)",
+				"My key calls to | me so I shall | part ways with | you",
+				"Please take care | of Amber for me",
+				"I'd be honored to | meet you again",
+				"(Kay disappears)"]);
+			}else if(taskIndex == 25){
+				kay.show = false;
+				story.kyleCt++;
+				story.kyle.tradeItem = "shield";
+				story.kyle.tradeIndex = 53;
+				endScene();
+			}
+		}
+	}
+
+
+	/////////
+	//AMBER//
+	/////////
+
+	if(story.kyle.other.name === "Amber"){
+		//hair
+		if(trigger === "talk_Amber"){
+			story.cutscene = true;
+			coin.show = false;
+			if(taskIndex == 0){
+				newDialog(["Oh",
+					"My",
+					"Gosh!",
+					"Who did your | hair? I love it!"]);
+			}else if(taskIndex == 1){
+				newChoice(["I dunno", "It's | natural", "I did"]);
+			}
+		}else if(trigger === "> I dunno"){
+			if(taskIndex == 2){
+				endChoice();
+				newDialog(["Ooohh ok...",
+				"I see how it | is...",
+				"You wanna keep | your mysterious | hairdresser all | to yourself?",
+				"I can respect | that",
+				"I'd probably do | the same thing if | I had someone who | could work magic | on my hair",
+				"Oh! I'm Amber - | THE Amber"])
+			}else if(taskIndex == 3){
+				newChoice(["Kyle", "Name's | Kyle", "It's | Kyle?", "The Kyle"]);
+			}
+		}else if(trigger === "> It's | natural"){
+			if(taskIndex == 2){
+				endChoice();
+				newDialog(["No way!",
+				"I've never seen | anyone just born | with that hair | color",
+				"Except in | cartoons or | something",
+				"Oh! I'm Amber - | THE Amber"])
+			}else if(taskIndex == 3){
+				newChoice(["Kyle", "Name's | Kyle", "It's | Kyle?", "The Kyle"]);
+			}
+		}else if(trigger === "> I did"){
+			if(taskIndex == 2){
+				endChoice();
+				newDialog(["Whoa! You did?",
+				"You must be a | really good | stylist!",
+				"You gotta do mine | sometime! Please? | Pretty Please?",
+				"Oh! I'm Amber - | THE Amber"])
+			}else if(taskIndex == 3){
+				newChoice(["Kyle", "Name's | Kyle", "It's | Kyle?", "The Kyle"]);
+			}
+		}
+
+		//introducing kyle
+		else if(trigger === "> Kyle"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Hey Kyle",
+				"What's shakin'?",
+				"So Kyle...",
+				"What brings you | to these parts?"])
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}else if(trigger === "> Name's | Kyle"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Wow, your name's | as cool as your | hair",
+				"So Kyle...",
+				"What brings you | to these parts?"])
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}else if(trigger === "> It's | Kyle?"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Kyle?",
+				"Do you not know?",
+				"Oh whatever - I | like the name | Kyle so I'll | still call you | that",
+				"So Kyle...",
+				"What brings you | to these parts?"])
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}else if(trigger === "> The Kyle"){
+			if(taskIndex == 4){
+				endChoice();
+				newDialog(["Oooh! I've never | heard of you",
+				"You must be a | rising star! | Rad...",
+				"So Kyle...",
+				"What brings you | to these parts?"])
+			}else if(taskIndex == 5){
+				newChoice(["I need | to talk | to you", "I need | some | -thing", "I don't | know"]);
+			}
+		}
+
+		//lets talk
+		else if(trigger === "> I need | to talk | to you"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["Yaaas!",
+				"I haven't had | anyone else to | talk to besides | Kay in forever!",
+				"Ok - first things | first",
+				"We gotta lay down | the law and I | gotta see if | you're legit",
+				"I'm gonna quiz | you on stuff | about me",
+				"If you get them | all right then | we're green - | super green",
+				"You feel me?"]);
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}else if(trigger === "> I need | some | -thing"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["Oh really?",
+				"I might have | something around | her for you",
+				"Ok - first things | first",
+				"We gotta lay down | the law and I | gotta see if | you're legit",
+				"I'm gonna quiz | you on stuff | about me",
+				"If you get them | all right then | we're green - | super green",
+				"You feel me?"]);
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}else if(trigger === "> I don't | know"){
+			if(taskIndex == 6){
+				endChoice();
+				newDialog(["Wooooow",
+				"Was it one of | those moments | where you walked | into a room and | you forget what | you went in for?",
+				"I get those all | the time",
+				"Ok - first things | first",
+				"We gotta lay down | the law and I | gotta see if | you're legit",
+				"I'm gonna quiz | you on stuff | about me",
+				"If you get them | all right then | we're green - | super green",
+				"You feel me?"]);
+			}else if(taskIndex == 7){
+				newChoice(["Deal", "No deal"]);
+			}
+		}
+
+		//DEAL
+		else if(trigger === "> No deal"){
+			if(taskIndex == 8){
+				endChoice();
+				newDialog(["OK OK",
+				"I'm not gonna | force you into | anything don't | worry",
+				"But here this | might help you | anyways",
+				"(you got a | corrupt key from | Amber)",
+				"It may or may not | help you - I | dunno",
+				"But I hope you | find what you | needed!"])
+			}else if(taskIndex == 9){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}
+
+		//QUIZ
+		else if(trigger === "> Deal"){
+			if(taskIndex == 8){
+				endChoice();
+				newDialog(["Raaaad!",
+				"Let's do this",
+				"What's my | favorite flower?"]);
+			}else if(taskIndex == 9){
+				newChoice(["Daisy", "Rose", "Violet"]);
+			}
+		}else if(trigger === "> Rose"){
+			if(taskIndex == 10){
+				endChoice();
+				newDialog(["Of course!",
+					"They're the | absolute best | flowers",
+					"Every romantic | movie uses them!",
+					"What do I use to | call Kay?"]);
+			}else if(taskIndex == 11){
+				newChoice(["Phone", "Whistle", "Horn"]);
+			}
+		}else if(trigger === "> Horn"){
+			if(taskIndex == 12){
+				endChoice();
+				newDialog(["Yepperoni!",
+					"He made it | himself too - | it's cute",
+					"Who's got the | best fashion | sense - other | than me and you"]);
+			}else if(taskIndex == 13){
+				newChoice(["Kimi", "Sid", "Grace", "Chi", "Kay"]);
+			}
+		}else if(trigger === "> Kimi"){
+			if(taskIndex == 14){
+				endChoice();
+				newDialog(["Uh yeah!",
+					"Our styles are | surprisingly | similar",
+					"She gives me her | old hats and I | give her ribbons | and slippers | sometimes",
+					"Kyle! You did | awesome!",
+					"I'm so proud - | you know me so | well!"]);
+			}else if(taskIndex == 15){
+				newChoice(["Can you | help me?", "Now | what?", "Is there | more?"]);
+			}
+		}
+
+		else if((trigger === "> Daisy") || (trigger === "> Violet")){
+			if(taskIndex == 10){
+				endChoice();
+				newDialog(["Oooooh that's | not right!",
+				"I'm really | sorry...",
+				"But here this | might help you | anyways",
+				"(you got a | corrupt key from | Amber)",
+				"It may or may not | help you - I | dunno",
+				"But I hope you | find what you | needed!"])
+			}else if(taskIndex == 11){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}
+		else if((trigger === "> Silver") || (trigger === "> Gold")){
+			if(taskIndex == 12){
+				endChoice();
+				newDialog(["Oooooh that's | not right!",
+				"I'm really | sorry...",
+				"But here this | might help you | anyways",
+				"(you got a | corrupt key from | Amber)",
+				"It may or may not | help you - I | dunno",
+				"But I hope you | find what you | needed!"])
+			}else if(taskIndex == 13){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}
+		else if((trigger === "> Kay") || (trigger === "> Sid") || (trigger === "> Grace") || (trigger === "> Chi")){
+			if(taskIndex == 14){
+				endChoice();
+				newDialog(["Oooooh that's | not right!",
+				"I'm really | sorry...",
+				"But here this | might help you | anyways",
+				"(you got a | corrupt key from | Amber)",
+				"It may or may not | help you - I | dunno",
+				"But I hope you | find what you | needed!"])
+			}else if(taskIndex == 15){
+				story.kyle.tradeItem = "corrupt key";
+				story.kyle.tradeIndex = 5;
+				endScene();
+			}
+		}
+
+		//help
+		else if((trigger === "> Can you | help me?") || (trigger === "> Is there | more?") || (trigger === "> Now | what?")){
+			if(taskIndex == 16){
+				endChoice();
+				newDialog(["Umm....",
+				"Actually Kyle - | and don't be mad",
+				"I know what you | need",
+				"It's that | complete peace | stuff right?"]);
+			}else if(taskIndex == 17){
+				newChoice(["Yep", "Uh huh", "Correcto"])
+			}
+		}
+		else if((trigger === "> Yep") || (trigger === "> Uh huh") || (trigger === "> Correcto")){
+			if(taskIndex == 18){
+				endChoice();
+				newDialog(["I knew it!",
+				"Yeah so we're all | out of that",
+				"And by \"all | out\" I mean we | never had it to | begin with - no | one did",
+				"Everyone is | supposed to find | it on their own",
+				"It's so hard - | it's like a | puzzle to solve",
+				"Something to do | with fixing our | old selves or | something"]);
+			}else if(taskIndex == 19){
+				newChoice(["Puzzle?", "Old | self?", "Fix?"]);
+			}
+		}
+		//AMBER'S STORY
+		else if((trigger === "> Puzzle?") || (trigger === "> Old | self?") || (trigger === "Fix?")){
+			if(taskIndex == 20){
+				endChoice();
+				newDialog(["Yep",
+				"My old self was | soooooo pathetic | - not gonna lie",
+				"Old Amber isn't | as cool as new | Amber",
+				"I used to be so | self-conscious",
+				"I thought people | were always | watching me and | judging me",
+				"Well... everyone | watches | princesses",
+				"But I was always | the center of | gossip and people | would say things | about me behind | my back",
+				"I'd hear rumors | about people | talking about how | I looked, or what | I said, or how I | acted",
+				"I felt like I | couldn't trust | anyone - or | myself",
+				"Why would people | do such things?"]);
+			}else if(taskIndex == 21){
+				newChoice(["It's | gonna be | OK", "Don't | worry", "Haters | gonna | hate"]);
+			}
+		}else if((trigger === "> It's | gonna be | OK") || (trigger === "> Don't | worry") || (trigger === "> Haters | gonna | hate")){
+			if(taskIndex == 22){
+				endChoice();
+				newDialog(["...",
+				"YEAH!",
+				"HECK YEAH!",
+				"You're so right | Kyle!",
+				"Why should I let | other people make | me feel so bad | about myself?",
+				"I barely know | them! And they | barely know me",
+				"My self-esteem | almost shattered | because people | were just hating",
+				"The people that | really care about | me will see me | for my true self | - past my | insecurities",
+				"And those other | jerks can just | suck it - cuz' | they don't matter | anyways!",
+				"Ahhh... I feel so | relieved!",
+				"Is this... that | peace?",
+				"I love it!",
+				"Thanks Kyle! I | totally owe you | one!",
+				"Actually - I have | an idea",
+				"Take this - it | doesn't hold any | power over me now",
+				"(you got a crown | from Amber)",
+				"Wow! I think I'll | use that key I | got a long time | ago",
+				"Everything's so | fantastic now",
+				"Kyle - I'll catch | you later",
+				"Maybe if you | wanna go shopping | or something",
+				"Byyyyeee~",
+				"(Amber | disappears)"]);
+			}else if(taskIndex == 23){
+				amber.show = false;
+				story.kyleCt++;
+				story.kyle.tradeItem = "crown";
+				story.kyle.tradeIndex = 54;
+				endScene();
+			}
+		}
+	}
+
+
+	/////////
+	//DUMMY//
+	/////////
+	if(story.kyleCt == 7){
+
+	}
+
+
+	}
+
+
 }
 
 else if(story.quest === "Introduction"){
@@ -2091,11 +4171,12 @@ else if(story.quest === "Kimi"){
 		}else if(trigger === "> Yes"){
 			if(taskIndex == 4){
 				endChoice();
-				story.quest = "Begin";
+				story.quest = "Kyle";
 				story.storyIndex = 0;
 				story.kyle.tradeItem = "none";
 				story.kyle.tradeIndex = 0;
 				coin.show = true;
+				story.kyleCt = 0;
 				endScene();
 			}
 		}
@@ -2322,7 +4403,7 @@ else if(story.quest === "Sid"){
 					endChoice();
 					newDialog(["...",
 						"The sky?",
-						"I thought the | sky was | multicolored | pixels"]);
+						"I thought the | sky was | deep black"]);
 				}else if(taskIndex == 3){
 					endScene();
 				}
@@ -3073,7 +5154,7 @@ else if(story.quest === "Sid"){
 				endChoice();
 				story.storyIndex = 1;
 				newDialog(["(you find | yourself in a | dark room filled | with flashing | blue neon | lights, fog, and | the static from | a TV)",
-					"(you're sitting | on a bean bag | chair with a box | of pizza, empty | cans, and a | video game | controller in | front of you)",
+					"(you're sitting | on a bean bag | chair with a box | of pizza, empty | cans of root | beer, and a | video game | controller in | front of you)",
 					"(party music | plays loudly but | muffled in | another area - | the bass | vibrating | through your | core)",
 					"(you feel a | sense of | peace... but | incomplete)",
 							"(try again?)"])
@@ -3088,11 +5169,12 @@ else if(story.quest === "Sid"){
 		}else if(trigger === "> Yes"){
 			if(taskIndex == 4){
 				endChoice();
-				story.quest = "Begin";
+				story.quest = "Kyle";
 				story.storyIndex = 0;
 				story.kyle.tradeItem = "none";
 				story.kyle.tradeIndex = 0;
 				coin.show = true;
+				story.kyleCt = 0;
 				endScene();
 			}
 		}
@@ -4094,11 +6176,12 @@ else if(story.quest === "Grace"){
 		}else if(trigger === "> Yes"){
 			if(taskIndex == 4){
 				endChoice();
-				story.quest = "Begin";
+				story.quest = "Kyle";
 				story.storyIndex = 0;
 				story.kyle.tradeItem = "none";
 				story.kyle.tradeIndex = 0;
 				coin.show = true;
+				story.kyleCt = 0;
 				endScene();
 			}
 		}
@@ -5080,11 +7163,12 @@ else if(story.quest === "Chi"){
 		}else if(trigger === "> Yes"){
 			if(taskIndex == 4){
 				endChoice();
-				story.quest = "Begin";
+				story.quest = "Kyle";
 				story.storyIndex = 0;
 				story.kyle.tradeItem = "none";
 				story.kyle.tradeIndex = 0;
 				coin.show = true;
+				story.kyleCt = 0;
 				endScene();
 			}
 		}
@@ -6066,11 +8150,12 @@ else if(story.quest === "Kay"){
 		}else if(trigger === "> Yes"){
 			if(taskIndex == 4){
 				endChoice();
-				story.quest = "Begin";
+				story.quest = "Kyle";
 				story.storyIndex = 0;
 				story.kyle.tradeItem = "none";
 				story.kyle.tradeIndex = 0;
 				coin.show = true;
+				story.kyleCt = 0;
 				endScene();
 			}
 		}
@@ -7077,11 +9162,12 @@ else if(story.quest === "Amber"){
 		}else if(trigger === "> Yes"){
 			if(taskIndex == 4){
 				endChoice();
-				story.quest = "Begin";
+				story.quest = "Kyle";
 				story.storyIndex = 0;
 				story.kyle.tradeItem = "none";
 				story.kyle.tradeIndex = 0;
 				coin.show = true;
+				story.kyleCt = 0;
 				endScene();
 			}
 		}
